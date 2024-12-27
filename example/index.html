@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Content Cards</title>
+	<link rel="stylesheet" href="../styles.css" />
+	<link rel="stylesheet" href="./ob-pre.css" />
+	<style>
+		.bookcard-item::before {
+			background-image: url(https://img9.doubanio.com/view/subject/l/public/s34454244.jpg);
+		}
+
+		.musiccard-item::before {
+			background-image: url(https://p1.music.126.net/GZERNplXUdzTPkKqo2F4tA==/109951169217536854.jpg);
+		}
+
+		.moviecard-item::before {
+			background-image: url(https://img2.doubanio.com/view/subject/l/public/s33797431.jpg);
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Timeline 时间轴</h1>
+	<h2>Timeline 时间轴 - 竖向</h2>
+	<div class="container timeline-v">
+		<div class="timeline-v-item">
+			<div class="vertical-line line-v-color-red"></div>
+			<div class="timeline-v-time">2024-12-12</div>
+			<div class="timeline-v-content line-v-body-color-red">
+				<div class="timeline-v-title description">
+					<p dir="auto">
+						示例标题1111
+						<a href="#Obsidian" class="tag" target="_blank" rel="noopener nofollow">#Obsidian</a>
+					</p>
+				</div>
+				<div class="timeline-v-description description">
+					Lorem ipsum dolor sit amet, consectetur adipisicing
+					elit. Quisquam, repellendus! Lorem ipsum dolor sit amet,
+					consectetur adipisicing elit. Quisquam, repellendus!
+				</div>
+			</div>
+		</div>
+		<div class="timeline-v-item">
+			<div class="vertical-line line-v-color-active"></div>
+			<div class="timeline-v-time">2024-12-12</div>
+			<div class="timeline-v-content line-v-body-color-active">
+				<div class="timeline-v-title description">
+					Event 1Event 1
+					标题标题标题标题标题标题标题标题标题标题标题
+				</div>
+				<div class="timeline-v-description description">
+					Lorem ipsum dolor sit amet, consectetur adipisicing
+					elit. Quisquam, repellendus!
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<h2>Timeline 时间轴 - 横向</h2>
+	<div class="container timeline-h">
+		<div class="timeline-h-item">
+			<div class="timeline-h-time">2024-12-12</div>
+			<div class="timeline-h-hr line-h-color-active"></div>
+			<div class="timeline-h-content body-color-active">
+				<div class="timeline-h-title description">
+					<p dir="auto">示例标题示例标题</p>
+				</div>
+				<div class="timeline-h-description description">
+					<p dir="auto">
+						描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="timeline-h-item">
+			<div class="timeline-h-time">2024-12-12</div>
+			<div class="timeline-h-hr line-h-color-green"></div>
+			<div class="timeline-h-content body-color-green">
+				<div class="timeline-h-title">
+					<p dir="auto">示例标题</p>
+				</div>
+				<div class="timeline-h-description description">
+					<p dir="auto">
+						描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<h1>HighlightBlock 高亮块</h1>
+	<div class="container highlightblock">
+		<div class="highlightblock-item body-color-yellow">
+			高亮块内容高亮块内容高亮块内容高亮
+		</div>
+		<div class="highlightblock-item body-color-active">
+			高亮块内容高亮块内容高亮块内容高亮
+		</div>
+		<div class="highlightblock-item body-color-blue">
+			高亮块内容高亮块内容高亮块内容高亮
+		</div>
+	</div>
+
+	<h1>TargetCard 指标卡片</h1>
+	<div class="container target-card">
+		<div class="target-card-item body-color-blue">
+			<div class="target-card-item-title">指标1</div>
+			<div class="target-card-item-content">
+				<span class="target-card-item-content-num">100</span>
+				<span class="target-card-item-content-unit">元</span>
+			</div>
+		</div>
+		<div class="target-card-item body-color-active">
+			<div class="target-card-item-title">指标2</div>
+			<div class="target-card-item-content">
+				<span class="target-card-item-content-num">100</span>
+				<span class="target-card-item-content-unit">元</span>
+			</div>
+		</div>
+		<div class="target-card-item body-color-green">
+			<div class="target-card-item-title">指标2</div>
+			<div class="target-card-item-content">
+				<span class="target-card-item-content-num">100</span>
+				<span class="target-card-item-content-unit">元</span>
+			</div>
+		</div>
+		<div class="target-card-item body-color-pink">
+			<div class="target-card-item-title">指标2</div>
+			<div class="target-card-item-content">
+				<span class="target-card-item-content-num">100</span>
+				<span class="target-card-item-content-unit">元</span>
+			</div>
+		</div>
+		<div class="target-card-item body-color-cyan">
+			<div class="target-card-item-title">指标2</div>
+			<div class="target-card-item-content">
+				<span class="target-card-item-content-num">100</span>
+				<span class="target-card-item-content-unit">元</span>
+			</div>
+		</div>
+	</div>
+
+	<h1>BookCard 图书卡片</h1>
+	<div class="container">
+		<div class="bookcard-item">
+			<div class="bookcard-main">
+				<div class="bookcard-main-info">
+					<div class="bookcard-info-cover">
+						<img src="https://img9.doubanio.com/view/subject/l/public/s34454244.jpg" alt=""
+							referrerpolicy="no-referrer" />
+					</div>
+					<div class="bookcard-info-content">
+						<div class="bookcard-info-content-title description">
+							书名书名称书名书名称书名书名称书名书名称书名
+						</div>
+						<div class="bookcard-info-content-meta">
+							<p>分类: 计算机</p>
+							<p>出版日期: 2024-12-12</p>
+							<p>作者: 名称</p>
+							<p>评分: 9.2</p>
+						</div>
+					</div>
+				</div>
+				<div class="bookcard-main-introduction description">
+					这里是描述介绍这里是描述介绍这里是描述介绍这里是描述介是描述介绍这里是描述介绍这里是描述介是描述介绍这里是描述介绍这里是描述介绍这里是描述介绍这里是描述介绍这里是描述介绍这里是描述介绍这里是描述介绍
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<h1>MusicCard 音乐卡片</h1>
+	<div class="container">
+		<div class="musiccard-item">
+			<div class="musiccard-main">
+				<div class="musiccard-main-info">
+					<div class="musiccard-info-cover">
+						<img src="https://p1.music.126.net/GZERNplXUdzTPkKqo2F4tA==/109951169217536854.jpg" alt=""
+							referrerpolicy="no-referrer" />
+					</div>
+					<div class="musiccard-info-content">
+						<div class="musiccard-info-content-title description">
+							音乐名称
+						</div>
+						<div class="musiccard-info-content-meta">
+							<p>流派: 流行</p>
+							<p>艺术家: 名称</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<h1>MovieCard 电影卡片</h1>
+	<div class="container moviecard">
+		<div class="moviecard-item">
+			<div class="moviecard-main">
+				<div class="moviecard-main-info">
+					<div class="moviecard-info-cover">
+						<img src="https://img2.doubanio.com/view/subject/l/public/s33797431.jpg" alt=""
+							referrerpolicy="no-referrer" />
+					</div>
+					<div class="moviecard-info-content">
+						<div class="moviecard-info-content-title description">
+							电影名称
+						</div>
+						<div class="moviecard-info-content-meta">
+							<p>导演: 计算机</p>
+							<p>主演: 名称 / 名称 / 名称 / 名称</p>
+							<p>类型: 动作</p>
+							<p>上映日期: 2024-12-12</p>
+							<p>评分: 9.2</p>
+						</div>
+					</div>
+				</div>
+				<div class="moviecard-main-introduction description">
+					这里是描述介绍这里是描述介绍这里是描述介绍这里是描述介绍这里是描述介绍这里是描述介绍这里是描述介绍这里是描述介绍这里是描述介绍
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<h1>Album 画册</h1>
+	<div class="container album">
+		<div class="container album-item">
+			<div class="album-item-title body-color-blue">相册名称</div>
+			<div class="container album-item-images grid-3">
+				<div class="album-item-images-item">
+					<img src="https://img-download.pchome.net/download/1k0/xd/2i/odbf7c-1xnq.jpg" alt="" />
+				</div>
+				<div class="album-item-images-item">
+					<img src="https://img-download.pchome.net/download/1k0/xd/2i/odbf7c-1xnq.jpg" alt="" />
+				</div>
+				<div class="album-item-images-item">
+					<img src="https://img-download.pchome.net/download/1k0/xd/2i/odbf7c-1xnq.jpg" alt="" />
+				</div>
+			</div>
+			<div class="container album-item-images grid-2">
+				<div class="album-item-images-item">
+					<img src="https://img-download.pchome.net/download/1k0/xd/2i/odbf7c-1xnq.jpg" alt="" />
+				</div>
+				<div class="album-item-images-item">
+					<img src="https://img-download.pchome.net/download/1k0/xd/2i/odbf7c-1xnq.jpg" alt="" />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<h1>Subfield 分栏</h1>
+	<div class="container subfield column-2">
+		<div class="subfield-item body-color-secondary">
+			分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容
+		</div>
+		<div class="subfield-item body-color-secondary">
+			分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容
+		</div>
+	</div>
+
+	<h1>NameCard 名片</h1>
+	<div class="container namecard">
+		<div class="namecard-item body-color-active">
+			<div class="namecard-item-info">
+				<div class="namecard-item-profile">
+					<div class="namecard-item-profile-img accent-color-active">
+						望
+					</div>
+				</div>
+				<div class="namecard-item-content">
+					<div class="namecard-item-content-name">姓名</div>
+					<div class="namecard-item-content-tags description">
+						备注备注备注备注备注备备注备注备注备注备注备注备注备注备注备注备注备注
+					</div>
+				</div>
+			</div>
+			<div class="namecard-item-remark description">
+				备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注
+			</div>
+		</div>
+		<div class="namecard-item body-color-blue">
+			<div class="namecard-item-info">
+				<div class="namecard-item-profile">
+					<div class="namecard-item-profile-img accent-color-blue">
+						望
+					</div>
+				</div>
+				<div class="namecard-item-content">
+					<div class="namecard-item-content-name">姓名</div>
+					<div class="namecard-item-content-tags description">
+						备注备注备注备注备注备备注备注备注备注备注备注备注备注备注备注备注备注
+					</div>
+				</div>
+			</div>
+			<div class="namecard-item-remark description">
+				备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注
+			</div>
+		</div>
+	</div>
+
+	<h1>CountDown 倒计时</h1>
+	<h2>倒计时</h2>
+	<div class="container countdown">
+		<div class="countdown-item body-color-secondary">
+			<div class="countdown-item-title">
+				距离
+				<span class="countdown-item-count-title">名称名称</span>
+				还有
+			</div>
+			<div class="countdown-item-count">
+				<div class="countdown-item-count-num accent-color-active">
+					10
+				</div>
+				<div class="countdown-item-count-unit">时</div>
+				<div class="countdown-item-count-num accent-color-active">
+					10
+				</div>
+				<div class="countdown-item-count-unit">分</div>
+				<div class="countdown-item-count-num accent-color-active">
+					10
+				</div>
+				<div class="countdown-item-count-unit">秒</div>
+			</div>
+		</div>
+	</div>
+
+	<h2>倒计日</h2>
+	<div class="container countdown">
+		<div class="countdown-item body-color-secondary">
+			<div class="countdown-item-title">
+				距离
+				<span class="countdown-item-count-title">名称名称</span>
+				还有
+			</div>
+			<div class="countdown-item-count">
+				<div class="countdown-item-count-num accent-color-red">
+					10
+				</div>
+				<div class="countdown-item-count-unit">年</div>
+				<div class="countdown-item-count-num accent-color-red">
+					10
+				</div>
+				<div class="countdown-item-count-unit">月</div>
+				<div class="countdown-item-count-num accent-color-red">
+					10
+				</div>
+				<div class="countdown-item-count-unit">日</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

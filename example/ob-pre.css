@@ -1,0 +1,25 @@
+:root {
+	--color-red: #e93147;
+	--color-orange: #ec7500;
+	--color-yellow: #e0ac00;
+	--color-green: #08b94e;
+	--color-cyan: #00bfbc;
+	--color-blue: #086ddd;
+	--color-purple: #7852ee;
+	--color-pink: #d53984;
+	--background-secondary: #f6f6f6;
+	--background-primary: #ffffff;
+	--text-normal: #222222;
+	--text-on-accent: #ffffff;
+	--color-red-rgb: 233, 49, 71;
+	--color-orange-rgb: 236, 117, 0;
+	--color-yellow-rgb: 224, 172, 0;
+	--color-green-rgb: 8, 185, 78;
+	--color-cyan-rgb: 0, 191, 188;
+	--color-blue-rgb: 8, 109, 221;
+	--color-purple-rgb: 120, 82, 238;
+	--color-pink-rgb: 213, 57, 132;
+	--accent-h: 258;
+	--accent-s: 88%;
+	--accent-l: 66%;
+}

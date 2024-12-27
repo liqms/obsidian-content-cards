@@ -1,0 +1,25 @@
+{
+	"liveSassCompile.settings.showOutputWindow": false,
+	"liveSassCompile.settings.excludeList": [
+		"**/node_modules/**",
+		".vscode/**"
+	],
+	"liveSassCompile.settings.formats": [
+		{
+			"format": "compressed",
+			"extensionName": ".css",
+			"savePath": "/"
+		},
+		{
+			"format": "expanded",
+			"extensionName": ".css",
+			"savePath": null
+		}
+	],
+	"markdown-preview-enhanced.codeBlockTheme": "auto.css",
+	"markdown-preview-enhanced.enableHTML5Embed": true,
+	"markdown-preview-enhanced.frontMatterRenderingOption": "none",
+	"markdown-preview-enhanced.HTML5EmbedUseLinkSyntax": false,
+	"markdown-preview-enhanced.HTML5EmbedUseImageSyntax": false,
+	"markdown-preview-enhanced.previewTheme": "github-light.css"
+}
