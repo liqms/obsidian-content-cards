@@ -1,6 +1,7 @@
 # obsidian-content-cards
 
 This is a plugin for Obsidian that allows you to insert content cards in Markdown, such as timeline, highlightblock, target card, book information card, music information card, movie information card, photoes ablum, business card, content subfield, countdown, etc.
+
 这个插件是为 Obsidian 设计的，它允许您在 Markdown 中插入各种内容卡片，包括时间轴，高亮块，指标卡片，图书卡片，音乐卡片，电影卡片，照片专辑，名片，内容分栏，倒计时等。
 
 # Features / 特性
@@ -10,14 +11,17 @@ This is a plugin for Obsidian that allows you to insert content cards in Markdow
 # Installation / 安装
 
 Search `Content cards` in the Community plugins and install it.
+
 在官方“社区插件列表”中搜索 `Content Cards`，然后安装插件。
 
 # Usage / 如何使用
 
 Each card is marked with '@card', and different parameters are added for different cards.
+
 每个卡片用 `@card` 标记，然后不同 card 添加不同的参数。
 
 Some cards can be colored by adding '[color-red]' after '@card'.
+
 部分卡片可以设置颜色，在`@card` 后面添加` [color-red]` 即可。
 
 Supported custom colors:
@@ -35,6 +39,7 @@ Supported custom colors:
 ## timeline / 时间轴
 
 There are two modes of the timeline, one is the vertical timeline and the other is the horizontal timeline.
+
 时间轴有两种模式，一种是竖向时间轴，一种是横向时间轴。
 
 ### 竖向时间轴
@@ -44,6 +49,7 @@ There are two modes of the timeline, one is the vertical timeline and the other 
 #### Markdown Syntax / 语法
 
 Insert a codeblock with the `cards-timeline-v` syntax.
+
 使用 `cards-timeline-v` 语法插入一个代码块。
 
 ````
@@ -79,6 +85,7 @@ content:
 #### Markdown Syntax / 语法
 
 Insert a codeblock with the `cards-timeline-h` syntax.
+
 使用 `cards-timeline-h`语法插入一个代码块。
 
 ````
@@ -115,6 +122,7 @@ The content supports markdown syntax / 内容支持 markdown 语法
 ### Markdown Syntax / 语法
 
 Insert a codeblock with the `cards-highlightblock` syntax.
+
 使用 `cards-highlightblock` 语法插入一个代码块。
 
 ````
@@ -136,6 +144,7 @@ Insert a codeblock with the `cards-highlightblock` syntax.
 ### Markdown Syntax / 语法
 
 Insert a codeblock with the `cards-target` syntax.
+
 使用 `cards-target` 语法插入一个代码块。
 
 ````
@@ -159,6 +168,7 @@ unit: 元
 ### Markdown Syntax / 语法
 
 Insert a codeblock with the `cards-book` syntax.
+
 使用 `cards-book` 语法插入一个代码块。
 
 ````
@@ -192,6 +202,7 @@ introduction:
 ### Markdown Syntax
 
 Insert a codeblock with the `cards-music` syntax.
+
 使用 `cards-music` 语法插入一个代码块。
 
 ````
@@ -254,6 +265,7 @@ introduction:
 ### Markdown Syntax
 
 Insert a codeblock with the `cards-ablum` syntax.
+
 使用 `cards-ablum` 语法插入一个代码块。
 
 ````
@@ -284,6 +296,7 @@ https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg
 ### Markdown Syntax
 
 Insert a codeblock with the `cards-name` syntax.
+
 使用 `cards-name` 语法插入一个代码块。
 
 ````
@@ -317,6 +330,7 @@ The content supports markdown syntax / 内容支持 markdown 语法
 ### Markdown Syntax / 语法
 
 Insert a codeblock with the `cards-subfield` syntax.
+
 使用 `cards-subfield` 语法插入一个代码块。
 
 ````
@@ -338,6 +352,7 @@ Insert a codeblock with the `cards-subfield` syntax.
 ### Markdown Syntax / 语法
 
 Insert a codeblock with the `cards-countdown` syntax.
+
 使用 `cards-countdown` 语法插入一个代码块。
 
 ````
@@ -360,12 +375,14 @@ time: 2026-01-01
 # Limitations and known bugs / 限制和已知问题
 
 You are greatly welcome to ask questions, post any suggestions, or report any bugs! The project is mainly maintained on GitHub:
+
 非常欢迎你提出问题、发布任何建议或报告任何错误！该项目主要在 GitHub 上维护：
+
+Known issues:
 
 当前存在的已知问题：
 
--   倒计时不能实时更新
--   没有插件设置功能
+-   The countdown cannot be updated in real time / 倒计时不能实时更新
 
 # Changelog / 版本历史
 
@@ -376,6 +393,7 @@ You are greatly welcome to ask questions, post any suggestions, or report any bu
 # Pricing / 付费
 
 The plugin is free, athough if you wanna say thanks, feel free to buy me a coffee.
+
 这个插件是免费的，如果您觉得插件对您有用的话, 可以给作者买杯咖啡支持一下:
 
 ![](/images/wechart.png)
