@@ -256,6 +256,7 @@ ol {
   display: grid;
   grid-gap: 1rem;
   gap: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .title {
