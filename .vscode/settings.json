@@ -1,7 +1,5 @@
 {
-	"liveSassCompile.settings.showOutputWindow": true,
 	"liveSassCompile.settings.excludeList": [
-
 		"**/node_modules/**",
 		".vscode/**"
 	],

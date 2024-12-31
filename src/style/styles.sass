@@ -93,7 +93,7 @@ ol
     height: 100%
     display: grid
     grid-gap: $box-spacing
-    gap: $box-spacing / 2
+    gap: calc($box-spacing / 2)
     margin-bottom: 0.5rem
 .title
     font-size: 1rem
@@ -460,6 +460,8 @@ ol
         .namecard-item-info 
             display: flex
             .namecard-item-profile
+                height: auto
+                width: auto
             .namecard-item-profile-img
                 width: 1rem
                 height: 1rem

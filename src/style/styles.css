@@ -255,7 +255,7 @@ ol {
   display: -ms-grid;
   display: grid;
   grid-gap: 1rem;
-  gap: 0.5rem;
+  gap: calc($box-spacing / 2);
   margin-bottom: 0.5rem;
 }
 
@@ -943,6 +943,11 @@ ol {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.namecard .namecard-item .namecard-item-info .namecard-item-profile {
+  height: auto;
+  width: auto;
 }
 
 .namecard .namecard-item .namecard-item-info .namecard-item-profile-img {
