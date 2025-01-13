@@ -20,5 +20,10 @@
 	"markdown-preview-enhanced.frontMatterRenderingOption": "none",
 	"markdown-preview-enhanced.HTML5EmbedUseLinkSyntax": false,
 	"markdown-preview-enhanced.HTML5EmbedUseImageSyntax": false,
-	"markdown-preview-enhanced.previewTheme": "github-light.css"
+	"markdown-preview-enhanced.previewTheme": "github-light.css",
+	"scm.alwaysShowActions": true,
+	"scm.alwaysShowRepositories": true,
+	"scm.diffDecorationsGutterPattern": {
+		"added": true
+	}
 }
