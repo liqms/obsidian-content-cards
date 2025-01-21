@@ -2,6 +2,18 @@
 	"name": "content-cards-plugin",
 	"version": "1.0.0",
 	"description": "This is a plugin that extends Obsidian content rendering types, such as: timeline, highlightblock, target card, book info card, music info card, movie info card, photoes ablum, business card, content subfield, countdown, etc.",
+	"keywords": [],
+	"homepage": "https://github.com/liqms/obsidian-content-cards#readme",
+	"bugs": {
+		"url": "https://github.com/liqms/obsidian-content-cards/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/liqms/obsidian-content-cards.git"
+	},
+	"license": "MIT",
+	"author": "",
+	"type": "commonjs",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
@@ -18,6 +30,7 @@
 		"builtin-modules": "3.3.0",
 		"esbuild": "0.17.3",
 		"obsidian": "latest",
+		"sass": "^1.83.4",
 		"tslib": "2.4.0",
 		"typescript": "4.7.4"
 	}

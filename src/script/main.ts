@@ -1,6 +1,6 @@
 import { App, MarkdownPostProcessorContext, Plugin } from "obsidian";
 import { TagContainer } from "./TagContainer";
-import  "../style/styles.css";
+import "../style/styles.css";
 
 // 处理空字符串的情况
 const trim = (s: string): string => {
@@ -42,7 +42,6 @@ export default class ContentCardsPlugin extends Plugin {
 					root: HTMLElement,
 					ctx: MarkdownPostProcessorContext
 				) => {
-					
 					new TagContainer(tag, source, root, ctx, this.app);
 				}
 			);
