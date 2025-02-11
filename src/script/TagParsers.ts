@@ -1,4 +1,3 @@
-
 /**
  * 根据不同的 Tag ，调用不同的 Parser ，解析成不同的 Content
  *
@@ -10,8 +9,6 @@ const trim = (s: string): string => {
 	return trimmed.length === 0 ? "\u200B" : trimmed;
 };
 // 定义参数解析
-const classRegex = /(?<=^\s*)\[.+?\]/gs;
-
 const toClassArray = (input: string): string[] => {
 	input = input.trim();
 	if (input[0] != "[" || input[input.length - 1] != "]") return [];
@@ -44,8 +41,7 @@ const TimeLineParser = (source: string): TimelineItemInfo[] => {
 };
 
 // highlightblock
-const highlightblockRegex =
-	/^[ \t]*@card(.+?)(?:^(.+?))?(?=^[ \t]*@card)/gimsu;
+const highlightblockRegex = /^[ \t]*@card(.+?)(?:^(.+?))?(?=^[ \t]*@card)/gimsu;
 
 const HighlightblockParser = (source: string): HighlightBlockItemInfo[] => {
 	source += "\n@card";
@@ -147,7 +143,7 @@ const AlbumCardParser = (source: string): AlbumCardItemInfo[] => {
 	const parsed = [];
 	while ((sourceMatch = albumcardRegex.exec(source)) !== null) {
 		const cardColor = toClassArray(sourceMatch[1]);
-		parsed.push({	
+		parsed.push({
 			color: cardColor[0],
 			title: sourceMatch[2],
 			images: sourceMatch[3],
@@ -211,7 +207,7 @@ const CountdownCardParser = (source: string): CountdownItemInfo[] => {
 	source += "\n@card";
 	let sourceMatch;
 	const parsed = [];
-	while ((sourceMatch = countdownRegex.exec(source))!== null) {
+	while ((sourceMatch = countdownRegex.exec(source)) !== null) {
 		const cardColor = toClassArray(sourceMatch[1]);
 		parsed.push({
 			color: cardColor[0],
@@ -235,4 +231,3 @@ export {
 	NameCardParser,
 	CountdownCardParser,
 };
-
