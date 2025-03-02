@@ -1,6 +1,6 @@
 # Content Cards
 
-English | [中文](README-zh.md)
+English | [中文](README.zh-cn.md)
 
 Insert content cards in Markdown, such as timeline, highlightblock, target card, book information card, music information card, movie information card, photoes ablum, business card, content subfield, countdown, etc.
 
