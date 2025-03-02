@@ -11,6 +11,7 @@
   border-width: 0px;
   padding: 1rem;
   color: var(--text-normal);
+  border-radius: 5px;
 }
 
 .body-color-secondary {
@@ -20,6 +21,7 @@
   padding: 1rem;
   background-color: var(--background-secondary);
   color: var(--text-normal);
+  border-radius: 5px;
 }
 
 .body-color-red {
@@ -29,6 +31,7 @@
   border-color: rgba(var(--color-red-rgb), 0.5);
   padding: 1rem;
   color: var(--text-normal);
+  border-radius: 5px;
 }
 
 .body-color-orange {
@@ -38,6 +41,7 @@
   border-color: rgba(var(--color-orange-rgb), 0.5);
   padding: 1rem;
   color: var(--text-normal);
+  border-radius: 5px;
 }
 
 .body-color-yellow {
@@ -47,6 +51,7 @@
   border-color: rgba(var(--color-yellow-rgb), 0.5);
   padding: 1rem;
   color: var(--text-normal);
+  border-radius: 5px;
 }
 
 .body-color-green {
@@ -56,6 +61,7 @@
   border-color: rgba(var(--color-green-rgb), 0.5);
   padding: 1rem;
   color: var(--text-normal);
+  border-radius: 5px;
 }
 
 .body-color-cyan {
@@ -65,6 +71,7 @@
   border-color: rgba(var(--color-cyan-rgb), 0.5);
   padding: 1rem;
   color: var(--text-normal);
+  border-radius: 5px;
 }
 
 .body-color-blue {
@@ -74,6 +81,7 @@
   border-color: rgba(var(--color-blue-rgb), 0.5);
   padding: 1rem;
   color: var(--text-normal);
+  border-radius: 5px;
 }
 
 .body-color-purple {
@@ -83,6 +91,7 @@
   border-color: rgba(var(--color-purple-rgb), 0.5);
   padding: 1rem;
   color: var(--text-normal);
+  border-radius: 5px;
 }
 
 .body-color-pink {
@@ -92,6 +101,7 @@
   border-color: rgba(var(--color-pink-rgb), 0.5);
   padding: 1rem;
   color: var(--text-normal);
+  border-radius: 5px;
 }
 
 /*body 颜色 背景纯色*/
@@ -102,6 +112,7 @@
   border-width: 0px;
   padding: 1rem;
   color: var(--text-on-accent);
+  border-radius: 5px;
 }
 
 .accent-color-red {
@@ -111,6 +122,7 @@
   border-width: 0px;
   padding: 1rem;
   color: var(--text-on-accent);
+  border-radius: 5px;
 }
 
 .accent-color-orange {
@@ -120,6 +132,7 @@
   border-width: 0px;
   padding: 1rem;
   color: var(--text-on-accent);
+  border-radius: 5px;
 }
 
 .accent-color-yellow {
@@ -129,6 +142,7 @@
   border-width: 0px;
   padding: 1rem;
   color: var(--text-on-accent);
+  border-radius: 5px;
 }
 
 .accent-color-green {
@@ -138,6 +152,7 @@
   border-width: 0px;
   padding: 1rem;
   color: var(--text-on-accent);
+  border-radius: 5px;
 }
 
 .accent-color-cyan {
@@ -147,6 +162,7 @@
   border-width: 0px;
   padding: 1rem;
   color: var(--text-on-accent);
+  border-radius: 5px;
 }
 
 .accent-color-blue {
@@ -156,6 +172,7 @@
   border-width: 0px;
   padding: 1rem;
   color: var(--text-on-accent);
+  border-radius: 5px;
 }
 
 .accent-color-purple {
@@ -165,6 +182,7 @@
   border-width: 0px;
   padding: 1rem;
   color: var(--text-on-accent);
+  border-radius: 5px;
 }
 
 .accent-color-pink {
@@ -174,6 +192,7 @@
   border-width: 0px;
   padding: 1rem;
   color: var(--text-on-accent);
+  border-radius: 5px;
 }
 
 /*文字颜色*/
@@ -213,50 +232,21 @@
   color: var(--color-pink);
 }
 
-body {
-  margin: 0;
-}
-
-p {
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  margin: 0;
-  padding: 0;
-}
-
-img {
+.bookcard-info-cover img, .musiccard-info-cover img, .moviecard-info-cover img, .album-item-images-item img {
   height: 100%;
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 5px;
-}
-
-div {
-  border-radius: 5px;
-  margin: 0;
-  padding: 0;
-}
-
-ul {
-  margin: 0;
-}
-
-ol {
-  margin: 0;
 }
 
 .container {
   width: 100%;
   height: 100%;
-  display: -ms-grid;
   display: grid;
   grid-gap: 1rem;
   gap: calc($box-spacing / 2);
   margin-bottom: 0.5rem;
+  border-radius: 5px;
 }
 
 .title {
@@ -277,133 +267,107 @@ ol {
 
 /*修改 Obsidian 默认样式导致的样式问题*/
 .description p, .description ol, .description ul, .subfield-item p, .subfield-item ol, .subfield-item ul, .highlightblock-item p, .highlightblock-item ol, .highlightblock-item ul {
-  -webkit-margin-before: 0;
-          margin-block-start: 0;
-  -webkit-margin-after: 0;
-          margin-block-end: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* 创建 n 个相等的列 web */
 .column-19 {
-  -ms-grid-columns: (1fr)[19];
-      grid-template-columns: repeat(19, 1fr);
+  grid-template-columns: repeat(19, 1fr);
 }
 
 .column-18 {
-  -ms-grid-columns: (1fr)[18];
-      grid-template-columns: repeat(18, 1fr);
+  grid-template-columns: repeat(18, 1fr);
 }
 
 .column-17 {
-  -ms-grid-columns: (1fr)[17];
-      grid-template-columns: repeat(17, 1fr);
+  grid-template-columns: repeat(17, 1fr);
 }
 
 .column-16 {
-  -ms-grid-columns: (1fr)[16];
-      grid-template-columns: repeat(16, 1fr);
+  grid-template-columns: repeat(16, 1fr);
 }
 
 .column-15 {
-  -ms-grid-columns: (1fr)[15];
-      grid-template-columns: repeat(15, 1fr);
+  grid-template-columns: repeat(15, 1fr);
 }
 
 .column-14 {
-  -ms-grid-columns: (1fr)[14];
-      grid-template-columns: repeat(14, 1fr);
+  grid-template-columns: repeat(14, 1fr);
 }
 
 .column-13 {
-  -ms-grid-columns: (1fr)[13];
-      grid-template-columns: repeat(13, 1fr);
+  grid-template-columns: repeat(13, 1fr);
 }
 
 .column-12 {
-  -ms-grid-columns: (1fr)[12];
-      grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(12, 1fr);
 }
 
 .column-11 {
-  -ms-grid-columns: (1fr)[11];
-      grid-template-columns: repeat(11, 1fr);
+  grid-template-columns: repeat(11, 1fr);
 }
 
 .column-10 {
-  -ms-grid-columns: (1fr)[10];
-      grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(10, 1fr);
 }
 
 .column-9 {
-  -ms-grid-columns: (1fr)[9];
-      grid-template-columns: repeat(9, 1fr);
+  grid-template-columns: repeat(9, 1fr);
 }
 
 .column-8 {
-  -ms-grid-columns: (1fr)[8];
-      grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(8, 1fr);
 }
 
 .column-7 {
-  -ms-grid-columns: (1fr)[7];
-      grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, 1fr);
 }
 
 .column-6 {
-  -ms-grid-columns: (1fr)[6];
-      grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, 1fr);
 }
 
 .column-5 {
-  -ms-grid-columns: (1fr)[5];
-      grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .column-4 {
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .column-3 {
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .column-2 {
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .column-1 {
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
+  grid-template-columns: 1fr;
 }
 
 /*时间轴布局*/
 @media screen and (min-width: 480px) {
   .timeline-v-item {
-    -ms-grid-columns: 7.5rem 1rem 1fr;
-        grid-template-columns: 7.5rem 1rem 1fr;
+    grid-template-columns: 7.5rem 1rem 1fr;
   }
   .timeline-v-item .vertical-line {
-    -ms-grid-column: 2;
     grid-column: 2;
-    -ms-grid-row: 1;
     grid-row: 1;
   }
   .timeline-v-item .timeline-v-time {
-    -ms-grid-column: 1;
     grid-column: 1;
-    -ms-grid-row: 1;
     grid-row: 1;
     padding: 1rem 0;
     text-align: right;
     margin-right: 1rem;
   }
   .timeline-v-item .timeline-v-content {
-    -ms-grid-column: 3;
     grid-column: 3;
-    -ms-grid-row: 1;
     grid-row: 1;
     padding: 0 1rem;
   }
@@ -414,21 +378,15 @@ ol {
 
 @media screen and (max-width: 479px) {
   .timeline-v-item {
-    -ms-grid-columns: 3rem 1fr;
-        grid-template-columns: 3rem 1fr;
+    grid-template-columns: 3rem 1fr;
   }
   .timeline-v-item .vertical-line {
-    -ms-grid-column: 1;
     grid-column: 1;
-    -ms-grid-row: 1;
-    -ms-grid-row-span: 2;
     grid-row: 1 / 3;
     margin-left: 1.5rem;
   }
   .timeline-v-item .timeline-v-time {
-    -ms-grid-column: 2;
     grid-column: 2;
-    -ms-grid-row: 1;
     grid-row: 1;
     padding: 1rem 1rem 0.5rem 0rem;
     border-radius: 0px;
@@ -438,9 +396,7 @@ ol {
     text-align: left;
   }
   .timeline-v-item .timeline-v-content {
-    -ms-grid-column: 2;
     grid-column: 2;
-    -ms-grid-row: 2;
     grid-row: 2;
     padding: 0.5rem 1rem;
   }
@@ -451,14 +407,12 @@ ol {
 
 /* Timeline 时间轴（-h，-v） */
 .timeline-v {
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 0;
   gap: 0;
 }
 
 .timeline-v .timeline-v-item {
-  display: -ms-grid;
   display: grid;
   width: 100%;
 }
@@ -634,21 +588,16 @@ ol {
 /* timeline-h */
 .timeline-h {
   padding: 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   gap: 0;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
+  flex-wrap: nowrap;
   overflow-x: auto;
 }
 
 .timeline-h .timeline-h-item {
   margin: 1rem 0;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 2rem 1rem 1fr;
-      grid-template-rows: 2rem 1rem 1fr;
+  grid-template-rows: 2rem 1rem 1fr;
   width: 15rem;
   min-width: 15rem;
 }
@@ -697,11 +646,8 @@ ol {
 
 /* HighlightBlock 高亮块 */
 .highlightblock {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .highlightblock .highlightblock-item {
@@ -713,11 +659,8 @@ ol {
 
 /* TargetCard 指标卡片 */
 .target-card {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .target-card .target-card-item {
@@ -744,18 +687,14 @@ ol {
 
 /* BookCard 图书卡片 MusicCard 音乐卡片 MovieCard 电影卡片 */
 .bookcard-item, .musiccard-item, .moviecard-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   position: relative;
   overflow: hidden;
   text-decoration: none;
   max-width: 44rem;
   width: 100%;
+  border-radius: 5px;
 }
 
 .bookcard-item::before, .musiccard-item::before, .moviecard-item::before {
@@ -768,8 +707,7 @@ ol {
   left: -5%;
   z-index: 0;
   background-color: antiquewhite;
-  -webkit-filter: blur(1rem) brightness(0.4);
-          filter: blur(1rem) brightness(0.4);
+  filter: blur(1rem) brightness(0.4);
   background-position: center;
   background-size: cover;
 }
@@ -783,13 +721,8 @@ ol {
 }
 
 .bookcard-main-info, .musiccard-main-info, .moviecard-main-info {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
 
 .bookcard-info-cover, .moviecard-info-cover {
@@ -862,55 +795,45 @@ ol {
 
 .album .album-item .album-item-images-item {
   aspect-ratio: 12 / 10;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   overflow: hidden;
 }
 
 /*images grid*/
 .grid-1 {
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
+  grid-template-columns: 1fr;
 }
 
 .grid-2 {
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .grid-3 {
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .grid-4 {
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .grid-5 {
-  -ms-grid-columns: (1fr)[5];
-      grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .grid-6 {
-  -ms-grid-columns: (1fr)[6];
-      grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, 1fr);
 }
 
 .grid-7 {
-  -ms-grid-columns: (1fr)[7];
-      grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, 1fr);
 }
 
 .grid-8 {
-  -ms-grid-columns: (1fr)[8];
-      grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(8, 1fr);
 }
 
 .grid-9 {
-  -ms-grid-columns: (1fr)[9];
-      grid-template-columns: repeat(9, 1fr);
+  grid-template-columns: repeat(9, 1fr);
 }
 
 /* Subfield 分栏 */
@@ -926,11 +849,8 @@ ol {
 
 /* NameCard 名片 */
 .namecard {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .namecard .namecard-item {
@@ -940,8 +860,6 @@ ol {
 }
 
 .namecard .namecard-item .namecard-item-info {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -954,15 +872,9 @@ ol {
   width: 1rem;
   height: 1rem;
   border-width: 1px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
   color: #ffffff;
 }
@@ -1000,21 +912,15 @@ ol {
 
 /* CountDown 倒计时 */
 .countdown {
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
+  grid-template-columns: 1fr;
   min-width: 12.5rem;
 }
 
 .countdown .countdown-item {
   width: 100%;
   padding: 1rem 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
 
 .countdown .countdown-item .countdown-item-title {
@@ -1030,26 +936,16 @@ ol {
 }
 
 .countdown .countdown-item .countdown-item-count {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin-right: 1rem;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: flex-end;
+  align-items: center;
   width: calc(50% - 1rem);
 }
 
 .countdown .countdown-item .countdown-item-count .countdown-item-count-num, .countdown .countdown-item .countdown-item-count .countdown-item-count-unit {
   margin: 0 0.125rem;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
   height: fit-content;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -1067,13 +963,8 @@ ol {
 
 @media screen and (max-width: 479px) {
   .countdown .countdown-item {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    flex-direction: column;
+    justify-content: center;
   }
   .countdown .countdown-item .countdown-item-title {
     width: calc(100% - 2rem);
@@ -1081,9 +972,7 @@ ol {
   }
   .countdown .countdown-item .countdown-item-count {
     width: calc(100% - 2rem);
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    justify-content: center;
     margin: 1rem;
   }
 }

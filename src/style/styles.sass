@@ -1,5 +1,4 @@
 
-
 /*基础尺寸*/
 $point-size: 0.6rem
 $line-width: 0.3rem
@@ -28,6 +27,7 @@ $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "
     border-width: 0px
     padding: $box-spacing
     color: var(--text-normal)
+    border-radius: 5px
 .body-color-secondary
     border-style: solid
     border-width: 0px
@@ -35,7 +35,8 @@ $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "
     padding: $box-spacing
     background-color: $background-secondary
     color: var(--text-normal)
-@each $color in $active-colors 
+    border-radius: 5px
+@each $color in $active-colors
     .body-color-#{$color}
         border-style: solid
         border-width: 0px
@@ -43,6 +44,7 @@ $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "
         border-color: #{"rgba(var(--color-" + $color + "-rgb), 0.5)"}
         padding: $box-spacing
         color: var(--text-normal)
+        border-radius: 5px
 
 /*body 颜色 背景纯色*/
 .accent-color-active
@@ -52,7 +54,8 @@ $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "
     border-width: 0px
     padding: $box-spacing
     color: var(--text-on-accent)
-@each $color in $active-colors 
+    border-radius: 5px
+@each $color in $active-colors
     .accent-color-#{$color}
         background-color: #{"var(--color-" + $color + ")"}
         border-color: #{"var(--color-" + $color + ")"}
@@ -60,34 +63,21 @@ $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "
         border-width: 0px
         padding: $box-spacing
         color: var(--text-on-accent)
+        border-radius: 5px
+
 /*文字颜色*/
 .text-color-active
     color: $active-color
-@each $color in $active-colors 
+@each $color in $active-colors
     .text-color-#{$color}
         color: #{"var(--color-" + $color + ")"}
 
-body 
-    margin: 0
-p
-    margin: 0
-    padding: 0
-a
-    margin: 0   
-    padding: 0  
-img
+.bookcard-info-cover img, .musiccard-info-cover img, .moviecard-info-cover img, .album-item-images-item img,
     height: 100%
     width: 100%
     object-fit: cover
     border-radius: 5px
-div
-    border-radius: 5px
-    margin: 0
-    padding: 0
-ul
-    margin: 0 
-ol
-    margin: 0 
+
 .container
     width: 100%
     height: 100%
@@ -95,6 +85,7 @@ ol
     grid-gap: $box-spacing
     gap: calc($box-spacing / 2)
     margin-bottom: 0.5rem
+    border-radius: 5px
 .title
     font-size: 1rem
     font-weight: bold
@@ -110,48 +101,50 @@ ol
      /* autoprefixer: on */
 
 /*修改 Obsidian 默认样式导致的样式问题*/
-.description p, .description ol, .description ul, .subfield-item p, .subfield-item ol, .subfield-item ul, .highlightblock-item p, .highlightblock-item ol, .highlightblock-item ul, 
+.description p, .description ol, .description ul, .subfield-item p, .subfield-item ol, .subfield-item ul, .highlightblock-item p, .highlightblock-item ol, .highlightblock-item ul,
     margin-block-start: 0
     margin-block-end: 0
+    margin: 0
+    padding: 0
 
 /* 创建 n 个相等的列 web */
-.column-19 
+.column-19
     grid-template-columns: repeat(19, 1fr)
-.column-18 
+.column-18
     grid-template-columns: repeat(18, 1fr)
-.column-17 
+.column-17
     grid-template-columns: repeat(17, 1fr)
-.column-16 
+.column-16
     grid-template-columns: repeat(16, 1fr)
-.column-15 
+.column-15
     grid-template-columns: repeat(15, 1fr)
-.column-14 
+.column-14
     grid-template-columns: repeat(14, 1fr)
-.column-13 
+.column-13
     grid-template-columns: repeat(13, 1fr)
-.column-12 
+.column-12
     grid-template-columns: repeat(12, 1fr)
-.column-11 
+.column-11
     grid-template-columns: repeat(11, 1fr)
-.column-10 
+.column-10
     grid-template-columns: repeat(10, 1fr)
-.column-9 
+.column-9
     grid-template-columns: repeat(9, 1fr)
-.column-8 
+.column-8
     grid-template-columns: repeat(8, 1fr)
-.column-7 
+.column-7
     grid-template-columns: repeat(7, 1fr)
-.column-6 
+.column-6
     grid-template-columns: repeat(6, 1fr)
-.column-5 
+.column-5
     grid-template-columns: repeat(5, 1fr)
-.column-4 
+.column-4
     grid-template-columns: repeat(4, 1fr)
-.column-3 
+.column-3
     grid-template-columns: repeat(3, 1fr)
-.column-2 
+.column-2
     grid-template-columns: repeat(2, 1fr)
-.column-1 
+.column-1
     grid-template-columns: 1fr
 
 /*时间轴布局*/            
@@ -202,8 +195,8 @@ ol
     grid-gap: 0
     gap: 0
     .timeline-v-item
-        display: grid   
-        width: 100%    
+        display: grid
+        width: 100%
         .timeline-v-time
             font-size: 1rem
             font-weight: bold
@@ -217,11 +210,11 @@ ol
             background: $background-secondary
             &::before, &::after
                 content: ''
-                display: block                             
+                display: block
             &::before
                 background-color: $background-primary
-                width: $point-size * 2  
-                height: $point-size  * 2
+                width: $point-size * 2
+                height: $point-size * 2
                 border-radius: $point-size
                 margin-top: 1rem
                 margin-left: $line-width / 2 - $point-size
@@ -244,7 +237,7 @@ ol
                 margin: 0.5rem 0 1rem 0
                 font-size: 0.8rem
         .timeline-v-content:hover
-                background-color: $background-secondary-alt
+            background-color: $background-secondary-alt
 
 /* timeline 的 line 和 body 的样式  */
 .line-v-color-active
@@ -282,14 +275,14 @@ ol
         .timeline-h-time
             text-align: center
             font-weight: bold
-        .timeline-h-hr           
+        .timeline-h-hr
             width: 100%
             height: 0.3rem
             background-color: $background-secondary
             border-radius: 0
             &::before
                 content: ' '
-                display: block 
+                display: block
                 width: $point-size / 2 * 3
                 height: $point-size / 2 * 3
                 margin-top: - $point-size / 2
@@ -337,31 +330,32 @@ ol
         font-size: 0.8rem
 
 /* BookCard 图书卡片 MusicCard 音乐卡片 MovieCard 电影卡片 */
-.bookcard-item, .musiccard-item, .moviecard-item   
-    display: -webkit-flex  
+.bookcard-item, .musiccard-item, .moviecard-item
+    display: -webkit-flex
     display: flex
-    -webkit-flex-direction: column 
+    -webkit-flex-direction: column
     flex-direction: column
     position: relative
     overflow: hidden
     text-decoration: none
     max-width: 44rem
-    width: 100%  
+    width: 100%
+    border-radius: 5px
     &::before
         content: ""
         display: block
-        position: absolute        
+        position: absolute
         width: 110%
         height: 110%
         top: -5%
         left: -5%
         z-index: 0
         background-color: rgb(250,235,215)
-        filter: blur(1rem) brightness(0.4)   
+        filter: blur(1rem) brightness(0.4)
         background-position: center
-        background-size: cover    
+        background-size: cover
 .bookcard-main, .musiccard-main, .moviecard-main
-    overflow: hidden 
+    overflow: hidden
     color: rgb(250,235,215)
     z-index: 1
     width: calc(100% - 2rem)
@@ -456,8 +450,8 @@ ol
     .namecard-item
         width: 14rem
         min-height: 6rem
-        border-width: 0    
-        .namecard-item-info 
+        border-width: 0
+        .namecard-item-info
             display: flex
             .namecard-item-profile
                 height: auto
@@ -471,8 +465,8 @@ ol
                 align-items: center
                 border-radius: 50%
                 color: #ffffff
-            .namecard-item-content 
-                margin-left: 1rem     
+            .namecard-item-content
+                margin-left: 1rem
             .namecard-item-content-name
                 font-weight: bold
                 font-size: 1rem
@@ -480,7 +474,7 @@ ol
                 -webkit-line-clamp: 1
                 height: auto
                 width: auto
-                font-size: 0.8rem  
+                font-size: 0.8rem
                 margin-top: 0.2rem
         .namecard-item-remark
             margin-top: 0.5rem
@@ -516,7 +510,7 @@ ol
             justify-content: flex-end
             align-items: center
             width: calc(50% - 1rem)
-            .countdown-item-count-num, .countdown-item-count-unit          
+            .countdown-item-count-num, .countdown-item-count-unit
                 margin: 0 0.125rem
                 height: fit-content
                 width: fit-content
@@ -524,7 +518,7 @@ ol
                 font-size: 1.2rem
                 color: #ffffff
                 padding: 0.5rem 0.8rem
-                min-width: 1.2rem           
+                min-width: 1.2rem
             .countdown-item-count-unit
                 font-size: 0.8rem
                 padding: 0.7rem 0

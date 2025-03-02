@@ -1,31 +1,24 @@
-# obsidian-content-cards
+# Content Cards
 
-This is a plugin for Obsidian that allows you to insert content cards in Markdown, such as timeline, highlightblock, target card, book information card, music information card, movie information card, photoes ablum, business card, content subfield, countdown, etc.
+English | [中文](README-zh.md)
 
-这个插件是为 Obsidian 设计的，它允许您在 Markdown 中插入各种内容卡片，包括时间轴，高亮块，指标卡片，图书卡片，音乐卡片，电影卡片，照片专辑，名片，内容分栏，倒计时等。
+Insert content cards in Markdown, such as timeline, highlightblock, target card, book information card, music information card, movie information card, photoes ablum, business card, content subfield, countdown, etc.
 
-# Features / 特性
+# Features
 
--   Obsidian Mobile supported. / 支持 Obsidian 移动版
+-   Obsidian Mobile supported.
 
-# Installation / 安装
+# Installation
 
 Search `Content cards` in the Community plugins and install it.
 
-在官方“社区插件列表”中搜索 `Content Cards`，然后安装插件。
-
-# Usage / 如何使用
+# Usage
 
 Each card is marked with '@card', and different parameters are added for different cards.
 
-每个卡片用 `@card` 标记，然后不同 card 添加不同的参数。
-
 Some cards can be colored by adding '[color-red]' after '@card'.
 
-部分卡片可以设置颜色，在`@card` 后面添加` [color-red]` 即可。
-
 Supported custom colors:
-支持的自定义颜色：
 
 -   color-red
 -   color-orange
@@ -36,21 +29,17 @@ Supported custom colors:
 -   color-purple
 -   color-pink
 
-## timeline / 时间轴
+## Timeline
 
 There are two modes of the timeline, one is the vertical timeline and the other is the horizontal timeline.
 
-时间轴有两种模式，一种是竖向时间轴，一种是横向时间轴。
-
-### 竖向时间轴
+### Vertical timeline
 
 ![](/images/timeline-v.png)
 
-#### Markdown Syntax / 语法
+#### Markdown Syntax
 
 Insert a codeblock with the `cards-timeline-v` syntax.
-
-使用 `cards-timeline-v` 语法插入一个代码块。
 
 ````
 ```cards-timeline-v
@@ -70,7 +59,7 @@ content:
 ```
 ````
 
-#### Parameters / 参数
+#### Parameters
 
 | Option  | Card Type | Required | Description                                                                                    |
 | ------- | --------- | -------- | ---------------------------------------------------------------------------------------------- |
@@ -78,15 +67,13 @@ content:
 | title   | timeline  | Yes      | title, can be multi-line text                                                                  |
 | content | timeline  | Yes      | Introduction, can be multi-line text, but only the first 3 lines will be displayed on the card |
 
-### 横向时间线
+### horizontal timeline
 
 ![](/images/timeline-h.png)
 
-#### Markdown Syntax / 语法
+#### Markdown Syntax
 
 Insert a codeblock with the `cards-timeline-h` syntax.
-
-使用 `cards-timeline-h`语法插入一个代码块。
 
 ````
 ```cards-timeline-h
@@ -104,26 +91,24 @@ content:
 ```
 ````
 
-#### Parameters / 参数
+#### Parameters
 
-| Option  | Type   | Required | Description                                                                                                                                         |
-| ------- | ------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| time    | string | Yes      | date                                                                                                                                                |
-| title   | string | Yes      | title / 标题                                                                                                                                        |
-| content | string | Yes      | Introduction, can be multi-line text, but only the first 3 lines will be displayed on the card <br/>介绍，可以多行文本，但只有前 3 行将显示在卡片上 |
+| Option  | Type   | Required | Description                                                                                    |
+| ------- | ------ | -------- | ---------------------------------------------------------------------------------------------- |
+| time    | string | Yes      | date                                                                                           |
+| title   | string | Yes      | title                                                                                          |
+| content | string | Yes      | Introduction, can be multi-line text, but only the first 3 lines will be displayed on the card |
 
-## highlightblock / 高亮块
+## Highlightblock
 
 ![](/images/highlightblock.png)
 
-Support for custom colors / 支持自定义颜色
-The content supports markdown syntax / 内容支持 markdown 语法
+Support for custom colors
+The content supports markdown syntax
 
-### Markdown Syntax / 语法
+### Markdown Syntax
 
 Insert a codeblock with the `cards-highlightblock` syntax.
-
-使用 `cards-highlightblock` 语法插入一个代码块。
 
 ````
 ```cards-highlightblock
@@ -137,15 +122,13 @@ Insert a codeblock with the `cards-highlightblock` syntax.
 ```
 ````
 
-## target card / 指标卡片
+## Target card
 
 ![](/images/target.png)
 
-### Markdown Syntax / 语法
+### Markdown Syntax
 
 Insert a codeblock with the `cards-target` syntax.
-
-使用 `cards-target` 语法插入一个代码块。
 
 ````
 ```cards-target
@@ -161,15 +144,13 @@ unit: 元
 ```
 ````
 
-## book information card / 图书卡片
+## book information card
 
 ![](/images/book.png)
 
-### Markdown Syntax / 语法
+### Markdown Syntax
 
 Insert a codeblock with the `cards-book` syntax.
-
-使用 `cards-book` 语法插入一个代码块。
 
 ````
 ```cards-book
@@ -186,24 +167,22 @@ introduction:
 ```
 ````
 
-### Parameters / 参数
+### Parameters
 
-| Option       | Type   | Required | Description                                                                                                                                         |
-| ------------ | ------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| title        | string | Yes      | title , 图书名称                                                                                                                                    |
-| cover        | string | Yes      | Cover image, web url(https://...) are supported, 封面图片 url                                                                                       |
-| meta         | object | Yes      | meta，图书元数据                                                                                                                                    |
-| introduction | string | Yes      | Introduction, can be multi-line text, but only the first 3 lines will be displayed on the card <br/>介绍，可以多行文本，但只有前 3 行将显示在卡片上 |
+| Option       | Type   | Required | Description                                                                                    |
+| ------------ | ------ | -------- | ---------------------------------------------------------------------------------------------- |
+| title        | string | Yes      | title                                                                                          |
+| cover        | string | Yes      | Cover image, web url(https://...) are supported                                                |
+| meta         | object | Yes      | meta                                                                                           |
+| introduction | string | Yes      | Introduction, can be multi-line text, but only the first 3 lines will be displayed on the card |
 
-## music information card / 音乐卡片
+## Music information card
 
 ![](/images/music.png)
 
 ### Markdown Syntax
 
 Insert a codeblock with the `cards-music` syntax.
-
-使用 `cards-music` 语法插入一个代码块。
 
 ````
 ```cards-music
@@ -216,22 +195,21 @@ meta:
 ```
 ````
 
-### Parameters / 参数
+### Parameters
 
-| Option | Type   | Required | Description                                                   |
-| ------ | ------ | -------- | ------------------------------------------------------------- |
-| title  | string | Yes      | title , 音乐名称                                              |
-| cover  | string | Yes      | Cover image, web url(https://...) are supported, 封面图片 url |
-| meta   | object | Yes      | meta，音乐元数据                                              |
+| Option | Type   | Required | Description                                     |
+| ------ | ------ | -------- | ----------------------------------------------- |
+| title  | string | Yes      | title                                           |
+| cover  | string | Yes      | Cover image, web url(https://...) are supported |
+| meta   | object | Yes      | meta                                            |
 
-## movie information card / 电影卡片
+## Movie information card
 
 ![](/images/movie.png)
 
 ### Markdown Syntax
 
 Insert a codeblock with the `cards-movie` syntax.
-使用 `cards-movie` 语法插入一个代码块。
 
 ````
 ```cards-movie
@@ -249,24 +227,22 @@ introduction:
 ```
 ````
 
-### Parameters / 参数
+### Parameters
 
-| Option       | Type   | Required | Description                                                                                                                                         |
-| ------------ | ------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| title        | string | Yes      | title , 电影名称                                                                                                                                    |
-| cover        | string | Yes      | Cover image, web url(https://...) are supported, 封面图片 url                                                                                       |
-| meta         | object | Yes      | meta，电影元数据                                                                                                                                    |
-| introduction | string | Yes      | Introduction, can be multi-line text, but only the first 3 lines will be displayed on the card <br/>介绍，可以多行文本，但只有前 3 行将显示在卡片上 |
+| Option       | Type   | Required | Description                                                                                    |
+| ------------ | ------ | -------- | ---------------------------------------------------------------------------------------------- |
+| title        | string | Yes      | title 称                                                                                       |
+| cover        | string | Yes      | Cover image, web url(https://...) are supportedurl                                             |
+| meta         | object | Yes      | meta 据                                                                                        |
+| introduction | string | Yes      | Introduction, can be multi-line text, but only the first 3 lines will be displayed on the card |
 
-## photoes ablum / 照片专辑
+## photoes ablum
 
 ![](/images/ablum.png)
 
 ### Markdown Syntax
 
 Insert a codeblock with the `cards-ablum` syntax.
-
-使用 `cards-ablum` 语法插入一个代码块。
 
 ````
 ```cards-album
@@ -282,22 +258,20 @@ https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg
 ```
 ````
 
-### Parameters / 参数
+### Parameters
 
-| Option | Type   | Required | Description                                                                                                                                                            |
-| ------ | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| title  | string | Yes      | title / 专辑名称                                                                                                                                                       |
-| images | string | Yes      | Image links, 1 link per line, blank lines group images of albums, with a maximum of 9 images per group <br/> 图片链接,每行 1 个链接，空行分组专辑的图片，每组最多 9 张 |
+| Option | Type   | Required | Description                                                                                            |
+| ------ | ------ | -------- | ------------------------------------------------------------------------------------------------------ |
+| title  | string | Yes      | title                                                                                                  |
+| images | string | Yes      | Image links, 1 link per line, blank lines group images of albums, with a maximum of 9 images per group |
 
-## business card / 名片
+## Business card
 
 ![](/images/businesscard.png)
 
 ### Markdown Syntax
 
 Insert a codeblock with the `cards-name` syntax.
-
-使用 `cards-name` 语法插入一个代码块。
 
 ````
 ```cards-name
@@ -313,25 +287,23 @@ remark: 人物的简单描述 A brief description of the character
 ```
 ````
 
-### Parameters / 参数
+### Parameters
 
-| Option | Type   | Required | Description   |
-| ------ | ------ | -------- | ------------- |
-| name   | string | Yes      | name / 名字   |
-| tags   | string | Yes      | tags / 标签   |
-| remark | string | Yes      | remark / 备注 |
+| Option | Type   | Required | Description |
+| ------ | ------ | -------- | ----------- |
+| name   | string | Yes      | name        |
+| tags   | string | Yes      | tags        |
+| remark | string | Yes      | remark      |
 
-## content subfield / 内容分栏
+## Content subfield
 
 ![](/images/subfield.png)
 
-The content supports markdown syntax / 内容支持 markdown 语法
+The content supports markdown syntax
 
-### Markdown Syntax / 语法
+### Markdown Syntax
 
 Insert a codeblock with the `cards-subfield` syntax.
-
-使用 `cards-subfield` 语法插入一个代码块。
 
 ````
 ```cards-subfield
@@ -345,15 +317,13 @@ Insert a codeblock with the `cards-subfield` syntax.
 ```
 ````
 
-## countdown / 倒计时
+## Countdown
 
 ![](/images/countdown.png)
 
-### Markdown Syntax / 语法
+### Markdown Syntax
 
 Insert a codeblock with the `cards-countdown` syntax.
-
-使用 `cards-countdown` 语法插入一个代码块。
 
 ````
 ```cards-countdown
@@ -364,37 +334,31 @@ time: 2026-01-01
 ```
 ````
 
-### Parameters / 参数
+### Parameters
 
 | Option | Type   | Required | Description                                                          |
 | ------ | ------ | -------- | -------------------------------------------------------------------- |
-| title  | string | Yes      | title / 标题                                                         |
-| type   | string | Yes      | type,currently supports `day`,`sec` / 类型                           |
+| title  | string | Yes      | title                                                                |
+| type   | string | Yes      | type,currently supports `day`,`sec`                                  |
 | time   | string | Yes      | type=day, date, eg: 2024-02-12<br/>type=sec, timestamp, eg: 12:03:30 |
 
-# Limitations and known bugs / 限制和已知问题
+# Limitations and known bugs
 
 You are greatly welcome to ask questions, post any suggestions, or report any bugs! The project is mainly maintained on GitHub:
 
-非常欢迎你提出问题、发布任何建议或报告任何错误！该项目主要在 GitHub 上维护：
-
 Known issues:
 
-当前存在的已知问题：
+-   The countdown cannot be updated in real time
 
--   The countdown cannot be updated in real time / 倒计时不能实时更新
-
-# Changelog / 版本历史
+# Changelog
 
 | Version | Date       | Notes           |
 | ------- | ---------- | --------------- |
 | `1.0.0` | 2024-12-24 | Initial release |
 
-# Pricing / 付费
+# Pricing
 
 The plugin is free, athough if you wanna say thanks, feel free to buy me a coffee.
-
-这个插件是免费的，如果您觉得插件对您有用的话, 可以给作者买杯咖啡支持一下:
 
 ![](/images/wechart.png)
 
