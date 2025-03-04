@@ -360,7 +360,7 @@ Known issues:
 
 The plugin is free, athough if you wanna say thanks, feel free to buy me a coffee.
 
-![](/images/wechart.png)
+![wechart|150](/images/wechart.png)
 
 # License
 
