@@ -3,8 +3,6 @@
 [![Downloads](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fobsidianmd%2Fobsidian-releases%2FHEAD%2Fcommunity-plugin-stats.json&query=content-cards.downloads&logo=obsidian&label=download&color=%25274222128)](https://obsidian.md/plugins?search=Content%20Cards)
 [![Version](https://img.shields.io/github/v/release/liqms/obsidian-content-cards)](https://github.com/liqms/obsidian-content-cards)
 
-https://img.shields.io/github/v/release/liqms/obsidian-content-cards
-
 English | [中文](README.zh-cn.md)
 
 Insert content cards in Markdown, such as timeline, highlightblock, target card, book information card, music information card, movie information card, photoes ablum, business card, content subfield, countdown, etc.
