@@ -244,7 +244,7 @@
   height: 100%;
   display: grid;
   grid-gap: 1rem;
-  gap: calc($box-spacing / 2);
+  gap: 0.5rem;
   margin-bottom: 0.5rem;
   border-radius: 5px;
 }
@@ -266,7 +266,7 @@
 }
 
 /*修改 Obsidian 默认样式导致的样式问题*/
-.description p, .description ol, .description ul, .subfield-item p, .subfield-item ol, .subfield-item ul, .highlightblock-item p, .highlightblock-item ol, .highlightblock-item ul {
+.description p, .description ol, .description ul, .subfield-item p, .subfield-item ol, .subfield-item ul, .highlightblock-item p, .highlightblock-item ol, .highlightblock-item ul, .bookcard-info-content-meta p, .musiccard-info-content-meta p, .moviecard-info-content-meta p {
   margin-block-start: 0;
   margin-block-end: 0;
   margin: 0;
@@ -906,7 +906,7 @@
 
 @media screen and (max-width: 479px) {
   .namecard .namecard-item {
-    width: calc(50% - 0.25rem);
+    width: 100%;
   }
 }
 
