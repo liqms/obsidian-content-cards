@@ -26,5 +26,6 @@ function countdown(h, m, s) {
 		minuteElement.textContent = minutes.toString().padStart(2, "0");
 		secondElement.textContent = seconds.toString().padStart(2, "0");
 	}, 1000);
+	return timer;
 }
 
