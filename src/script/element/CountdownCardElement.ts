@@ -219,8 +219,7 @@ export class CountdownCardElement {
 			} else {
 				this.timeCount = [0, 0, 0];
 			}
-			alert(timeDiff + " " + targetTime + " " + currentTime);
-			alert(this.timeCount);
+			
 		} else {
 			this.timeCount = [0, 0, 0];
 		}
