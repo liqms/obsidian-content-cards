@@ -1,7 +1,7 @@
 {
 	"id": "content-cards",
 	"name": "Content Cards",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"minAppVersion": "0.15.0",
 	"description": "Insert content cards in Markdown, such as timeline, highlightblock, target card, book information card, music information card, movie information card, photoes ablum, business card, content subfield, countdown, etc.",
 	"author": "leo",

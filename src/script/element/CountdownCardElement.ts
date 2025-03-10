@@ -1,5 +1,6 @@
 import { App, MarkdownPostProcessorContext } from "obsidian";
 import { CountdownCardParser } from "../TagParsers";
+import { getTextInLanguage } from "../lang/helpers";
 
 // 处理空字符串的情况
 const trim = (s: string): string => {
@@ -17,7 +18,7 @@ export class CountdownCardElement {
 	targetTime: number[];
 	currentTime: number[];
 	timeCountStr: string[];
-	
+
 	constructor(
 		source: string,
 		element: HTMLElement,
@@ -28,7 +29,7 @@ export class CountdownCardElement {
 		this.app = app;
 		this.context = context;
 		this.source = source;
-		this.element = element;		
+		this.element = element;
 		this.timeCount = [0, 0, 0];
 		this.currentTime = [0, 0, 0];
 		this.targetTime = [0, 0, 0];
@@ -37,33 +38,33 @@ export class CountdownCardElement {
 	}
 
 	createCardsEl(): HTMLElement {
-        const CountdownCardItemInfo = CountdownCardParser(this.source);
-		const cardsEl = this.element;	
+		const CountdownCardItemInfo = CountdownCardParser(this.source);
+		const cardsEl = this.element;
 		cardsEl.classList.add("countdown");
 		CountdownCardItemInfo.forEach((item) => {
 			const cardEl = cardsEl.createDiv({
 				cls: "countdown-item",
 			});
-			
+
 			const titleEl = cardEl.createDiv({
 				cls: "countdown-item-title",
 			});
 			titleEl.createSpan({
-				text: "距离 ",
+				text: getTextInLanguage("until"),
 			});
 			titleEl.createSpan({
 				cls: "countdown-item-count-title",
 				text: item.title,
 			});
 			titleEl.createSpan({
-				text: " 还有",
+				text: getTextInLanguage("remain"),
 			});
 			const countEl = cardEl.createDiv({
 				cls: "countdown-item-count",
 			});
-            // 获取距离目标时间还剩，type = day，返回年月日，type = sec，返回时分秒		
-			
-			this.timeCountStr = this.getTimeCountStr(item.type, item.time);	
+			// 获取距离目标时间还剩，type = day，返回年月日，type = sec，返回时分秒
+
+			this.timeCountStr = this.getTimeCountStr(item.type, item.time);
 			if (item.type === "day") {
 				const numAEl = countEl.createDiv({
 					cls: "countdown-item-count-num",
@@ -71,7 +72,7 @@ export class CountdownCardElement {
 				});
 				const unitAEl = countEl.createDiv({
 					cls: "countdown-item-count-unit",
-					text: "年",
+					text: getTextInLanguage("years"),
 				});
 				const numBEl = countEl.createDiv({
 					cls: "countdown-item-count-num",
@@ -79,7 +80,7 @@ export class CountdownCardElement {
 				});
 				const unitBEl = countEl.createDiv({
 					cls: "countdown-item-count-unit",
-					text: "月",
+					text: getTextInLanguage("months"),
 				});
 				const numCEl = countEl.createDiv({
 					cls: "countdown-item-count-num",
@@ -87,15 +88,15 @@ export class CountdownCardElement {
 				});
 				const unitCEl = countEl.createDiv({
 					cls: "countdown-item-count-unit",
-					text: "日",
+					text: getTextInLanguage("days"),
 				});
-				if (item.color!== null && item.color!== undefined) {
-					numAEl.classList.add("accent-"+item.color);
-					numBEl.classList.add("accent-"+item.color);
-					numCEl.classList.add("accent-"+item.color);
-					unitAEl.classList.add("text-"+item.color);
-					unitBEl.classList.add("text-"+item.color);
-					unitCEl.classList.add("text-"+item.color);
+				if (item.color !== null && item.color !== undefined) {
+					numAEl.classList.add("accent-" + item.color);
+					numBEl.classList.add("accent-" + item.color);
+					numCEl.classList.add("accent-" + item.color);
+					unitAEl.classList.add("text-" + item.color);
+					unitBEl.classList.add("text-" + item.color);
+					unitCEl.classList.add("text-" + item.color);
 				} else {
 					numAEl.classList.add("accent-color-active");
 					numBEl.classList.add("accent-color-active");
@@ -111,7 +112,7 @@ export class CountdownCardElement {
 				});
 				const unitAEl = countEl.createDiv({
 					cls: "countdown-item-count-unit",
-					text: "时",
+					text: getTextInLanguage("hours"),
 				});
 				const numBEl = countEl.createDiv({
 					cls: "countdown-item-count-num",
@@ -119,7 +120,7 @@ export class CountdownCardElement {
 				});
 				const unitBEl = countEl.createDiv({
 					cls: "countdown-item-count-unit",
-					text: "分",
+					text: getTextInLanguage("minutes"),
 				});
 				const numCEl = countEl.createDiv({
 					cls: "countdown-item-count-num",
@@ -127,15 +128,15 @@ export class CountdownCardElement {
 				});
 				const unitCEl = countEl.createDiv({
 					cls: "countdown-item-count-unit",
-					text: "秒",
+					text: getTextInLanguage("seconds"),
 				});
-				if (item.color!== null && item.color!== undefined) {
-					numAEl.classList.add("accent-"+item.color);
-					numBEl.classList.add("accent-"+item.color);
-					numCEl.classList.add("accent-"+item.color);
-					unitAEl.classList.add("text-"+item.color);
-					unitBEl.classList.add("text-"+item.color);
-					unitCEl.classList.add("text-"+item.color);
+				if (item.color !== null && item.color !== undefined) {
+					numAEl.classList.add("accent-" + item.color);
+					numBEl.classList.add("accent-" + item.color);
+					numCEl.classList.add("accent-" + item.color);
+					unitAEl.classList.add("text-" + item.color);
+					unitBEl.classList.add("text-" + item.color);
+					unitCEl.classList.add("text-" + item.color);
 				} else {
 					numAEl.classList.add("accent-color-active");
 					numBEl.classList.add("accent-color-active");
@@ -147,62 +148,89 @@ export class CountdownCardElement {
 			} else {
 				countEl.createDiv({
 					cls: "countdown-item-count-unit",
-					text: "请输入正确的时间类型: day 或 sec",
+					text: getTextInLanguage("countdown type error"),
 				});
-				
 			}
-			if (item.color !== null && item.color!== undefined) {
-				cardEl.classList.add("body-"+item.color);
+			if (item.color !== null && item.color !== undefined) {
+				cardEl.classList.add("body-" + item.color);
 			} else {
 				cardEl.classList.add("body-color-active");
 			}
-
 		});
-		
+
 		return cardsEl;
 	}
 	getTimeCountStr(type: string, time: string) {
-		if (type == "day") {					
-			this.targetTime = time.match(/(\d{4})-(\d{2})-(\d{2})/) as unknown as number[];
-			const targetTime = [this.targetTime[1], this.targetTime[2], this.targetTime[3]];
-			const currentTime = [new Date().getFullYear(), new Date().getMonth() + 1, new Date().getDate()];
-			const timeDiff = (targetTime[0] - currentTime[0]) * 365 + (targetTime[1] - currentTime[1]) * 30 + (targetTime[2] - currentTime[2]);
-			if (timeDiff > 0) {			
-				this.timeCount[0] = Math.floor(timeDiff / 365);
-				this.timeCount[1] = Math.floor((timeDiff % 365 / 30));
-				this.timeCount[2] = Math.floor(timeDiff % 30) ;						
-			} else {
-				this.timeCount = [0, 0, 0];			
-			} 			
-		} else if (type == "sec") {
-			this.targetTime = time.match(/(\d{2}):(\d{2}):(\d{2})/) as unknown as number[];
-			const targetTime = [this.targetTime[1], this.targetTime[2], this.targetTime[3]]
-			const currentTime = [new Date().getHours(), new Date().getMinutes(), new Date().getSeconds()];
-			const timeDiff = (targetTime[0] - currentTime[0]) * 60 * 60 + (targetTime[1] - currentTime[1]) * 60 + (targetTime[2] - currentTime[2]);
-			
+		if (type == "day") {
+			this.targetTime = time.match(
+				/(\d{4})-(\d{2})-(\d{2})/
+			) as unknown as number[];
+			const targetTime = [
+				this.targetTime[1],
+				this.targetTime[2],
+				this.targetTime[3],
+			];
+			const currentTime = [
+				new Date().getFullYear(),
+				new Date().getMonth() + 1,
+				new Date().getDate(),
+			];
+			const timeDiff =
+				targetTime[0] * 365 +
+				targetTime[1] * 30 +
+				targetTime[2] -
+				currentTime[0] * 365 -
+				currentTime[1] * 30 -
+				currentTime[2] * 1;
 			if (timeDiff > 0) {
-				
-				this.timeCount[0] = Math.floor(timeDiff / 60 / 60);
-				this.timeCount[1] = Math.floor((timeDiff % 60 / 60));
-				this.timeCount[2] = Math.floor(timeDiff % 60) ;
+				this.timeCount[0] = Math.floor(timeDiff / 365);
+				this.timeCount[1] = Math.floor((timeDiff % 365) / 30);
+				this.timeCount[2] = Math.floor(timeDiff % 30);
 			} else {
-				
 				this.timeCount = [0, 0, 0];
-			}						
+			}
+		} else if (type == "sec") {
+			this.targetTime = time.match(
+				/(\d{2}):(\d{2}):(\d{2})/
+			) as unknown as number[];
+			const targetTime = [
+				this.targetTime[1],
+				this.targetTime[2],
+				this.targetTime[3],
+			];
+			const currentTime = [
+				new Date().getHours(),
+				new Date().getMinutes(),
+				new Date().getSeconds(),
+			];
+			const timeDiff =
+				targetTime[0] * 60 * 60 +
+				targetTime[1] * 60 +
+				targetTime[2] -
+				currentTime[0] * 60 * 60 -
+				currentTime[1] * 60 -
+				currentTime[2] * 1;
+
+			if (timeDiff > 0) {
+				this.timeCount[0] = Math.floor(timeDiff / 60 / 60);
+				this.timeCount[1] = Math.floor((timeDiff % 60) / 60);
+				this.timeCount[2] = Math.floor(timeDiff % 60);
+			} else {
+				this.timeCount = [0, 0, 0];
+			}
 		} else {
 			this.timeCount = [0, 0, 0];
 		}
-		this.timeCount.forEach(e => {
-			this.timeCountStr = this.timeCount.map(e => {
+		this.timeCount.forEach((e) => {
+			this.timeCountStr = this.timeCount.map((e) => {
 				return this.toString(e);
 			});
 		});
 		return this.timeCountStr;
 	}
 	toString(num: number) {
-		let numStr = num.toString();
+		let numStr = num.toString().padStart(2, "0");
 		return numStr;
 	}
 	
-
 }

@@ -53,3 +53,7 @@ export default class ContentCardsPlugin extends Plugin {
 		console.log("unloading content cards plugin");
 	}
 }
+
+
+// 获取系统语言，自动切换语言
+
