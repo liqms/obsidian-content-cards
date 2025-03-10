@@ -68,7 +68,7 @@ export class CountdownCardElement {
 			if (item.type === "day") {
 				const numAEl = countEl.createDiv({
 					cls: "countdown-item-count-num",
-					text: this.timeCountStr[0] as unknown as string,
+					text: this.timeCountStr[0],
 				});
 				const unitAEl = countEl.createDiv({
 					cls: "countdown-item-count-unit",
@@ -76,7 +76,7 @@ export class CountdownCardElement {
 				});
 				const numBEl = countEl.createDiv({
 					cls: "countdown-item-count-num",
-					text: this.timeCountStr[1] as unknown as string,
+					text: this.timeCountStr[1],
 				});
 				const unitBEl = countEl.createDiv({
 					cls: "countdown-item-count-unit",
@@ -84,7 +84,7 @@ export class CountdownCardElement {
 				});
 				const numCEl = countEl.createDiv({
 					cls: "countdown-item-count-num",
-					text: this.timeCountStr[2] as unknown as string,
+					text: this.timeCountStr[2],
 				});
 				const unitCEl = countEl.createDiv({
 					cls: "countdown-item-count-unit",
@@ -108,7 +108,7 @@ export class CountdownCardElement {
 			} else if (item.type === "sec") {
 				const numAEl = countEl.createDiv({
 					cls: "countdown-item-count-num",
-					text: this.timeCountStr[0] as unknown as string,
+					text: this.timeCountStr[0],
 				});
 				const unitAEl = countEl.createDiv({
 					cls: "countdown-item-count-unit",
@@ -116,7 +116,7 @@ export class CountdownCardElement {
 				});
 				const numBEl = countEl.createDiv({
 					cls: "countdown-item-count-num",
-					text: this.timeCountStr[1] as unknown as string,
+					text: this.timeCountStr[1],
 				});
 				const unitBEl = countEl.createDiv({
 					cls: "countdown-item-count-unit",
@@ -124,7 +124,7 @@ export class CountdownCardElement {
 				});
 				const numCEl = countEl.createDiv({
 					cls: "countdown-item-count-num",
-					text: this.timeCountStr[2] as unknown as string,
+					text: this.timeCountStr[2],
 				});
 				const unitCEl = countEl.createDiv({
 					cls: "countdown-item-count-unit",
@@ -178,7 +178,7 @@ export class CountdownCardElement {
 			const timeDiff =
 				targetTime[0] * 365 +
 				targetTime[1] * 30 +
-				targetTime[2] -
+				targetTime[2] * 1 -
 				currentTime[0] * 365 -
 				currentTime[1] * 30 -
 				currentTime[2] * 1;
@@ -189,6 +189,7 @@ export class CountdownCardElement {
 			} else {
 				this.timeCount = [0, 0, 0];
 			}
+			
 		} else if (type == "sec") {
 			this.targetTime = time.match(
 				/(\d{2}):(\d{2}):(\d{2})/
@@ -204,20 +205,22 @@ export class CountdownCardElement {
 				new Date().getSeconds(),
 			];
 			const timeDiff =
-				targetTime[0] * 60 * 60 +
+				targetTime[0] * 3600 +
 				targetTime[1] * 60 +
-				targetTime[2] -
-				currentTime[0] * 60 * 60 -
+				targetTime[2] * 1 -
+				currentTime[0] * 3600 -
 				currentTime[1] * 60 -
 				currentTime[2] * 1;
 
 			if (timeDiff > 0) {
-				this.timeCount[0] = Math.floor(timeDiff / 60 / 60);
-				this.timeCount[1] = Math.floor((timeDiff % 60) / 60);
+				this.timeCount[0] = Math.floor(timeDiff / 3600);
+				this.timeCount[1] = Math.floor((timeDiff % 3600) / 60);
 				this.timeCount[2] = Math.floor(timeDiff % 60);
 			} else {
 				this.timeCount = [0, 0, 0];
 			}
+			alert(timeDiff + " " + targetTime + " " + currentTime);
+			alert(this.timeCount);
 		} else {
 			this.timeCount = [0, 0, 0];
 		}
@@ -226,11 +229,11 @@ export class CountdownCardElement {
 				return this.toString(e);
 			});
 		});
+
 		return this.timeCountStr;
 	}
 	toString(num: number) {
 		let numStr = num.toString().padStart(2, "0");
 		return numStr;
 	}
-	
 }
