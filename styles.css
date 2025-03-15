@@ -797,6 +797,24 @@
   aspect-ratio: 12 / 10;
   object-fit: cover;
   overflow: hidden;
+  border-radius: 5px;
+}
+
+.album-item-images-item p, .album-item-images-item p span {
+  aspect-ratio: 12 / 10;
+  object-fit: cover;
+  overflow: hidden;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.album-item-images-item p img, .album-item-images-item p span img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
 /*images grid*/

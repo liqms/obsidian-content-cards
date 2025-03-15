@@ -10,6 +10,10 @@ Insert content cards in Markdown, such as timeline, highlightblock, target card,
 # Features
 
 -   Obsidian Mobile supported.
+-   Support English and Chinese.
+-   Photoes Ablum Support Local Images.
+-   Supports custom codeblock syntax. (plan)
+-   Add new card: Mindmap. (plan)
 
 # Installation
 
@@ -247,6 +251,8 @@ introduction:
 
 Insert a codeblock with the `cards-ablum` syntax.
 
+**Web Image**
+
 ````
 ```cards-album
 @card [color-blue]
@@ -261,12 +267,28 @@ https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg
 ```
 ````
 
+**Local Image**
+
+````
+```cards-album
+@card [color-blue]
+title: 画册名称
+images:
+![](https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg)
+![](https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg)
+![](https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg)
+
+![[files/image-1.png]]
+![[files/image-2.png]]
+```
+````
+
 ### Parameters
 
-| Option | Type   | Required | Description                                                                                            |
-| ------ | ------ | -------- | ------------------------------------------------------------------------------------------------------ |
-| title  | string | Yes      | title                                                                                                  |
-| images | string | Yes      | Image links, 1 link per line, blank lines group images of albums, with a maximum of 9 images per group |
+| Option | Type   | Required | Description                                                                                                                               |
+| ------ | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| title  | string | Yes      | title                                                                                                                                     |
+| images | string | Yes      | Image links(support web image and local image), 1 link per line, blank lines group images of albums, with a maximum of 9 images per group |
 
 ## Business card
 
@@ -355,9 +377,11 @@ Known issues:
 
 # Changelog
 
-| Version | Date       | Notes           |
-| ------- | ---------- | --------------- |
-| `1.0.0` | 2024-12-24 | Initial release |
+| Version  | Date       | Notes                               |
+| -------- | ---------- | ----------------------------------- |
+| `1.0.0`  | 2024-12-24 | Initial release                     |
+| `1.0.10` | 2025-03-12 | Support English and Chinese         |
+| `1.0.11` | 2024-03-15 | Photoes Ablum Support Local Images. |
 
 # Pricing
 

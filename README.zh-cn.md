@@ -10,6 +10,10 @@
 # 特性
 
 -   支持 Obsidian 移动版
+-   支持英文和中文
+-   照片专辑支持本地图片
+-   支持自定义代码块语法（计划）
+-   增加内容卡片：思维导图（计划）
 
 # I 安装
 
@@ -247,6 +251,8 @@ introduction:
 
 使用 `cards-ablum` 语法插入一个代码块。
 
+**网络图片**
+
 ````
 ```cards-album
 @card [color-blue]
@@ -258,6 +264,22 @@ https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg
 
 https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg
 https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg
+```
+````
+
+**本地图片**
+
+````
+```cards-album
+@card [color-blue]
+title: 画册名称
+images:
+![](https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg)
+![](https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg)
+![](https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg)
+
+![[files/image-1.png]]
+![[files/image-2.png]]
 ```
 ````
 
@@ -339,10 +361,10 @@ time: 2026-01-01
 
 ### 参数
 
-| Option | Type   | Required | Description                                                          |
-| ------ | ------ | -------- | -------------------------------------------------------------------- |
-| title  | string | Yes      | title / 标题                                                         |
-| type   | string | Yes      | type,currently supports `day`,`sec` / 类型                           |
+| Option | Type   | Required | Description                                                              |
+| ------ | ------ | -------- | ------------------------------------------------------------------------ |
+| title  | string | Yes      | title / 标题                                                             |
+| type   | string | Yes      | type,currently supports `day`,`sec` / 类型                               |
 | time   | string | Yes      | type = day, date, eg: 2024-02-12<br/>type = sec, timestamp, eg: 12:03:30 |
 
 # 限制和已知问题
@@ -353,11 +375,13 @@ time: 2026-01-01
 
 -   倒计时不能实时更新
 
-# Changelog / 版本历史
+# 版本历史
 
-| Version | Date       | Notes           |
-| ------- | ---------- | --------------- |
-| `1.0.0` | 2024-12-24 | Initial release |
+| Version  | Date       | Notes                               |
+| -------- | ---------- | ----------------------------------- |
+| `1.0.0`  | 2024-12-24 | Initial release                     |
+| `1.0.10` | 2025-03-12 | Support English and Chinese         |
+| `1.0.11` | 2024-03-15 | Photoes Ablum Support Local Images. |
 
 # 付费
 
