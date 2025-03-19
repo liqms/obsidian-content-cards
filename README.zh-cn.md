@@ -12,7 +12,7 @@
 -   支持 Obsidian 移动版
 -   支持英文和中文
 -   照片专辑支持本地图片
--   支持自定义代码块语法（计划）
+-   支持自定义代码块语法
 -   增加内容卡片：思维导图（计划）
 
 # I 安装
@@ -382,6 +382,7 @@ time: 2026-01-01
 | `1.0.0`  | 2024-12-24 | Initial release                     |
 | `1.0.10` | 2025-03-12 | Support English and Chinese         |
 | `1.0.11` | 2024-03-15 | Photoes Ablum Support Local Images. |
+| `1.1.0`  | 2024-03-19 | Supports custom codeblock language. |
 
 # 付费
 
