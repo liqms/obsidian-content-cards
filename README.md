@@ -12,7 +12,7 @@ Insert content cards in Markdown, such as timeline, highlightblock, target card,
 -   Obsidian Mobile supported.
 -   Support English and Chinese.
 -   Photoes Ablum Support Local Images.
--   Supports custom codeblock syntax. (plan)
+-   Supports custom codeblock language. 
 -   Add new card: Mindmap. (plan)
 
 # Installation
@@ -382,6 +382,7 @@ Known issues:
 | `1.0.0`  | 2024-12-24 | Initial release                     |
 | `1.0.10` | 2025-03-12 | Support English and Chinese         |
 | `1.0.11` | 2024-03-15 | Photoes Ablum Support Local Images. |
+| `1.1.0`  | 2024-03-19 | Supports custom codeblock language. |
 
 # Pricing
 
