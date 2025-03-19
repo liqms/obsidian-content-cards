@@ -148,7 +148,7 @@ export class CountdownCardElement {
 			} else {
 				countEl.createDiv({
 					cls: "countdown-item-count-unit",
-					text: getTextInLanguage("countdown type error"),
+					text: getTextInLanguage("countdown_type_error"),
 				});
 			}
 			if (item.color !== null && item.color !== undefined) {

@@ -10,6 +10,7 @@ import { AlbumCardElement } from "./element/AlbumCardElement";
 import { SubfieldElement } from "./element/SubfieldElement";
 import { NameCardElement } from "./element/NameCardElement";
 import { CountdownCardElement } from "./element/CountdownCardElement";
+import { language } from "./main";
 
 // 处理空字符串的情况
 const trim = (s: string): string => {
@@ -33,41 +34,40 @@ export class TagContainer {
 		this.source = source;
 		this.app = app;
 		this.context = context;
-
 		this.element = element;
 
 		switch (tag) {
-			case "cards-timeline-v":
+			case language[0]:
 				new TimelineVElement(source, element, context, this.app);
 				break;
-			case "cards-timeline-h":
+			case language[1]:
 				new TimelineHElement(source, element, context, this.app);
 				break;
-			case "cards-highlightblock":
+			case language[2]:
 				new HighlightBlockElement(source, element, context, this.app);
 				break;
-			case "cards-target":
+			case language[3]:
 				new TargetCardElement(source, element, context, this.app);
 				break;
-			case "cards-book":
+			case language[4]:
 				new BookCardElement(source, element, context, this.app);
 				break;
-			case "cards-music":
+			case language[5]:
 				new MusicCardElement(source, element, context, this.app);
 				break;
-			case "cards-movie":
+			case language[6]:
 				new MovieCardElement(source, element, context, this.app);
 				break;
-			case "cards-album":
+			case language[7]:
 				new AlbumCardElement(source, element, context, this.app);
 				break;
-			case "cards-subfield":
+			case language[8]:
 				new SubfieldElement(source, element, context, this.app);
 				break;
-			case "cards-name":
+			case language[9]:
 				new NameCardElement(source, element, context, this.app);
 				break;
-			case "cards-countdown":
+			case language[10]:
 				new CountdownCardElement(source, element, context, this.app);
 				break;
 			default:
