@@ -24,15 +24,18 @@ export class MovieCardElement {
 	createCardsEl(): HTMLElement {
 		const MovieCardItemInfo = MovieCardParser(this.source);
 		const cardsEl = this.element;
-
+		let timestamp: number = new Date().getTime();
 		MovieCardItemInfo.forEach((item) => {
 			const cardEl = cardsEl.createDiv({
 				cls: "moviecard-item",
 			});
+			cardEl.addClass("moviecard-item-pg-" + timestamp);
 			// 插入背景图, 插入到body中
 			const style = document.createElement("style");
 			const bgImgAttr = document.createTextNode(
-				".moviecard-item::before { background-image: url(" +
+				".moviecard-item-pg-" +
+					timestamp +
+					"::before { background-image: url(" +
 					item.cover +
 					");}"
 			);

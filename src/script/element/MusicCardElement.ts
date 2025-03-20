@@ -26,13 +26,18 @@ export class MusicCardElement {
 		const cardsEl = this.element;
 
 		MusicCardItemInfo.forEach((item) => {
+			let timestamp: number = new Date().getTime();
+
 			const cardEl = cardsEl.createDiv({
 				cls: "musiccard-item",
 			});
+			cardEl.addClass("musiccard-item-pg-" + timestamp);
 			// 插入背景图
 			const style = document.createElement("style");
 			const bgImgAttr = document.createTextNode(
-				".musiccard-item::before { background-image: url(" +
+				".musiccard-item-pg-" +
+					timestamp +
+					"::before { background-image: url(" +
 					item.cover +
 					");}"
 			);

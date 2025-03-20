@@ -25,15 +25,18 @@ export class BookCardElement {
 	createCardsEl(): HTMLElement {
 		const BookCardItemInfo = BookCardParser(this.source);
 		const cardsEl = this.element;
-
+		let timestamp: number = new Date().getTime();
 		BookCardItemInfo.forEach((item) => {
 			const cardEl = cardsEl.createDiv({
 				cls: "bookcard-item",
 			});
+			cardEl.addClass("bookcard-item-pg-" + timestamp);
 			// 插入背景图, 插入到body中,内联样式
 			const style = document.createElement("style");
 			const bgImgAttr = document.createTextNode(
-				".bookcard-item::before { background-image: url(" +
+				".bookcard-item-pg-" +
+					timestamp +
+					"::before { background-image: url(" +
 					item.cover +
 					");}"
 			);
@@ -80,7 +83,7 @@ export class BookCardElement {
 				"description"
 			);
 		});
-		
+
 		return cardsEl;
 	}
 }
