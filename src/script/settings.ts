@@ -38,9 +38,9 @@ export class ContentCardsPluginSettingTab extends PluginSettingTab {
 		super(app, plugin);
 		this.plugin = plugin;
 	}
-    hide(): void {
-        this.plugin.reloadPlugin();
-    }
+	hide(): void {
+		this.plugin.reloadPlugin();
+	}
 	display(): void {
 		let { containerEl } = this;
 		containerEl.empty();
@@ -92,9 +92,9 @@ export class ContentCardsPluginSettingTab extends PluginSettingTab {
 					await this.plugin.saveSettings();
 					this.display();
 				});
-		})
+		});
 		const highlightblockLanguageVariable = new Setting(containerEl)
-		
+
 			.setName(getTextInLanguage("highlightblockLanguage_name"))
 			.setDesc(getTextInLanguage("highlightblockLanguage_desc"))
 			.addText((text) =>
@@ -116,9 +116,9 @@ export class ContentCardsPluginSettingTab extends PluginSettingTab {
 					await this.plugin.saveSettings();
 					this.display();
 				});
-		})
-        const targetLanguageVariable = new Setting(containerEl)
-		
+		});
+		const targetLanguageVariable = new Setting(containerEl)
+
 			.setName(getTextInLanguage("targetLanguage_name"))
 			.setDesc(getTextInLanguage("targetLanguage_desc"))
 			.addText((text) =>
@@ -140,9 +140,9 @@ export class ContentCardsPluginSettingTab extends PluginSettingTab {
 					await this.plugin.saveSettings();
 					this.display();
 				});
-		})
+		});
 		const bookLanguageVariable = new Setting(containerEl)
-		
+
 			.setName(getTextInLanguage("bookLanguage_name"))
 			.setDesc(getTextInLanguage("bookLanguage_desc"))
 			.addText((text) =>
@@ -164,9 +164,9 @@ export class ContentCardsPluginSettingTab extends PluginSettingTab {
 					await this.plugin.saveSettings();
 					this.display();
 				});
-		})
+		});
 		const musicLanguageVariable = new Setting(containerEl)
-		
+
 			.setName(getTextInLanguage("musicLanguage_name"))
 			.setDesc(getTextInLanguage("musicLanguage_desc"))
 			.addText((text) =>
@@ -175,6 +175,7 @@ export class ContentCardsPluginSettingTab extends PluginSettingTab {
 					.setValue(this.plugin.settings.musicLanguage)
 					.onChange(async (value) => {
 						this.plugin.settings.musicLanguage = value;
+						await this.plugin.saveSettings();
 					})
 			);
 		musicLanguageVariable.addExtraButton((button) => {
@@ -187,9 +188,9 @@ export class ContentCardsPluginSettingTab extends PluginSettingTab {
 					await this.plugin.saveSettings();
 					this.display();
 				});
-		})
+		});
 		const movieLanguageVariable = new Setting(containerEl)
-		
+
 			.setName(getTextInLanguage("movieLanguage_name"))
 			.setDesc(getTextInLanguage("movieLanguage_desc"))
 			.addText((text) =>
@@ -211,9 +212,9 @@ export class ContentCardsPluginSettingTab extends PluginSettingTab {
 					await this.plugin.saveSettings();
 					this.display();
 				});
-		})
+		});
 		const albumLanguageVariable = new Setting(containerEl)
-		
+
 			.setName(getTextInLanguage("albumLanguage_name"))
 			.setDesc(getTextInLanguage("albumLanguage_desc"))
 			.addText((text) =>
@@ -235,9 +236,9 @@ export class ContentCardsPluginSettingTab extends PluginSettingTab {
 					await this.plugin.saveSettings();
 					this.display();
 				});
-		})
+		});
 		const subfieldLanguageVariable = new Setting(containerEl)
-		
+
 			.setName(getTextInLanguage("subfieldLanguage_name"))
 			.setDesc(getTextInLanguage("subfieldLanguage_desc"))
 			.addText((text) =>
@@ -246,6 +247,7 @@ export class ContentCardsPluginSettingTab extends PluginSettingTab {
 					.setValue(this.plugin.settings.subfieldLanguage)
 					.onChange(async (value) => {
 						this.plugin.settings.subfieldLanguage = value;
+						await this.plugin.saveSettings();
 					})
 			);
 		subfieldLanguageVariable.addExtraButton((button) => {
@@ -258,17 +260,18 @@ export class ContentCardsPluginSettingTab extends PluginSettingTab {
 					await this.plugin.saveSettings();
 					this.display();
 				});
-		})
+		});
 		const nameLanguageVariable = new Setting(containerEl)
-		
-			.setName(getTextInLanguage("countdownLanguage_name"))
-			.setDesc(getTextInLanguage("countdownLanguage_desc"))
+
+			.setName(getTextInLanguage("nameLanguage_name"))
+			.setDesc(getTextInLanguage("nameLanguage_desc"))
 			.addText((text) =>
 				text
 					.setPlaceholder(getTextInLanguage("language_placeholder"))
 					.setValue(this.plugin.settings.nameLanguage)
 					.onChange(async (value) => {
 						this.plugin.settings.nameLanguage = value;
+						await this.plugin.saveSettings();
 					})
 			);
 		nameLanguageVariable.addExtraButton((button) => {
@@ -281,7 +284,31 @@ export class ContentCardsPluginSettingTab extends PluginSettingTab {
 					await this.plugin.saveSettings();
 					this.display();
 				});
-		})
+		});
+		const countdownLanguageVariable = new Setting(containerEl)
+
+			.setName(getTextInLanguage("countdownLanguage_name"))
+			.setDesc(getTextInLanguage("countdownLanguage_desc"))
+			.addText((text) =>
+				text
+					.setPlaceholder(getTextInLanguage("language_placeholder"))
+					.setValue(this.plugin.settings.countdownLanguage)
+					.onChange(async (value) => {
+						this.plugin.settings.countdownLanguage = value;
+						await this.plugin.saveSettings();
+					})
+			);
+		countdownLanguageVariable.addExtraButton((button) => {
+			button
+				.setIcon("reset")
+				.setTooltip(getTextInLanguage("reset_tooltip"))
+				.onClick(async () => {
+					this.plugin.settings.countdownLanguage =
+						DEFAULT_SETTINGS.countdownLanguage;
+					await this.plugin.saveSettings();
+					this.display();
+				});
+		});
 	}
 	refresh(): void {
 		this.containerEl.empty();
@@ -300,4 +327,3 @@ function createLink(
 	const link = el.createEl("a", { text, href });
 	return link;
 }
-
