@@ -10,6 +10,7 @@ import { AlbumCardElement } from "./element/AlbumCardElement";
 import { SubfieldElement } from "./element/SubfieldElement";
 import { NameCardElement } from "./element/NameCardElement";
 import { CountdownCardElement } from "./element/CountdownCardElement";
+import { MindmapCardElement } from "./element/MindmapElement";
 import { language } from "./main";
 
 // 处理空字符串的情况
@@ -69,6 +70,9 @@ export class TagContainer {
 				break;
 			case language[10]:
 				new CountdownCardElement(source, element, context, this.app);
+				break;
+			case language[11]:
+				new MindmapCardElement(source, element, context, this.app);
 				break;
 			default:
 				break;

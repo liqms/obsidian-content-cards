@@ -548,3 +548,98 @@ $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "
                 width: calc(100% - 2rem)
                 justify-content: center
                 margin: 1rem
+// mindmap
+.mindmap-root
+    width: 100%
+    height: 100%
+    margin-bottom: 0.5rem
+    padding: 0.5rem
+    display: flex
+    flex-wrap: nowrap
+    overflow-x: auto
+    div
+        padding: 0.5rem
+        display: block
+        border-radius: 5px
+        border: 1px
+        border-color: var(--color-base-40)
+    li
+        list-style: none
+        display: flex
+        align-items: center
+        margin: 1rem
+        line-height: 1
+        position: relative
+        &>ul::before
+            content: ''
+            border: 1px solid 
+            border-color: var(--color-base-40)
+            border-top: none
+            border-left: none
+            position: absolute
+            top: 50%
+            left: 0
+            height: 0
+            width: calc( 1rem - 2px )
+            transform: translateY(-50%)
+        &::before
+            content: ""
+            border: 1px solid 
+            border-color: var(--color-base-40)
+            border-top: none
+            border-left: none
+            width: 1rem
+            height: 0px
+            position: absolute
+            left: calc(-1rem - 1px)
+        &:after 
+            content: ""
+            border: 1px solid 
+            border-color: var(--color-base-40)
+            border-top: none
+            border-left: none
+            width: 0
+            height: calc(100% / 2 + 1rem)
+            position: absolute
+            left: calc(-1rem - 2px)
+        &:first-of-type:after 
+            top: 50%
+        &:last-of-type:after 
+            bottom: 50%
+        ul 
+            padding: 0 0 0 1rem
+            position: relative
+    &>li 
+        &:after,
+        &:before 
+            display: none
+
+
+// mindmap 节点样式
+.map-node-1
+    background-color: $active-color
+    color: #ffffff
+.map-node-2
+    background-color: $active-color-a
+.map-node-3
+    background-color: $background-primary-alt
+.map-node-1 h1 
+    font-size: 1.1rem
+    font-weight: bold
+    margin-block-start: 0
+    margin-block-end: 0
+.map-node-2 h1
+    font-size: 1rem
+    font-weight: bold
+    margin-block-start: 0
+    margin-block-end: 0
+.map-node-3 h1
+    font-size: 0.8rem
+    font-weight: bold
+    margin-block-start: 0
+    margin-block-end: 0
+.map-node-1 p, .map-node-2 p,.map-node-3 p
+    font-size: 0.7rem
+    color: var(--text-muted)
+    margin-block-start: 0.5rem
+    margin-block-end: 0

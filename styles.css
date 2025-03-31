@@ -994,4 +994,127 @@
     margin: 1rem;
   }
 }
+
+.mindmap-root {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.mindmap-root div {
+  padding: 0.5rem;
+  display: block;
+  border-radius: 5px;
+  border: 1px;
+  border-color: var(--color-base-40);
+}
+
+.mindmap-root li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 1rem;
+  line-height: 1;
+  position: relative;
+}
+
+.mindmap-root li > ul::before {
+  content: '';
+  border: 1px solid;
+  border-color: var(--color-base-40);
+  border-top: none;
+  border-left: none;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 0;
+  width: calc( 1rem - 2px);
+  transform: translateY(-50%);
+}
+
+.mindmap-root li::before {
+  content: "";
+  border: 1px solid;
+  border-color: var(--color-base-40);
+  border-top: none;
+  border-left: none;
+  width: 1rem;
+  height: 0px;
+  position: absolute;
+  left: calc(-1rem - 1px);
+}
+
+.mindmap-root li:after {
+  content: "";
+  border: 1px solid;
+  border-color: var(--color-base-40);
+  border-top: none;
+  border-left: none;
+  width: 0;
+  height: calc(100% / 2 + 1rem);
+  position: absolute;
+  left: calc(-1rem - 2px);
+}
+
+.mindmap-root li:first-of-type:after {
+  top: 50%;
+}
+
+.mindmap-root li:last-of-type:after {
+  bottom: 50%;
+}
+
+.mindmap-root li ul {
+  padding: 0 0 0 1rem;
+  position: relative;
+}
+
+.mindmap-root > li:after, .mindmap-root > li:before {
+  display: none;
+}
+
+.map-node-1 {
+  background-color: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+  color: #ffffff;
+}
+
+.map-node-2 {
+  background-color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.2);
+}
+
+.map-node-3 {
+  background-color: var(--background-primary-alt);
+}
+
+.map-node-1 h1 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.map-node-2 h1 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.map-node-3 h1 {
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.map-node-1 p, .map-node-2 p, .map-node-3 p {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-block-start: 0.5rem;
+  margin-block-end: 0;
+}
 /*# sourceMappingURL=styles.css.map */

@@ -145,3 +145,16 @@ interface CountdownTagParser {
     tag: string,
     parser: CountdownParser
 }
+
+// mindmap
+interface MindmapItemInfo {
+    [key: string]: string,
+    color: string,
+    content: string
+}
+type MindmapParser = (source: string) => MindmapItemInfo[];
+
+interface MindmapTagParser {
+    tag: string,
+    parser: MindmapParser
+}

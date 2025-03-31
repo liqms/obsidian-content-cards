@@ -24,6 +24,7 @@ export default {
 	subfieldLanguage_name: "Subfield Card block name",
 	nameLanguage_name: "Name Card block name",
 	countdownLanguage_name: "Countdown Card block name",
+	mindmap_name: "Mindmap Card block name",
 	timelineVLanguage_desc: "The name of code block variable to render TimelineV Card",
 	timelineHLanguage_desc: "The name of code block variable to render TimelineH Card",
 	highlightblockLanguage_desc: "The name of code block variable to render HighlightBlock Card",
@@ -35,6 +36,10 @@ export default {
 	subfieldLanguage_desc: "The name of code block variable to render Subfield Card",
 	nameLanguage_desc: "The name of code block variable to render Name Card",
 	countdownLanguage_desc: "The name of code block variable to render Countdown Card",
+	mindmap_desc: "The name of code block variable to render Mindmap Card",
 	language_placeholder: "Enter your variable",
 	reset_tooltip: "Reset to default",
+	//mindmap
+	node_1: "Each card must have and only have 1 '#'",
+	node_not_exist: "Node does not exist, please use '#'",
 };

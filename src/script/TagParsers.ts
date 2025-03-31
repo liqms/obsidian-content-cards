@@ -155,7 +155,7 @@ const AlbumCardParser = (source: string): AlbumCardItemInfo[] => {
 // subfield
 const subfieldRegex = /^[ \t]*@card(.+?)?(?=^[ \t]*@card)/gimsu;
 
-const subfieldParser = (source: string): SubfieldItemInfo[] => {
+const SubfieldParser = (source: string): SubfieldItemInfo[] => {
 	source += "\n@card";
 	let sourceMatch;
 	const parsed = [];
@@ -219,6 +219,23 @@ const CountdownCardParser = (source: string): CountdownItemInfo[] => {
 	return parsed;
 };
 
+// mindmap
+const mindmapRegex = /^[ \t]*@card(.+?)(?:^(.+?))?(?=^[ \t]*@card)/gimsu;
+
+const MindmapParser = (source: string): MindmapItemInfo[] => {
+	source += "\n@card";
+	let sourceMatch;
+	const parsed = [];
+	while ((sourceMatch = mindmapRegex.exec(source)) !== null) {
+		const cardColor = toClassArray(sourceMatch[1]);
+		parsed.push({
+			color: cardColor[0],
+			content: sourceMatch[2],
+		});
+	}
+	return parsed;
+};
+
 export {
 	TimeLineParser,
 	HighlightblockParser,
@@ -227,7 +244,8 @@ export {
 	MusicCardParser,
 	MovieCardParser,
 	AlbumCardParser,
-	subfieldParser,
+	SubfieldParser,
 	NameCardParser,
 	CountdownCardParser,
+	MindmapParser,
 };

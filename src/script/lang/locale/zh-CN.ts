@@ -24,6 +24,7 @@ export default {
 	subfieldLanguage_name: "内容分栏",
 	nameLanguage_name: "名片",
 	countdownLanguage_name: "倒计时",
+	mindmap_name: "思维导图",
 	timelineVLanguage_desc: "渲染为时间轴-竖版的代码块语言",
 	timelineHLanguage_desc: "渲染为时间轴-横版的代码块语言",
 	highlightblockLanguage_desc: "渲染为高亮块的代码块语言",
@@ -35,6 +36,11 @@ export default {
 	subfieldLanguage_desc: "渲染为内容分栏的代码块语言",
 	nameLanguage_desc: "渲染为名片的代码块语言",
 	countdownLanguage_desc: "渲染为倒计时的代码块语言",
+	mindmap_desc: "渲染为思维导图的代码块语言",
 	language_placeholder: "请输入代码块语言",
 	reset_tooltip: "重置为默认值",
+	//mindmap
+	node_1: "每个 card 必须有且只允许有 1 个 '#' 开头",
+	node_8n: "每个 card 最多支持 6 个 '#' ",
+	node_not_exist: "节点不存在, 请使用'#'开头",
 };

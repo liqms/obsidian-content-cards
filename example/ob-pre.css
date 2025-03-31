@@ -9,7 +9,10 @@
 	--color-pink: #d53984;
 	--background-secondary: #f6f6f6;
 	--background-primary: #ffffff;
+	--background-primary-alt: #fafafa;
+	--background-secondary-alt:#fcfcfc;
 	--text-normal: #222222;
+	--text-muted: #5c5c5c;
 	--text-on-accent: #ffffff;
 	--color-red-rgb: 233, 49, 71;
 	--color-orange-rgb: 236, 117, 0;
@@ -22,4 +25,6 @@
 	--accent-h: 258;
 	--accent-s: 88%;
 	--accent-l: 66%;
+	--color-base-50: #ababab;
+	--color-base-40: #bdbdbd;
 }

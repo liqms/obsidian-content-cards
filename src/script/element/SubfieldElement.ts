@@ -1,5 +1,5 @@
 import { App, MarkdownPostProcessorContext } from "obsidian";
-import { subfieldParser } from "../TagParsers";
+import { SubfieldParser } from "../TagParsers";
 import { ItemContent } from "../ItemContent";
 export class SubfieldElement {
 	app: App;
@@ -24,7 +24,7 @@ export class SubfieldElement {
 	}
 
 	createCardsEl(): HTMLElement {
-		const SubfieldItemInfo = subfieldParser(this.source);
+		const SubfieldItemInfo = SubfieldParser(this.source);
 		const cardsEl = this.element;
 		cardsEl.classList.add("subfield");
 		if (this.cardNum > 0) {

@@ -38,6 +38,7 @@ export class HighlightBlockElement {
 			} else {
 				cardEl.itemEl.classList.add("body-color-active");
 			}
+			
 		});
 		
 		return cardsEl;

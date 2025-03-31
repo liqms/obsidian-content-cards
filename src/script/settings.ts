@@ -15,6 +15,7 @@ export interface ContentCardsPluginSettings {
 	subfieldLanguage: string;
 	nameLanguage: string;
 	countdownLanguage: string;
+	mindmapLanguage: string;
 }
 // 定义默认的 settings
 export const DEFAULT_SETTINGS: ContentCardsPluginSettings = {
@@ -29,6 +30,7 @@ export const DEFAULT_SETTINGS: ContentCardsPluginSettings = {
 	subfieldLanguage: "cards-subfield",
 	nameLanguage: "cards-name",
 	countdownLanguage: "cards-countdown",
+	mindmapLanguage: "cards-mindmap",
 };
 // 定义 settings 的界面
 export class ContentCardsPluginSettingTab extends PluginSettingTab {
@@ -309,6 +311,29 @@ export class ContentCardsPluginSettingTab extends PluginSettingTab {
 					this.display();
 				});
 		});
+		const mindmapLanguageVariable = new Setting(containerEl)
+			.setName(getTextInLanguage("mindmap_name"))
+			.setDesc(getTextInLanguage("mindmap_desc"))
+			.addText((text) =>
+				text
+					.setPlaceholder(getTextInLanguage("language_placeholder"))
+					.setValue(this.plugin.settings.mindmapLanguage)
+					.onChange(async (value) => {
+						this.plugin.settings.mindmapLanguage = value;
+						await this.plugin.saveSettings();
+					})
+			);
+		mindmapLanguageVariable.addExtraButton((button) => {
+			button
+				.setIcon("reset")
+				.setTooltip(getTextInLanguage("reset_tooltip"))
+				.onClick(async () => {
+					this.plugin.settings.mindmapLanguage =
+						DEFAULT_SETTINGS.mindmapLanguage;
+					await this.plugin.saveSettings();
+					this.display();
+				})
+		})
 	}
 	refresh(): void {
 		this.containerEl.empty();
