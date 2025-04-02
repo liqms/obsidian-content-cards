@@ -232,7 +232,7 @@
   color: var(--color-pink);
 }
 
-.bookcard-info-cover img, .musiccard-info-cover img, .moviecard-info-cover img, .album-item-images-item img .bookcard-item-bg p img, .musiccard-item-bg p img, .moviecard-item-bg p img, .bookcard-info-cover-img p span img, .musiccard-info-cover-img p span img, .moviecard-info-cover-img p span img {
+.bookcard-info-cover img, .musiccard-info-cover img, .moviecard-info-cover img, .album-item-images-item img .bookcard-item-bg p span img, .musiccard-item-bg p span img, .moviecard-item-bg p span img, .bookcard-info-cover-img p span img, .musiccard-info-cover-img p span img, .moviecard-info-cover-img p span img {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
@@ -698,12 +698,12 @@
   z-index: 0;
   border-radius: 5px;
   background-color: rgb(250, 235, 215);
-  filter: blur(1rem) brightness(0.5);
+  filter: blur(1rem) brightness(0.4);
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.bookcard-item-bg p, .musiccard-item-bg p, .moviecard-item-bg p {
+.bookcard-item-bg p, .musiccard-item-bg p, .moviecard-item-bg p, .bookcard-item-bg p span, .musiccard-item-bg p span, .moviecard-item-bg p span, .bookcard-item-bg p span img, .musiccard-item-bg p span img, .moviecard-item-bg p span img {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
