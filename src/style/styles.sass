@@ -72,18 +72,18 @@ $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "
     .text-color-#{$color}
         color: #{"var(--color-" + $color + ")"}
 
-.bookcard-info-cover img, .musiccard-info-cover img, .moviecard-info-cover img, .album-item-images-item img,
+.bookcard-info-cover img, .musiccard-info-cover img, .moviecard-info-cover img, .album-item-images-item img .bookcard-item-bg p img,.musiccard-item-bg p img,.moviecard-item-bg p img,.bookcard-info-cover-img p span img,.musiccard-info-cover-img p span img,.moviecard-info-cover-img p span img
     height: 100%
     width: 100%
     object-fit: cover
     border-radius: 5px
 
-.container
+.cards-container
     width: 100%
     height: 100%
     display: grid
     grid-gap: $box-spacing
-    gap: $box-spacing / 2
+    gap: calc($box-spacing / 2)
     margin-bottom: 0.5rem
     border-radius: 5px
 .title
@@ -101,7 +101,7 @@ $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "
     /* autoprefixer: on */
 
 /*修改 Obsidian 默认样式导致的样式问题*/
-.description p, .description ol, .description ul, .subfield-item p, .subfield-item ol, .subfield-item ul, .highlightblock-item p, .highlightblock-item ol, .highlightblock-item ul, .bookcard-info-content-meta p, .musiccard-info-content-meta p, .moviecard-info-content-meta p,
+.description p, .description ol, .description ul, .subfield-item p, .subfield-item ol, .subfield-item ul, .highlightblock-item p, .highlightblock-item ol, .highlightblock-item ul, .bookcard-info-content-meta p, .musiccard-info-content-meta p, .moviecard-info-content-meta p
     margin-block-start: 0
     margin-block-end: 0
     margin: 0
@@ -213,17 +213,17 @@ $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "
                 display: block
             &::before
                 background-color: $background-primary
-                width: $point-size * 2
-                height: $point-size * 2
+                width: calc($point-size / 2)
+                height: calc($point-size / 2)
                 border-radius: $point-size
                 margin-top: 1rem
-                margin-left: $line-width / 2 - $point-size
+                margin-left: calc($line-width / 2) - $point-size
             &::after
-                width: $point-size / 2 * 3
-                height: $point-size / 2 * 3
-                margin-top: - $point-size / 2 * 3 / 2 - $point-size
-                border-radius: $point-size / 2 * 3 / 2
-                margin-left: - $point-size / 2 * 3 / 3
+                width: calc($point-size / 2) * 3
+                height: calc($point-size / 2) * 3
+                margin-top: - calc($point-size / 4) * 3 - $point-size
+                border-radius: calc($point-size / 4) 
+                margin-left: - calc($point-size / 2) 
         .timeline-v-content
             border-radius: 0px
             border-left-style: solid
@@ -283,11 +283,11 @@ $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "
             &::before
                 content: ' '
                 display: block
-                width: $point-size / 2 * 3
-                height: $point-size / 2 * 3
-                margin-top: - $point-size / 2
-                border-radius: $point-size / 2 * 3 / 2
-                margin-left: calc(50% - #{$point-size} / 2 * 3 / 2)
+                width: calc($point-size / 2) * 3
+                height: calc($point-size / 2) * 3
+                margin-top: - calc($point-size / 2)
+                border-radius: calc($point-size / 4) * 3 
+                margin-left: calc(50% - #{$point-size} / 4 * 3)
         .timeline-h-content
             width: 12.5rem
             height: auto
@@ -300,6 +300,7 @@ $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "
                 margin-top: 0.5rem
             .timeline-h-description
                 font-size: 0.8rem
+                line-clamp: 6
                 -webkit-line-clamp: 6
                 margin: 0.5rem 0 1rem 0
 /* HighlightBlock 高亮块 */
@@ -341,6 +342,7 @@ $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "
     max-width: 44rem
     width: 100%
     border-radius: 5px
+    padding: 1rem
     &::before
         content: ""
         display: block
@@ -354,12 +356,26 @@ $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "
         filter: blur(1rem) brightness(0.4)
         background-position: center
         background-size: cover
+.bookcard-item-bg,.musiccard-item-bg,.moviecard-item-bg
+    position: absolute
+    width: 110%
+    height: 110%
+    top: -5%
+    left: -5%
+    z-index: 0
+    border-radius: 5px
+    background-color: rgb(250,235,215)
+    filter: blur(1rem) brightness(0.5)
+    object-fit: cover
+.bookcard-item-bg p,.musiccard-item-bg p,.moviecard-item-bg p
+    height: 100%
+    width: 100%
+    object-fit: cover
 .bookcard-main, .musiccard-main, .moviecard-main
     overflow: hidden
     color: rgb(250,235,215)
     z-index: 1
     width: calc(100% - 2rem)
-    margin: 1rem
 .bookcard-main-info, .musiccard-main-info, .moviecard-main-info
     display: flex
     flex-direction: row
@@ -369,23 +385,36 @@ $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "
     max-width: 7rem
     width: 20%
     aspect-ratio: 30 / 43
+    border-radius: 5px
 .musiccard-info-cover
     height: auto
     width: 20%
     max-width: 7rem
     aspect-ratio: 1 / 1
+    border-radius: 5px
+.bookcard-info-cover-img,.musiccard-info-cover-img,.moviecard-info-cover-img, .bookcard-info-cover p, .musiccard-info-cover p, .moviecard-info-cover-img p ,.bookcard-info-cover-img p span,.musiccard-info-cover-img p span,.moviecard-info-cover-img p span,.bookcard-info-cover-img p span img,.musiccard-info-cover-img p span img,.moviecard-info-cover-img p span img
+    height: 100%
+    width: 100%
+    object-fit: cover
+    margin-block-start: 0
+    margin-block-end: 0
+    margin: 0
+    padding: 0
+    border-radius: 5px
 .bookcard-info-content, .musiccard-info-content, .moviecard-info-content
     margin-left: 1rem
 .bookcard-info-content-title, .musiccard-info-content-title, .moviecard-info-content-title
     margin-bottom: 0.5rem
     font-size: 1rem
     font-weight: bold
+    line-clamp: 1
     -webkit-line-clamp: 1
 .bookcard-info-content-meta, .musiccard-info-content-meta, .moviecard-info-content-meta
     font-size: 0.8rem
     margin-top: 0.5rem
 .bookcard-main-introduction, .moviecard-main-introduction
     font-size: 0.8rem
+    line-clamp: 2
     -webkit-line-clamp: 2
     margin-top: 0.5rem
 @media screen and (max-width: 479px)
@@ -401,15 +430,15 @@ $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "
 /* Album 画册 */
 .album
     .album-item
-        grid-gap: $box-spacing / 4
-        gap: $box-spacing / 4
+        grid-gap: calc($box-spacing / 4)
+        gap: calc($box-spacing / 4)
         .album-item-title
             text-align: center
             font-weight: bold
             padding: 0.5rem 0
         .album-item-images
-            grid-gap: $box-spacing / 4
-            gap: $box-spacing / 4
+            grid-gap: calc($box-spacing / 4)
+            gap: calc($box-spacing / 4)
         .album-item-images-item
             aspect-ratio: 12 / 10
             object-fit: cover
@@ -485,6 +514,7 @@ $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "
                 font-weight: bold
                 font-size: 1rem
             .namecard-item-content-tags
+                line-clamp: 1
                 -webkit-line-clamp: 1
                 height: auto
                 width: auto
@@ -492,6 +522,7 @@ $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "
                 margin-top: 0.2rem
         .namecard-item-remark
             margin-top: 0.5rem
+            line-clamp: 2
             -webkit-line-clamp: 2
             height: auto
             min-height: 2rem

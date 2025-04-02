@@ -232,14 +232,15 @@
   color: var(--color-pink);
 }
 
-.bookcard-info-cover img, .musiccard-info-cover img, .moviecard-info-cover img, .album-item-images-item img {
+.bookcard-info-cover img, .musiccard-info-cover img, .moviecard-info-cover img, .album-item-images-item img .bookcard-item-bg p img, .musiccard-item-bg p img, .moviecard-item-bg p img, .bookcard-info-cover-img p span img, .musiccard-info-cover-img p span img, .moviecard-info-cover-img p span img {
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 5px;
 }
 
-.container {
+.cards-container {
   width: 100%;
   height: 100%;
   display: grid;
@@ -350,7 +351,7 @@
   grid-template-columns: 1fr;
 }
 
-/*时间轴布局*/
+/*时间轴布局*/            
 @media screen and (min-width: 480px) {
   .timeline-v-item {
     grid-template-columns: 7.5rem 1rem 1fr;
@@ -375,14 +376,13 @@
     margin-top: 1rem;
   }
 }
-
 @media screen and (max-width: 479px) {
   .timeline-v-item {
     grid-template-columns: 3rem 1fr;
   }
   .timeline-v-item .vertical-line {
     grid-column: 1;
-    grid-row: 1 / 3;
+    grid-row: 1/3;
     margin-left: 1.5rem;
   }
   .timeline-v-item .timeline-v-time {
@@ -404,56 +404,48 @@
     margin-top: 0.5rem;
   }
 }
-
 /* Timeline 时间轴（-h，-v） */
 .timeline-v {
   grid-template-columns: 1fr;
   grid-gap: 0;
   gap: 0;
 }
-
 .timeline-v .timeline-v-item {
   display: grid;
   width: 100%;
 }
-
 .timeline-v .timeline-v-item .timeline-v-time {
   font-size: 1rem;
   font-weight: bold;
   min-width: 6.5rem;
   width: auto;
 }
-
 .timeline-v .timeline-v-item .vertical-line {
-  content: ' ';
+  content: " ";
   display: block;
   width: 0.3rem;
   height: 100%;
   background: var(--background-secondary);
 }
-
 .timeline-v .timeline-v-item .vertical-line::before, .timeline-v .timeline-v-item .vertical-line::after {
-  content: '';
+  content: "";
   display: block;
 }
-
 .timeline-v .timeline-v-item .vertical-line::before {
   background-color: var(--background-primary);
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 0.3rem;
+  height: 0.3rem;
   border-radius: 0.6rem;
   margin-top: 1rem;
   margin-left: -0.45rem;
 }
-
 .timeline-v .timeline-v-item .vertical-line::after {
   width: 0.9rem;
   height: 0.9rem;
   margin-top: -1.05rem;
-  border-radius: 0.45rem;
+  border-radius: 0.15rem;
   margin-left: -0.3rem;
 }
-
 .timeline-v .timeline-v-item .timeline-v-content {
   border-radius: 0px;
   border-left-style: solid;
@@ -461,17 +453,14 @@
   margin-bottom: 1rem;
   background-color: var(--background-secondary);
 }
-
 .timeline-v .timeline-v-item .timeline-v-content .timeline-v-title {
   font-size: 1rem;
   font-weight: bold;
 }
-
 .timeline-v .timeline-v-item .timeline-v-content .timeline-v-description {
   margin: 0.5rem 0 1rem 0;
   font-size: 0.8rem;
 }
-
 .timeline-v .timeline-v-item .timeline-v-content:hover {
   background-color: var(--background-secondary-alt);
 }
@@ -593,7 +582,6 @@
   flex-wrap: nowrap;
   overflow-x: auto;
 }
-
 .timeline-h .timeline-h-item {
   margin: 1rem 0;
   display: grid;
@@ -601,45 +589,40 @@
   width: 15rem;
   min-width: 15rem;
 }
-
 .timeline-h .timeline-h-item .timeline-h-time {
   text-align: center;
   font-weight: bold;
 }
-
 .timeline-h .timeline-h-item .timeline-h-hr {
   width: 100%;
   height: 0.3rem;
   background-color: var(--background-secondary);
   border-radius: 0;
 }
-
 .timeline-h .timeline-h-item .timeline-h-hr::before {
-  content: ' ';
+  content: " ";
   display: block;
   width: 0.9rem;
   height: 0.9rem;
   margin-top: -0.3rem;
   border-radius: 0.45rem;
-  margin-left: calc(50% - 0.6rem / 2 * 3 / 2);
+  margin-left: calc(50% - 0.6rem / 4 * 3);
 }
-
 .timeline-h .timeline-h-item .timeline-h-content {
   width: 12.5rem;
   height: auto;
   text-align: center;
-  margin-left: calc(50% - 12.5rem / 2);
+  margin-left: calc(50% - 6.25rem);
   padding: 0.5em;
 }
-
 .timeline-h .timeline-h-item .timeline-h-content .timeline-h-title {
   font-size: 0.8rem;
   font-weight: bold;
   margin-top: 0.5rem;
 }
-
 .timeline-h .timeline-h-item .timeline-h-content .timeline-h-description {
   font-size: 0.8rem;
+  line-clamp: 6;
   -webkit-line-clamp: 6;
   margin: 0.5rem 0 1rem 0;
 }
@@ -649,7 +632,6 @@
   display: flex;
   flex-wrap: wrap;
 }
-
 .highlightblock .highlightblock-item {
   border-width: 1px;
   font-size: 0.8rem;
@@ -662,25 +644,20 @@
   display: flex;
   flex-wrap: wrap;
 }
-
 .target-card .target-card-item {
   min-width: 9rem;
   width: auto;
 }
-
 .target-card .target-card-item-title {
   font-size: 0.8rem;
 }
-
 .target-card .target-card-item-content {
   margin-top: 0.1rem;
 }
-
 .target-card .target-card-item-content-num {
   font-size: 1.6rem;
   font-weight: bold;
 }
-
 .target-card .target-card-item-content-unit {
   font-size: 0.8rem;
 }
@@ -695,8 +672,8 @@
   max-width: 44rem;
   width: 100%;
   border-radius: 5px;
+  padding: 1rem;
 }
-
 .bookcard-item::before, .musiccard-item::before, .moviecard-item::before {
   content: "";
   display: block;
@@ -706,18 +683,38 @@
   top: -5%;
   left: -5%;
   z-index: 0;
-  background-color: antiquewhite;
+  background-color: rgb(250, 235, 215);
   filter: blur(1rem) brightness(0.4);
   background-position: center;
   background-size: cover;
 }
 
+.bookcard-item-bg, .musiccard-item-bg, .moviecard-item-bg {
+  position: absolute;
+  width: 110%;
+  height: 110%;
+  top: -5%;
+  left: -5%;
+  z-index: 0;
+  border-radius: 5px;
+  background-color: rgb(250, 235, 215);
+  filter: blur(1rem) brightness(0.5);
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.bookcard-item-bg p, .musiccard-item-bg p, .moviecard-item-bg p {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .bookcard-main, .musiccard-main, .moviecard-main {
   overflow: hidden;
-  color: antiquewhite;
+  color: rgb(250, 235, 215);
   z-index: 1;
   width: calc(100% - 2rem);
-  margin: 1rem;
 }
 
 .bookcard-main-info, .musiccard-main-info, .moviecard-main-info {
@@ -730,14 +727,28 @@
   max-height: 10rem;
   max-width: 7rem;
   width: 20%;
-  aspect-ratio: 30 / 43;
+  aspect-ratio: 30/43;
+  border-radius: 5px;
 }
 
 .musiccard-info-cover {
   height: auto;
   width: 20%;
   max-width: 7rem;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1/1;
+  border-radius: 5px;
+}
+
+.bookcard-info-cover-img, .musiccard-info-cover-img, .moviecard-info-cover-img, .bookcard-info-cover p, .musiccard-info-cover p, .moviecard-info-cover-img p, .bookcard-info-cover-img p span, .musiccard-info-cover-img p span, .moviecard-info-cover-img p span, .bookcard-info-cover-img p span img, .musiccard-info-cover-img p span img, .moviecard-info-cover-img p span img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
 }
 
 .bookcard-info-content, .musiccard-info-content, .moviecard-info-content {
@@ -748,6 +759,7 @@
   margin-bottom: 0.5rem;
   font-size: 1rem;
   font-weight: bold;
+  line-clamp: 1;
   -webkit-line-clamp: 1;
 }
 
@@ -758,6 +770,7 @@
 
 .bookcard-main-introduction, .moviecard-main-introduction {
   font-size: 0.8rem;
+  line-clamp: 2;
   -webkit-line-clamp: 2;
   margin-top: 0.5rem;
 }
@@ -775,34 +788,32 @@
     margin-top: 0.5rem;
   }
 }
-
 /* Album 画册 */
 .album .album-item {
   grid-gap: 0.25rem;
   gap: 0.25rem;
 }
-
 .album .album-item .album-item-title {
   text-align: center;
   font-weight: bold;
   padding: 0.5rem 0;
 }
-
 .album .album-item .album-item-images {
   grid-gap: 0.25rem;
   gap: 0.25rem;
 }
-
 .album .album-item .album-item-images-item {
-  aspect-ratio: 12 / 10;
-  object-fit: cover;
+  aspect-ratio: 12/10;
+  -o-object-fit: cover;
+     object-fit: cover;
   overflow: hidden;
   border-radius: 5px;
 }
 
 .album-item-images-item p, .album-item-images-item p span {
-  aspect-ratio: 12 / 10;
-  object-fit: cover;
+  aspect-ratio: 12/10;
+  -o-object-fit: cover;
+     object-fit: cover;
   overflow: hidden;
   margin-block-start: 0;
   margin-block-end: 0;
@@ -813,7 +824,8 @@
 .album-item-images-item p img, .album-item-images-item p span img {
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 5px;
 }
 
@@ -860,7 +872,6 @@
   padding: 0.5rem;
   background-color: var(--background-primary-alt);
 }
-
 .subfield .subfield-item:hover {
   background-color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.2);
 }
@@ -870,22 +881,18 @@
   display: flex;
   flex-wrap: wrap;
 }
-
 .namecard .namecard-item {
   width: 14rem;
   min-height: 6rem;
   border-width: 0;
 }
-
 .namecard .namecard-item .namecard-item-info {
   display: flex;
 }
-
 .namecard .namecard-item .namecard-item-info .namecard-item-profile {
   height: auto;
   width: auto;
 }
-
 .namecard .namecard-item .namecard-item-info .namecard-item-profile-img {
   width: 1rem;
   height: 1rem;
@@ -896,26 +903,24 @@
   border-radius: 50%;
   color: #ffffff;
 }
-
 .namecard .namecard-item .namecard-item-info .namecard-item-content {
   margin-left: 1rem;
 }
-
 .namecard .namecard-item .namecard-item-info .namecard-item-content-name {
   font-weight: bold;
   font-size: 1rem;
 }
-
 .namecard .namecard-item .namecard-item-info .namecard-item-content-tags {
+  line-clamp: 1;
   -webkit-line-clamp: 1;
   height: auto;
   width: auto;
   font-size: 0.8rem;
   margin-top: 0.2rem;
 }
-
 .namecard .namecard-item .namecard-item-remark {
   margin-top: 0.5rem;
+  line-clamp: 2;
   -webkit-line-clamp: 2;
   height: auto;
   min-height: 2rem;
@@ -927,32 +932,27 @@
     width: 100%;
   }
 }
-
 /* CountDown 倒计时 */
 .countdown {
   grid-template-columns: 1fr;
   min-width: 12.5rem;
 }
-
 .countdown .countdown-item {
   width: 100%;
   padding: 1rem 0;
   display: flex;
   flex-direction: row;
 }
-
 .countdown .countdown-item .countdown-item-title {
   width: calc(50% - 1rem);
   text-align: left;
   margin: auto 1rem;
   font-size: 0.8rem;
 }
-
 .countdown .countdown-item .countdown-item-title .countdown-item-count-title {
   font-weight: bold;
   font-size: 1rem;
 }
-
 .countdown .countdown-item .countdown-item-count {
   display: flex;
   margin-right: 1rem;
@@ -960,20 +960,19 @@
   align-items: center;
   width: calc(50% - 1rem);
 }
-
 .countdown .countdown-item .countdown-item-count .countdown-item-count-num, .countdown .countdown-item .countdown-item-count .countdown-item-count-unit {
   margin: 0 0.125rem;
+  height: -moz-fit-content;
   height: fit-content;
+  width: -moz-fit-content;
   width: fit-content;
 }
-
 .countdown .countdown-item .countdown-item-count .countdown-item-count-num {
   font-size: 1.2rem;
   color: #ffffff;
   padding: 0.5rem 0.8rem;
   min-width: 1.2rem;
 }
-
 .countdown .countdown-item .countdown-item-count .countdown-item-count-unit {
   font-size: 0.8rem;
   padding: 0.7rem 0;
@@ -993,5 +992,4 @@
     justify-content: center;
     margin: 1rem;
   }
-}
-/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=styles.css.map */

@@ -25,7 +25,7 @@ export class CountdownCardElement {
 		context: MarkdownPostProcessorContext,
 		app: App
 	) {
-		element.className = "container";
+		element.className = "cards-container";
 		this.app = app;
 		this.context = context;
 		this.source = source;

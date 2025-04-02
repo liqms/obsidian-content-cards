@@ -8,27 +8,13 @@
 	<title>Content Cards</title>
 	<link rel="stylesheet" href="../styles.css" />
 	<link rel="stylesheet" href="./ob-pre.css" />
-	<style>
-		.bookcard-item::before {
-			background-image: url(https://img9.doubanio.com/view/subject/l/public/s34454244.jpg);
-		}
 
-		.musiccard-item-pg-0::before {
-			background-image: url(https://p1.music.126.net/GZERNplXUdzTPkKqo2F4tA==/109951169217536854.jpg);
-		}
-		.musiccard-item-pg-1::before {
-			background-image: url(https://img9.doubanio.com/view/subject/l/public/s34454244.jpg);
-		}
-		.moviecard-item::before {
-			background-image: url(https://img2.doubanio.com/view/subject/l/public/s33797431.jpg);
-		}
-	</style>
 </head>
 
 <body>
 	<h1>Timeline 时间轴</h1>
 	<h2>Timeline 时间轴 - 竖向</h2>
-	<div class="container timeline-v">
+	<div class="cards-container timeline-v">
 		<div class="timeline-v-item">
 			<div class="vertical-line line-v-color-red"></div>
 			<div class="timeline-v-time">2024-12-12</div>
@@ -63,7 +49,7 @@
 	</div>
 
 	<h2>Timeline 时间轴 - 横向</h2>
-	<div class="container timeline-h">
+	<div class="cards-container timeline-h">
 		<div class="timeline-h-item">
 			<div class="timeline-h-time">2024-12-12</div>
 			<div class="timeline-h-hr line-h-color-active"></div>
@@ -95,7 +81,7 @@
 	</div>
 
 	<h1>HighlightBlock 高亮块</h1>
-	<div class="container highlightblock">
+	<div class="cards-container highlightblock">
 		<div class="highlightblock-item body-color-yellow">
 			高亮块内容高亮块内容高亮块内容高亮
 		</div>
@@ -108,7 +94,7 @@
 	</div>
 
 	<h1>TargetCard 指标卡片</h1>
-	<div class="container target-card">
+	<div class="cards-container target-card">
 		<div class="target-card-item body-color-blue">
 			<div class="target-card-item-title">指标1</div>
 			<div class="target-card-item-content">
@@ -147,8 +133,14 @@
 	</div>
 
 	<h1>BookCard 图书卡片</h1>
-	<div class="container">
+	<div class="cards-container">
 		<div class="bookcard-item">
+			<div class="bookcard-item-bg">
+				<p dir="auto">
+					<img src="https://img9.doubanio.com/view/subject/l/public/s34454244.jpg"
+						alt="" />
+				</p>
+			</div>
 			<div class="bookcard-main">
 				<div class="bookcard-main-info">
 					<div class="bookcard-info-cover">
@@ -175,8 +167,14 @@
 	</div>
 
 	<h1>MusicCard 音乐卡片</h1>
-	<div class="container">
-		<div class="musiccard-item musiccard-item-pg-0">
+	<div class="cards-container">
+		<div class="musiccard-item">
+			<div class="musiccard-item-bg">
+				<p dir="auto">
+					<img src="https://p1.music.126.net/GZERNplXUdzTPkKqo2F4tA==/109951169217536854.jpg"
+						alt="" referrerpolicy="no-referrer" />
+				</p>
+			</div>
 			<div class="musiccard-main">
 				<div class="musiccard-main-info">
 					<div class="musiccard-info-cover">
@@ -197,8 +195,14 @@
 		</div>
 	</div>
 
-	<div class="container">
-		<div class="musiccard-item musiccard-item-pg-1">
+	<div class="cards-container">
+		<div class="musiccard-item">
+			<div class="musiccard-item-bg">
+				<p dir="auto">
+					<img src="https://img9.doubanio.com/view/subject/l/public/s34454244.jpg"
+						alt="" referrerpolicy="no-referrer" />
+				</p>
+			</div>
 			<div class="musiccard-main">
 				<div class="musiccard-main-info">
 					<div class="musiccard-info-cover">
@@ -220,8 +224,14 @@
 	</div>
 
 	<h1>MovieCard 电影卡片</h1>
-	<div class="container moviecard">
+	<div class="cards-container moviecard">
 		<div class="moviecard-item">
+			<div class="moviecard-item-bg">
+				<p dir="auto">
+					<img src="https://img2.doubanio.com/view/subject/l/public/s33797431.jpg"
+						alt="" referrerpolicy="no-referrer" />
+				</p>
+			</div>
 			<div class="moviecard-main">
 				<div class="moviecard-main-info">
 					<div class="moviecard-info-cover">
@@ -250,10 +260,10 @@
 
 	<h1>Album 画册</h1>
 	<h2>Album 画册 - 网络图片</h2>
-	<div class="container album">
-		<div class="container album-item">
+	<div class="cards-container album">
+		<div class="cards-container album-item">
 			<div class="album-item-title body-color-blue">相册名称</div>
-			<div class="container album-item-images grid-3">
+			<div class="cards-container album-item-images grid-3">
 				<div class="album-item-images-item">
 					<img src="https://img-download.pchome.net/download/1k0/xd/2i/odbf7c-1xnq.jpg" alt="" />
 				</div>
@@ -264,7 +274,7 @@
 					<img src="https://img-download.pchome.net/download/1k0/xd/2i/odbf7c-1xnq.jpg" alt="" />
 				</div>
 			</div>
-			<div class="container album-item-images grid-2">
+			<div class="cards-container album-item-images grid-2">
 				<div class="album-item-images-item">
 					<img src="https://img-download.pchome.net/download/1k0/xd/2i/odbf7c-1xnq.jpg" alt="" />
 				</div>
@@ -275,10 +285,10 @@
 		</div>
 	</div>
 	<h2>Album 画册 - 本地图片</h2>
-	<div class="container album">
-		<div class="container album-item">
+	<div class="cards-container album">
+		<div class="cards-container album-item">
 			<div class="album-item-title body-color-blue">相册名称</div>
-			<div class="container album-item-images grid-3">
+			<div class="cards-container album-item-images grid-3">
 				<div class="album-item-images-item">
 
 					<p dir="auto">
@@ -303,7 +313,7 @@
 
 				</div>
 			</div>
-			<div class="container album-item-images grid-2">
+			<div class="cards-container album-item-images grid-2">
 				<div class="album-item-images-item">
 					<div>
 						<p dir="auto">
@@ -323,7 +333,7 @@
 	</div>
 
 	<h1>Subfield 分栏</h1>
-	<div class="container subfield column-2">
+	<div class="cards-container subfield column-2">
 		<div class="subfield-item body-color-secondary">
 			分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容分栏内容
 		</div>
@@ -333,7 +343,7 @@
 	</div>
 
 	<h1>NameCard 名片</h1>
-	<div class="container namecard">
+	<div class="cards-container namecard">
 		<div class="namecard-item body-color-active">
 			<div class="namecard-item-info">
 				<div class="namecard-item-profile">
@@ -374,7 +384,7 @@
 
 	<h1>CountDown 倒计时</h1>
 	<h2>倒计时</h2>
-	<div class="container countdown">
+	<div class="cards-container countdown">
 		<div class="countdown-item body-color-secondary">
 			<div class="countdown-item-title">
 				距离
@@ -399,7 +409,7 @@
 	</div>
 
 	<h2>倒计日</h2>
-	<div class="container countdown">
+	<div class="cards-container countdown">
 		<div class="countdown-item body-color-secondary">
 			<div class="countdown-item-title">
 				距离

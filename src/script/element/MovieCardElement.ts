@@ -13,7 +13,7 @@ export class MovieCardElement {
 		context: MarkdownPostProcessorContext,
 		app: App
 	) {
-		element.className = "container";
+		element.className = "cards-container";
 		this.app = app;
 		this.context = context;
 		this.source = source;
@@ -29,19 +29,31 @@ export class MovieCardElement {
 			const cardEl = cardsEl.createDiv({
 				cls: "moviecard-item",
 			});
-			cardEl.addClass("moviecard-item-pg-" + timestamp);
-			// 插入背景图, 插入到body中
-			const style = document.createElement("style");
-			const bgImgAttr = document.createTextNode(
-				".moviecard-item-pg-" +
+			// 判断图片是网络图片还是本地图片
+			if (item.cover.startsWith("http")) {
+				cardEl.addClass("moviecard-item-pg-" + timestamp);
+				// 插入背景图, 插入到body中
+				const style = document.createElement("style");
+				const bgImgAttr = document.createTextNode(
+					".moviecard-item-pg-" +
 					timestamp +
 					"::before { background-image: url(" +
 					item.cover +
 					");}"
-			);
-			style.appendChild(bgImgAttr);
-			document.body.appendChild(style);
-			// 插入背景图结束
+				);
+				style.appendChild(bgImgAttr);
+				document.body.appendChild(style);
+				// 插入背景图结束
+			} else if (item.cover.startsWith("!")) {
+				const moviecardBgEl = new ItemContent(
+					item.cover,
+					cardEl,
+					this.context,
+					this.app
+				);
+				moviecardBgEl.itemEl.classList.add("moviecard-item-bg");
+			}
+
 			const CardMainEl = cardEl.createDiv({
 				cls: "moviecard-main",
 			});
@@ -53,10 +65,22 @@ export class MovieCardElement {
 			const coverEl = infoEl.createDiv({
 				cls: "moviecard-info-cover",
 			});
-			const img: HTMLImageElement = coverEl.createEl("img");
-			img.src = item.cover;
-			img.alt = "cover";
-			img.referrerPolicy = "no-referrer";
+			// 判断图片是网络图片还是本地图片
+			if (item.cover.startsWith("http")) {
+				const img: HTMLImageElement = coverEl.createEl("img");
+				img.src = item.cover;
+				img.alt = "cover";
+				img.referrerPolicy = "no-referrer";
+			} else if (item.cover.startsWith("!")) {
+				const coverImgEl = new ItemContent(
+					item.cover,
+					coverEl,
+					this.context,
+					this.app
+				);
+				coverImgEl.itemEl.classList.add("moviecard-info-cover-img");
+			}
+
 			const contentEl = infoEl.createDiv({
 				cls: "moviecard-info-content",
 			});

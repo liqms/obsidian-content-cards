@@ -13,7 +13,7 @@ export class MusicCardElement {
 		context: MarkdownPostProcessorContext,
 		app: App
 	) {
-		element.className = "container";
+		element.className = "cards-container";
 		this.app = app;
 		this.context = context;
 		this.source = source;
@@ -31,19 +31,31 @@ export class MusicCardElement {
 			const cardEl = cardsEl.createDiv({
 				cls: "musiccard-item",
 			});
-			cardEl.addClass("musiccard-item-pg-" + timestamp);
-			// 插入背景图
-			const style = document.createElement("style");
-			const bgImgAttr = document.createTextNode(
-				".musiccard-item-pg-" +
+			// 判断图片是网络图片还是本地图片
+			if (item.cover.startsWith("http")) {
+				cardEl.addClass("musiccard-item-pg-" + timestamp);
+				// 插入背景图
+				const style = document.createElement("style");
+				const bgImgAttr = document.createTextNode(
+					".musiccard-item-pg-" +
 					timestamp +
 					"::before { background-image: url(" +
 					item.cover +
 					");}"
-			);
-			style.appendChild(bgImgAttr);
-			document.body.appendChild(style);
-			// 插入背景图结束
+				);
+				style.appendChild(bgImgAttr);
+				document.body.appendChild(style);
+				// 插入背景图结束
+			} else if (item.cover.startsWith("!")) {
+				const musiccardBgEl = new ItemContent(
+					item.cover,
+					cardEl,
+					this.context,
+					this.app
+				);
+				musiccardBgEl.itemEl.classList.add("musiccard-item-bg");
+			}
+
 			const CardMainEl = cardEl.createDiv({
 				cls: "musiccard-main",
 			});
@@ -53,10 +65,22 @@ export class MusicCardElement {
 			const coverEl = infoEl.createDiv({
 				cls: "musiccard-info-cover",
 			});
-			const imgEl: HTMLImageElement = coverEl.createEl("img");
-			imgEl.src = item.cover;
-			imgEl.alt = "cover";
-			imgEl.referrerPolicy = "no-referrer";
+			// 判断图片是网络图片还是本地图片
+			if (item.cover.startsWith("http")) {
+				const imgEl: HTMLImageElement = coverEl.createEl("img");
+				imgEl.src = item.cover;
+				imgEl.alt = "cover";
+				imgEl.referrerPolicy = "no-referrer";
+			} else if (item.cover.startsWith("!")) {
+				const coverImgEl = new ItemContent(
+					item.cover,
+					coverEl,
+					this.context,
+					this.app
+				);
+				coverImgEl.itemEl.classList.add("musiccard-info-cover-img");
+			}
+
 
 			const contentEl = infoEl.createDiv({
 				cls: "musiccard-info-content",

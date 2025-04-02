@@ -14,7 +14,7 @@ export class AlbumCardElement {
 		context: MarkdownPostProcessorContext,
 		app: App
 	) {
-		element.className = "container";
+		element.className = "cards-container";
 		this.app = app;
 		this.context = context;
 		this.source = source;
@@ -31,7 +31,7 @@ export class AlbumCardElement {
 				AlbumCardItemInfo[e].images
 			);
 			const cardEl = cardsEl.createDiv();
-			cardEl.classList.add("container", "album-item");
+			cardEl.classList.add("cards-container", "album-item");
 			const titleEl = cardEl.createDiv({
 				cls: "album-item-title",
 				text: AlbumCardItemInfo[e].title,
@@ -47,7 +47,7 @@ export class AlbumCardElement {
 
 			for (let g = 0; g < imagesArray.length; g++) {
 				const imagesGirdEl = cardEl.createDiv();
-				imagesGirdEl.classList.add("container", "album-item-images");
+				imagesGirdEl.classList.add("cards-container", "album-item-images");
 				const ImagesArrayItems = this.toImagesArrayItems(
 					imagesArray[g]
 				);

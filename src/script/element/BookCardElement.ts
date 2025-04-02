@@ -14,7 +14,7 @@ export class BookCardElement {
 		context: MarkdownPostProcessorContext,
 		app: App
 	) {
-		element.className = "container";
+		element.className = "cards-container";
 		this.app = app;
 		this.context = context;
 		this.source = source;
@@ -30,7 +30,9 @@ export class BookCardElement {
 			const cardEl = cardsEl.createDiv({
 				cls: "bookcard-item",
 			});
-			cardEl.addClass("bookcard-item-pg-" + timestamp);
+			// 判断图片是网络图片还是本地图片
+			if (item.cover.startsWith("http")) {
+				cardEl.addClass("bookcard-item-pg-" + timestamp);
 			// 插入背景图, 插入到body中,内联样式
 			const style = document.createElement("style");
 			const bgImgAttr = document.createTextNode(
@@ -43,6 +45,16 @@ export class BookCardElement {
 			style.appendChild(bgImgAttr);
 			document.body.appendChild(style);
 			// 插入背景图结束
+			}else if(item.cover.startsWith("!")){
+				const bookcardBgEl = new ItemContent(
+					item.cover,
+					cardEl,
+					this.context,
+					this.app
+				);
+				bookcardBgEl.itemEl.classList.add("bookcard-item-bg");
+			}
+			
 
 			const CardMainEl = cardEl.createDiv({
 				cls: "bookcard-main",
@@ -53,10 +65,22 @@ export class BookCardElement {
 			const coverEl = infoEl.createDiv({
 				cls: "bookcard-info-cover",
 			});
-			const imgEl: HTMLImageElement = coverEl.createEl("img");
-			imgEl.src = item.cover;
-			imgEl.alt = "cover";
-			imgEl.referrerPolicy = "no-referrer";
+			// 判断图片是网络图片还是本地图片
+			if (item.cover.startsWith("http")) {
+				const imgEl: HTMLImageElement = coverEl.createEl("img");
+				imgEl.src = item.cover;
+				imgEl.alt = "cover";
+				imgEl.referrerPolicy = "no-referrer";
+			} else if (item.cover.startsWith("!")) {
+				const coverImgEl = new ItemContent(
+					item.cover,
+					coverEl,
+					this.context,
+					this.app
+				);
+				coverImgEl.itemEl.classList.add("bookcard-info-cover-img");
+			}
+			
 			const contentEl = infoEl.createDiv({
 				cls: "bookcard-info-content",
 			});
@@ -83,7 +107,7 @@ export class BookCardElement {
 				"description"
 			);
 		});
-
+	
 		return cardsEl;
 	}
 }
