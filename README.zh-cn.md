@@ -11,9 +11,10 @@
 
 -   支持 Obsidian 移动版
 -   支持英文和中文
--   照片专辑支持本地图片
+-   支持本地图片
 -   支持自定义代码块语法
 -   增加内容卡片：思维导图（计划）
+-   增加内容卡片：SWOT（计划）
 
 # I 安装
 
@@ -159,6 +160,8 @@ unit: 元
 
 使用 `cards-book` 语法插入一个代码块。
 
+**网络图片**
+
 ````
 ```cards-book
 @card
@@ -174,12 +177,29 @@ introduction:
 ```
 ````
 
+**本地图片**
+
+````
+```cards-book
+@card
+title: Blindness Chronicles
+cover: ![[files/image-1.png]]
+meta:
+分类: 计算机
+出版日期: 2022-08-27
+作者: 若泽·萨拉马戈
+评分: 9.1
+introduction:
+街上出现了第一个突然失明的人，紧接着是第二个、第三个……  一种会传染的失明症在城市蔓延，无人知晓疫情为何爆发、何时结束。  失明症造成了前所未有的恐慌与灾难
+```
+````
+
 ### 参数
 
 | Option       | Type   | Required | Description                                                   |
 | ------------ | ------ | -------- | ------------------------------------------------------------- |
 | title        | string | Yes      | title , 图书名称                                              |
-| cover        | string | Yes      | Cover image, web url(https://...) , 封面图片 url              |
+| cover        | string | Yes      | Cover image, web url(https://...) 或 本地图片，封面图片 url   |
 | meta         | object | Yes      | meta，图书元数据                                              |
 | introduction | string | Yes      | Introduction, 介绍，可以多行文本，但只有前 3 行将显示在卡片上 |
 
@@ -190,6 +210,8 @@ introduction:
 ### Markdown 语法
 
 使用 `cards-music` 语法插入一个代码块。
+
+**网络图片**
 
 ````
 ```cards-music
@@ -202,13 +224,26 @@ meta:
 ```
 ````
 
+**本地图片**
+
+````
+```cards-music
+@card
+title: Love Story
+cover: ![[files/image-1.png]]
+meta:
+艺术家: Taylor Swift
+流派: 流行
+```
+````
+
 ### 参数
 
-| Option | Type   | Required | Description                                                   |
-| ------ | ------ | -------- | ------------------------------------------------------------- |
-| title  | string | Yes      | title , 音乐名称                                              |
-| cover  | string | Yes      | Cover image, web url(https://...) are supported, 封面图片 url |
-| meta   | object | Yes      | meta，音乐元数据                                              |
+| Option | Type   | Required | Description                                                  |
+| ------ | ------ | -------- | ------------------------------------------------------------ |
+| title  | string | Yes      | title , 音乐名称                                             |
+| cover  | string | Yes      | Cover image, web url(https://...) 或 本地图片， 封面图片 url |
+| meta   | object | Yes      | meta，音乐元数据                                             |
 
 ## 电影卡片
 
@@ -217,6 +252,8 @@ meta:
 ### Markdown 语法
 
 使用 `cards-movie` 语法插入一个代码块。
+
+**网络图片**
 
 ````
 ```cards-movie
@@ -234,12 +271,30 @@ introduction:
 ```
 ````
 
+**本地图片**
+
+````
+```cards-movie
+@card
+title: 流浪地球2
+cover: ![[files/image-1.png]]
+meta:
+导演: 郭帆
+演员: 吴京 / 刘德华 / 李雪健 / 沙溢
+分类: 国产
+上映日期: 2023-01-22
+评分: 8.3
+introduction:
+在并不遥远的未来，太阳急速衰老与膨胀，再过几百年整个太阳系将被它吞噬毁灭。为了应对这场史无前例的危机，地球各国放下芥蒂，成立联合政府，试图寻找人类存续的出路。通过摸索与考量，最终推着地球逃出太阳系的“移山计划”获得压倒性胜利。人们着手建造上万台巨大的行星发动机，带着地球踏上漫漫征程。满腔赤诚的刘培强（吴京 饰）和韩朵朵（王智 饰）历经层层考验成为航天员大队的一员，并由此相知相恋。但是漫漫征途的前方，仿佛有一股神秘的力量不断破坏者人类的自救计划。看似渺小的刘培强、量子科学家图恒宇（刘德华 饰）、联合政府中国代表周喆直（李雪健 饰）以及无数平凡的地球人，构成了这项伟大计划的重要一环……
+```
+````
+
 ### 参数
 
 | Option       | Type   | Required | Description                                                   |
 | ------------ | ------ | -------- | ------------------------------------------------------------- |
 | title        | string | Yes      | title , 电影名称                                              |
-| cover        | string | Yes      | Cover image, web url(https://...) , 封面图片 url              |
+| cover        | string | Yes      | Cover image, web url(https://...) 或 本地图片, 封面图片 url   |
 | meta         | object | Yes      | meta，电影元数据                                              |
 | introduction | string | Yes      | Introduction, 介绍，可以多行文本，但只有前 3 行将显示在卡片上 |
 
@@ -377,12 +432,13 @@ time: 2026-01-01
 
 # 版本历史
 
-| Version  | Date       | Notes                               |
-| -------- | ---------- | ----------------------------------- |
-| `1.0.0`  | 2024-12-24 | Initial release                     |
-| `1.0.10` | 2025-03-12 | Support English and Chinese         |
-| `1.0.11` | 2024-03-15 | Photoes Ablum Support Local Images. |
-| `1.1.0`  | 2024-03-19 | Supports custom codeblock language. |
+| Version  | Date       | Notes                                              |
+| -------- | ---------- | -------------------------------------------------- |
+| `1.0.0`  | 2024-12-24 | Initial release                                    |
+| `1.0.10` | 2025-03-12 | Support English and Chinese                        |
+| `1.0.11` | 2024-03-15 | Photoes Ablum Support Local Images.                |
+| `1.1.0`  | 2024-03-19 | Supports custom codeblock language.                |
+| `1.1.4`  | 2024-04-02 | Bookcard Musiccard Moviecard Support Local Images. |
 
 # 付费
 

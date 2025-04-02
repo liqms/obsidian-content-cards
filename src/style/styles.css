@@ -821,7 +821,7 @@
   padding: 0;
 }
 
-.album-item-images-item p img, .album-item-images-item p span img {
+.album-item-images-item img, .album-item-images-item p img, .album-item-images-item p span img {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
