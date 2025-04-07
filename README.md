@@ -11,10 +11,11 @@ Insert content cards in Markdown, such as timeline, highlightblock, target card,
 
 -   Obsidian Mobile supported.
 -   Support English and Chinese.
--   Photoes Ablum Support Local Images.
+-   Support Local Images.
 -   Supports custom codeblock language.
 -   Add new card: Mindmap. (plan)
 -   Add new card: SWOT. (plan)
+-   Gets values from metadata. (plan)
 
 # Installation
 
