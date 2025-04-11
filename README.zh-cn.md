@@ -5,7 +5,7 @@
 
 [English](README.md) | 中文
 
-在 Markdown 中插入各种内容卡片，包括时间轴，高亮块，指标卡片，图书卡片，音乐卡片，电影卡片，照片专辑，名片，内容分栏，倒计时等。
+在 Markdown 中插入各种内容卡片，包括时间轴，高亮块，指标卡片，图书卡片，音乐卡片，电影卡片，照片专辑，名片，内容分栏，倒计时，四象限分析，SWOT 分析。
 
 # 特性
 
@@ -13,8 +13,8 @@
 -   支持英文和中文
 -   支持本地图片
 -   支持自定义代码块语法
+-   增加内容卡片：SWOT 分析和四象限分析
 -   增加内容卡片：思维导图（计划）
--   增加内容卡片：SWOT（计划）
 -   从元数据中获取值（计划）
 
 # I 安装
@@ -423,6 +423,90 @@ time: 2026-01-01
 | type   | string | Yes      | type,currently supports `day`,`sec` / 类型                               |
 | time   | string | Yes      | type = day, date, eg: 2024-02-12<br/>type = sec, timestamp, eg: 12:03:30 |
 
+## SWOT 分析
+
+![](/images/swot.png)
+
+### 语法
+
+使用 `cards-swot` 语法插入一个代码块。
+
+````
+```cards-swot
+@card
+s-content:
+## 限内容第三象限内容第三象限内容第三象限内容容第三象限内
+1. 第三象限内容第三象限内容
+w-content:
+2. 威胁
+3. 内容
+## 限内容第三象限内**容第三象限内容第三**象限内容
+- 第三象限内容第三象限内容
+三象限内容第三象限内容三象限内容第三象限内容三象限内容第三象限内容三象限内容第三象限内容
+o-content:
+**机会内容**
+t-content:
+限内容第三象限内**容第三象限内容第三**象限内容
+1. 第三象限内容第三象限内容
+```
+````
+
+### 参数
+
+| Option    | Type   | Required | Description          |
+| --------- | ------ | -------- | -------------------- |
+| s-content | string | Yes      | s-content / 优势内容 |
+| w-content | string | Yes      | w-content / 劣势内容 |
+| o-content | string | Yes      | o-content / 机会内容 |
+| t-content | string | Yes      | t-content / 威胁内容 |
+
+## 四象限分析
+
+![](/images/bcg.png)
+
+### 语法
+
+使用 `cards-bcg` 语法插入一个代码块。
+
+````
+```cards-bcg
+@card
+x: 重要程度
+y: 紧急程度
+a1-title: 第一象限
+a1-content: 第一象限内容
+a2-title: 第二象限
+a2-content: 第二象限内容
+a3-title:
+第三象限第三象限内容第三象限内容
+第三象限内容第三象限内容第三象限内容第三象限内容第三象限内容第三象限内容第三象限内容
+a3-content:
+# 第三象限内容第三象限内容第三象
+## 限内容第三象限内**容第三象限内容第三**象限内容
+1. 第三象限内容第三象限内容
+2. 第三象限内容第三象限内容第三象限内容第三象限内容第三象限内容第三象限内容第三象限内容第三象限内容第三象限内容
+a4-title: 第四象限
+a4-content:
+2. 第四象限内容
+3. neiddddd
+```
+````
+
+### 参数
+
+| Option     | Type   | Required | Description               |
+| ---------- | ------ | -------- | ------------------------- |
+| x          | string | Yes      | x / x 轴名称              |
+| y          | string | Yes      | y / y 轴名称              |
+| a1-title   | string | Yes      | a1-title / 第一象限标题   |
+| a1-content | string | Yes      | a1-content / 第一象限内容 |
+| a2-title   | string | Yes      | a2-title / 第二象限标题   |
+| a2-content | string | Yes      | a2-content / 第二象限内容 |
+| a3-title   | string | Yes      | a3-title / 第三象限标题   |
+| a3-content | string | Yes      | a3-content / 第三象限内容 |
+| a4-title   | string | Yes      | a4-title / 第四象限标题   |
+| a4-content | string | Yes      | a4-content / 第四象限内容 |
+
 # 限制和已知问题
 
 非常欢迎你提出问题、发布任何建议或报告任何错误！该项目主要在 GitHub 上维护：
@@ -440,6 +524,7 @@ time: 2026-01-01
 | `1.0.11` | 2024-03-15 | Photoes Ablum Support Local Images.                |
 | `1.1.0`  | 2024-03-19 | Supports custom codeblock language.                |
 | `1.1.4`  | 2024-04-02 | Bookcard Musiccard Moviecard Support Local Images. |
+| `1.1.5`  | 2024-04-11 | Add SWOT and BCG.                                  |
 
 # 付费
 

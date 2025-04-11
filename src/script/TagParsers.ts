@@ -219,6 +219,50 @@ const CountdownCardParser = (source: string): CountdownItemInfo[] => {
 	return parsed;
 };
 
+// BCGS 插件的 Tag 解析器
+const bcgRegex =
+	/^[ \t]*@card(.+?)(?:^[ \t]*x:(.+?))?(?:^[ \t]*y:(.+?))?(?:^[ \t]*a1-title:(.+?))?(?:^[ \t]*a1-content:(.+?))?(?:^[ \t]*a2-title:(.+?))?(?:^[ \t]*a2-content:(.+?))?(?:^[ \t]*a3-title:(.+?))?(?:^[ \t]*a3-content:(.+?))?(?:^[ \t]*a4-title:(.+?))?(?:^[ \t]*a4-content:(.+?))?(?=^[ \t]*@card)/gimsu;
+
+const BCGCardParser = (source: string): BCGCardItemInfo[] => {
+	source += "\n@card";
+	let sourceMatch;
+	const parsed = [];
+	while ((sourceMatch = bcgRegex.exec(source)) !== null) {
+		parsed.push({
+			x: sourceMatch[2],
+			y: sourceMatch[3],
+			a1_title: sourceMatch[4],
+			a1_content: sourceMatch[5],
+			a2_title: sourceMatch[6],
+			a2_content: sourceMatch[7],
+			a3_title: sourceMatch[8],
+			a3_content: sourceMatch[9],
+			a4_title: sourceMatch[10],
+			a4_content: sourceMatch[11],
+		});
+	}
+	return parsed;
+};
+
+// SWOT 插件的 Tag 解析器
+const swotRegex =
+	/^[ \t]*@card(.+?)(?:^[ \t]*s-content:(.+?))?(?:^[ \t]*w-content:(.+?))?(?:^[ \t]*o-content:(.+?))?(?:^[ \t]*t-content:(.+?))?(?=^[ \t]*@card)/gimsu;
+
+const SWOTCardParser = (source: string): SWOTCardItemInfo[] => {
+	source += "\n@card";
+	let sourceMatch;
+	const parsed = [];
+	while ((sourceMatch = swotRegex.exec(source)) !== null) {
+		parsed.push({
+			s_content: sourceMatch[2],
+			w_content: sourceMatch[3],
+			o_content: sourceMatch[4],
+			t_content: sourceMatch[5],
+		});
+	}
+	return parsed;
+};
+
 export {
 	TimeLineParser,
 	HighlightblockParser,
@@ -230,4 +274,6 @@ export {
 	subfieldParser,
 	NameCardParser,
 	CountdownCardParser,
+	BCGCardParser,
+	SWOTCardParser,
 };

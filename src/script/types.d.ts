@@ -145,3 +145,39 @@ interface CountdownTagParser {
     tag: string,
     parser: CountdownParser
 }
+
+// BCG Card
+interface BCGCardItemInfo {
+    [key: string]: string,
+    x: string,
+    y: string,  
+    a1_title: string,
+    a1_content: string,
+    a2_title: string,
+    a2_content: string,
+    a3_title: string,
+    a3_content: string,
+    a4_title: string,
+    a4_content: string
+}
+type BCGCardParser = (source: string) => BCGCardItemInfo[];
+
+interface BCGCardTagParser {
+    tag: string,
+    parser: BCGCardParser
+}
+
+// SWOT Card
+interface SWOTCardItemInfo {
+    [key: string]: string,
+    s_content: string,
+    w_content: string,
+    o_content: string,
+    t_content: string,
+}
+type SWOTCardParser = (source: string) => SWOTCardItemInfo[];
+
+interface SWOTCardTagParser {
+    tag: string,
+    parser: SWOTCardParser
+}

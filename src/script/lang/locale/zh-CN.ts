@@ -24,6 +24,8 @@ export default {
 	subfieldLanguage_name: "内容分栏",
 	nameLanguage_name: "名片",
 	countdownLanguage_name: "倒计时",
+	bcgLanguage_name: "四象限分析",
+	swotLanguage_name: "SWOT分析",
 	timelineVLanguage_desc: "渲染为时间轴-竖版的代码块语言",
 	timelineHLanguage_desc: "渲染为时间轴-横版的代码块语言",
 	highlightblockLanguage_desc: "渲染为高亮块的代码块语言",
@@ -35,6 +37,12 @@ export default {
 	subfieldLanguage_desc: "渲染为内容分栏的代码块语言",
 	nameLanguage_desc: "渲染为名片的代码块语言",
 	countdownLanguage_desc: "渲染为倒计时的代码块语言",
+	bcgLanguage_desc: "渲染为四象限分析的代码块语言",
+	swotLanguage_desc: "渲染为SWOT分析的代码块语言",
 	language_placeholder: "请输入代码块语言",
 	reset_tooltip: "重置为默认值",
+	// BCGCardElement
+	high:"高",
+	low:"低",
+	
 };

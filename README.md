@@ -13,6 +13,7 @@ Insert content cards in Markdown, such as timeline, highlightblock, target card,
 -   Support English and Chinese.
 -   Support Local Images.
 -   Supports custom codeblock language.
+-   Add new card: SWOT and BCG.
 -   Add new card: Mindmap. (plan)
 -   Add new card: SWOT. (plan)
 -   Gets values from metadata. (plan)
@@ -423,6 +424,90 @@ time: 2026-01-01
 | type   | string | Yes      | type,currently supports `day`,`sec`                                  |
 | time   | string | Yes      | type=day, date, eg: 2024-02-12<br/>type=sec, timestamp, eg: 12:03:30 |
 
+## SWOT
+
+![](/images/swot.png)
+
+### Markdown Syntax
+
+Insert a codeblock with the `cards-swot` syntax.
+
+````
+```cards-swot
+@card
+s-content:
+## 限内容第三象限内容第三象限内容第三象限内容容第三象限内
+1. 第三象限内容第三象限内容
+w-content:
+2. 威胁
+3. 内容
+## 限内容第三象限内**容第三象限内容第三**象限内容
+- 第三象限内容第三象限内容
+三象限内容第三象限内容三象限内容第三象限内容三象限内容第三象限内容三象限内容第三象限内容
+o-content:
+**机会内容**
+t-content:
+限内容第三象限内**容第三象限内容第三**象限内容
+1. 第三象限内容第三象限内容
+```
+````
+
+### 参数
+
+| Option    | Type   | Required | Description                       |
+| --------- | ------ | -------- | --------------------------------- |
+| s-content | string | Yes      | s-content / Strengths Content     |
+| w-content | string | Yes      | w-content / Weaknesses Content    |
+| o-content | string | Yes      | o-content / Opportunities Content |
+| t-content | string | Yes      | t-content / Threats Content       |
+
+## BCG
+
+![](/images/bcg.png)
+
+### Markdown Syntax
+
+Insert a codeblock with the `cards-bcg` syntax.
+
+````
+```cards-bcg
+@card
+x: 重要程度
+y: 紧急程度
+a1-title: 第一象限
+a1-content: 第一象限内容
+a2-title: 第二象限
+a2-content: 第二象限内容
+a3-title:
+第三象限第三象限内容第三象限内容
+第三象限内容第三象限内容第三象限内容第三象限内容第三象限内容第三象限内容第三象限内容
+a3-content:
+# 第三象限内容第三象限内容第三象
+## 限内容第三象限内**容第三象限内容第三**象限内容
+1. 第三象限内容第三象限内容
+2. 第三象限内容第三象限内容第三象限内容第三象限内容第三象限内容第三象限内容第三象限内容第三象限内容第三象限内容
+a4-title: 第四象限
+a4-content:
+2. 第四象限内容
+3. neiddddd
+```
+````
+
+### 参数
+
+| Option     | Type   | Required | Description                          |
+| ---------- | ------ | -------- | ------------------------------------ |
+| x          | string | Yes      | x / x 轴名称                         |
+| y          | string | Yes      | y / y 轴名称                         |
+| a1-title   | string | Yes      | a1-title / First quadrant title      |
+| a1-content | string | Yes      | a1-content / First quadrant content  |
+| a2-title   | string | Yes      | a2-title / Second quadrant title     |
+| a2-content | string | Yes      | a2-content / Second quadrant content |
+| a3-title   | string | Yes      | a3-title / Third quadrant title      |
+| a3-content | string | Yes      | a3-content / Third quadrant content  |
+| a4-title   | string | Yes      | a4-title / Fourth quadrant title     |
+| a4-content | string | Yes      | a4-content / Fourth quadrant content |
+
 # Limitations and known bugs
 
 You are greatly welcome to ask questions, post any suggestions, or report any bugs! The project is mainly maintained on GitHub:
@@ -440,6 +525,7 @@ Known issues:
 | `1.0.11` | 2024-03-15 | Photoes Ablum Support Local Images.                |
 | `1.1.0`  | 2024-03-19 | Supports custom codeblock language.                |
 | `1.1.4`  | 2024-04-02 | Bookcard Musiccard Moviecard Support Local Images. |
+| `1.1.5`  | 2024-04-11 | Add SWOT Analysis and Four Quadrant Analysis.      |
 
 # Pricing
 

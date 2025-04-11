@@ -88,6 +88,8 @@ export default class ContentCardsPlugin extends Plugin {
 			this.settings.subfieldLanguage,
 			this.settings.nameLanguage,
 			this.settings.countdownLanguage,
+			this.settings.bcgLanguage,
+			this.settings.swotLanguage,
 		];
 	}
 

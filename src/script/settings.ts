@@ -15,6 +15,8 @@ export interface ContentCardsPluginSettings {
 	subfieldLanguage: string;
 	nameLanguage: string;
 	countdownLanguage: string;
+	bcgLanguage: string;
+	swotLanguage: string;
 }
 // 定义默认的 settings
 export const DEFAULT_SETTINGS: ContentCardsPluginSettings = {
@@ -29,6 +31,8 @@ export const DEFAULT_SETTINGS: ContentCardsPluginSettings = {
 	subfieldLanguage: "cards-subfield",
 	nameLanguage: "cards-name",
 	countdownLanguage: "cards-countdown",
+	bcgLanguage: "cards-bcg",
+	swotLanguage: "cards-swot",
 };
 // 定义 settings 的界面
 export class ContentCardsPluginSettingTab extends PluginSettingTab {
@@ -308,6 +312,54 @@ export class ContentCardsPluginSettingTab extends PluginSettingTab {
 					await this.plugin.saveSettings();
 					this.display();
 				});
+		});
+		const bcgLanguageVariable = new Setting(containerEl)
+
+			.setName(getTextInLanguage("bcgLanguage_name"))
+			.setDesc(getTextInLanguage("bcgLanguage_desc"))
+			.addText((text) =>
+				text
+					.setPlaceholder(getTextInLanguage("language_placeholder"))
+					.setValue(this.plugin.settings.bcgLanguage)
+					.onChange(async (value) => {
+						this.plugin.settings.bcgLanguage = value;
+						await this.plugin.saveSettings();
+					})
+			);
+		bcgLanguageVariable.addExtraButton((button) => {
+			button
+				.setIcon("reset")
+				.setTooltip(getTextInLanguage("reset_tooltip"))
+				.onClick(async () => {
+					this.plugin.settings.bcgLanguage =
+						DEFAULT_SETTINGS.bcgLanguage;
+					await this.plugin.saveSettings();
+					this.display();
+				});	
+		});
+		const swotLanguageVariable = new Setting(containerEl)
+
+			.setName(getTextInLanguage("swotLanguage_name"))
+			.setDesc(getTextInLanguage("swotLanguage_desc"))
+			.addText((text) =>
+				text
+					.setPlaceholder(getTextInLanguage("language_placeholder"))
+					.setValue(this.plugin.settings.swotLanguage)
+					.onChange(async (value) => {
+						this.plugin.settings.swotLanguage = value;
+						await this.plugin.saveSettings();
+					})
+			);
+		swotLanguageVariable.addExtraButton((button) => {
+			button
+				.setIcon("reset")
+				.setTooltip(getTextInLanguage("reset_tooltip"))
+				.onClick(async () => {
+					this.plugin.settings.swotLanguage =
+						DEFAULT_SETTINGS.swotLanguage;
+					await this.plugin.saveSettings();
+					this.display();
+				});	
 		});
 	}
 	refresh(): void {
