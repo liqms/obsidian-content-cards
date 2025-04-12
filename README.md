@@ -524,7 +524,7 @@ Known issues:
 | `1.0.11` | 2024-03-15 | Photoes Ablum Support Local Images.                |
 | `1.1.0`  | 2024-03-19 | Supports custom codeblock language.                |
 | `1.1.4`  | 2024-04-02 | Bookcard Musiccard Moviecard Support Local Images. |
-| `1.2.0`  | 2024-04-11 | Add SWOT Analysis and Four Quadrant Analysis.      |
+| `1.2.0`  | 2024-04-11 | Add SWOT Analysis and BCG Analysis.      |
 
 # Pricing
 
