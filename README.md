@@ -15,7 +15,6 @@ Insert content cards in Markdown, such as timeline, highlightblock, target card,
 -   Supports custom codeblock language.
 -   Add new card: SWOT and BCG.
 -   Add new card: Mindmap. (plan)
--   Add new card: SWOT. (plan)
 -   Gets values from metadata. (plan)
 
 # Installation
