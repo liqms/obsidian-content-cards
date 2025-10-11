@@ -69,7 +69,7 @@ export class TimelineHElement {
 				"description"
 			);
 
-			if (item.color !== null && item.color !== undefined) {
+			if (item.color !== null && item.color !== undefined && item.color !== '') {
 				hlineEl.classList.add("line-h-" + item.color);
 				contentEl.classList.add("body-" + item.color);
 			} else {

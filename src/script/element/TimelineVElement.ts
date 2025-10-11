@@ -61,7 +61,7 @@ export class TimelineVElement {
 			);
 			descriptionEl.itemEl.classList.add("timeline-v-description","description");
 
-			if (item.color !== null && item.color!== undefined) {
+			if (item.color !== null && item.color !== undefined && item.color !== '') {
 				vlineEl.classList.add("line-v-" + item.color);
 				contentEl.classList.add("line-v-body-" + item.color);
 			} else {

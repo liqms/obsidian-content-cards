@@ -90,7 +90,7 @@ export class CountdownCardElement {
 					cls: "countdown-item-count-unit",
 					text: getTextInLanguage("days"),
 				});
-				if (item.color !== null && item.color !== undefined) {
+				if (item.color !== null && item.color !== undefined && item.color !== '') {
 					numAEl.classList.add("accent-" + item.color);
 					numBEl.classList.add("accent-" + item.color);
 					numCEl.classList.add("accent-" + item.color);

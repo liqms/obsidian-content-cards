@@ -1,0 +1,15 @@
+{
+  "timelineVLanguage": "cards-timeline-v",
+  "timelineHLanguage": "cards-timeline-h",
+  "highlightblockLanguage": "cards-highlightblock",
+  "targetLanguage": "cards-target",
+  "bookLanguage": "cards-book",
+  "musicLanguage": "cards-music",
+  "movieLanguage": "cards-movie",
+  "albumLanguage": "cards-album",
+  "subfieldLanguage": "cards-subfield",
+  "nameLanguage": "cards-name",
+  "countdownLanguage": "cards-countdown",
+  "bcgLanguage": "cards-bcg",
+  "swotLanguage": "cards-swot"
+}

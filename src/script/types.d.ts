@@ -89,6 +89,7 @@ interface MovieCardItemInfo {
 interface AlbumCardItemInfo {
     [key: string]: string,
     color: string,
+    type: string,
     title: string,
     images: string
 }

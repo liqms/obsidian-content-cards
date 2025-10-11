@@ -112,45 +112,10 @@ $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "
     font-weight: bold
     line-height: 1.5rem
 /* 创建 n 个相等的列 web */
-.column-19
-    grid-template-columns: repeat(19, 1fr)
-.column-18
-    grid-template-columns: repeat(18, 1fr)
-.column-17
-    grid-template-columns: repeat(17, 1fr)
-.column-16
-    grid-template-columns: repeat(16, 1fr)
-.column-15
-    grid-template-columns: repeat(15, 1fr)
-.column-14
-    grid-template-columns: repeat(14, 1fr)
-.column-13
-    grid-template-columns: repeat(13, 1fr)
-.column-12
-    grid-template-columns: repeat(12, 1fr)
-.column-11
-    grid-template-columns: repeat(11, 1fr)
-.column-10
-    grid-template-columns: repeat(10, 1fr)
-.column-9
-    grid-template-columns: repeat(9, 1fr)
-.column-8
-    grid-template-columns: repeat(8, 1fr)
-.column-7
-    grid-template-columns: repeat(7, 1fr)
-.column-6
-    grid-template-columns: repeat(6, 1fr)
-.column-5
-    grid-template-columns: repeat(5, 1fr)
-.column-4
-    grid-template-columns: repeat(4, 1fr)
-.column-3
-    grid-template-columns: repeat(3, 1fr)
-.column-2
-    grid-template-columns: repeat(2, 1fr)
-.column-1
-    grid-template-columns: 1fr
-
+@for $var from 1 through 20
+    .column-#{$var}
+        grid-template-columns: repeat(#{$var}, 1fr)
+  
 /*时间轴布局*/            
 @media screen and (min-width: 480px)
     .timeline-v-item
@@ -460,25 +425,36 @@ $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "
     width: 100%
     object-fit: cover
     border-radius: 5px
+
+/* Album 画册-瀑布流 */
+.waterfall
+    display: flex
+    flex-direction: row
+    gap: calc($box-spacing / 4)
+    width: 100%
+    .waterfall-column-images
+        // flex: 1
+        width: 100%        
+        .waterfall-column-images-item
+            object-fit: cover
+            overflow: hidden
+            border-radius: 5px
+            // margin-bottom: calc($box-spacing / 4)
+
+.waterfall-column-images-item img,.waterfall-column-images-item p img, .waterfall-column-images-item p span img
+    height: 100%
+    width: 100%
+    object-fit: cover
+    border-radius: 5px
+.waterfall-column-images-item p
+    margin-block-start: 0
+    margin-block-end: 0
+    margin: 0
+    padding: 0
 /*images grid*/
-.grid-1
-    grid-template-columns: 1fr
-.grid-2
-    grid-template-columns: repeat(2, 1fr)
-.grid-3
-    grid-template-columns: repeat(3, 1fr)
-.grid-4
-    grid-template-columns: repeat(4, 1fr)
-.grid-5
-    grid-template-columns: repeat(5, 1fr)
-.grid-6
-    grid-template-columns: repeat(6, 1fr)
-.grid-7
-    grid-template-columns: repeat(7, 1fr)
-.grid-8
-    grid-template-columns: repeat(8, 1fr)
-.grid-9
-    grid-template-columns: repeat(9, 1fr)
+@for $i from 1 through 9
+.grid-#{$i}
+    grid-template-columns: repeat(#{$i}, 1fr)
 
 /* Subfield 分栏 */
 .subfield

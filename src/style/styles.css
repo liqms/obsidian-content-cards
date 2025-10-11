@@ -282,80 +282,84 @@
 }
 
 /* 创建 n 个相等的列 web */
-.column-19 {
-  grid-template-columns: repeat(19, 1fr);
-}
-
-.column-18 {
-  grid-template-columns: repeat(18, 1fr);
-}
-
-.column-17 {
-  grid-template-columns: repeat(17, 1fr);
-}
-
-.column-16 {
-  grid-template-columns: repeat(16, 1fr);
-}
-
-.column-15 {
-  grid-template-columns: repeat(15, 1fr);
-}
-
-.column-14 {
-  grid-template-columns: repeat(14, 1fr);
-}
-
-.column-13 {
-  grid-template-columns: repeat(13, 1fr);
-}
-
-.column-12 {
-  grid-template-columns: repeat(12, 1fr);
-}
-
-.column-11 {
-  grid-template-columns: repeat(11, 1fr);
-}
-
-.column-10 {
-  grid-template-columns: repeat(10, 1fr);
-}
-
-.column-9 {
-  grid-template-columns: repeat(9, 1fr);
-}
-
-.column-8 {
-  grid-template-columns: repeat(8, 1fr);
-}
-
-.column-7 {
-  grid-template-columns: repeat(7, 1fr);
-}
-
-.column-6 {
-  grid-template-columns: repeat(6, 1fr);
-}
-
-.column-5 {
-  grid-template-columns: repeat(5, 1fr);
-}
-
-.column-4 {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.column-3 {
-  grid-template-columns: repeat(3, 1fr);
+.column-1 {
+  grid-template-columns: repeat(1, 1fr);
 }
 
 .column-2 {
   grid-template-columns: repeat(2, 1fr);
 }
 
-.column-1 {
-  grid-template-columns: 1fr;
+.column-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.column-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.column-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.column-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.column-7 {
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.column-8 {
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.column-9 {
+  grid-template-columns: repeat(9, 1fr);
+}
+
+.column-10 {
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.column-11 {
+  grid-template-columns: repeat(11, 1fr);
+}
+
+.column-12 {
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.column-13 {
+  grid-template-columns: repeat(13, 1fr);
+}
+
+.column-14 {
+  grid-template-columns: repeat(14, 1fr);
+}
+
+.column-15 {
+  grid-template-columns: repeat(15, 1fr);
+}
+
+.column-16 {
+  grid-template-columns: repeat(16, 1fr);
+}
+
+.column-17 {
+  grid-template-columns: repeat(17, 1fr);
+}
+
+.column-18 {
+  grid-template-columns: repeat(18, 1fr);
+}
+
+.column-19 {
+  grid-template-columns: repeat(19, 1fr);
+}
+
+.column-20 {
+  grid-template-columns: repeat(20, 1fr);
 }
 
 /*时间轴布局*/            
@@ -833,6 +837,38 @@
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 5px;
+}
+
+/* Album 画册-瀑布流 */
+.waterfall {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+  width: 100%;
+}
+.waterfall .waterfall-column-images {
+  width: 100%;
+}
+.waterfall .waterfall-column-images .waterfall-column-images-item {
+  -o-object-fit: cover;
+     object-fit: cover;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.waterfall-column-images-item img, .waterfall-column-images-item p img, .waterfall-column-images-item p span img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
+}
+
+.waterfall-column-images-item p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /*images grid*/

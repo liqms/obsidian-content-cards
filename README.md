@@ -14,8 +14,6 @@ Insert content cards in Markdown, such as timeline, highlightblock, target card,
 -   Support Local Images.
 -   Supports custom codeblock language.
 -   Add new card: SWOT and BCG.
--   Add new card: Mindmap. (plan)
--   Gets values from metadata. (plan)
 
 # Installation
 
@@ -305,7 +303,8 @@ introduction:
 
 ### Markdown Syntax
 
-Insert a codeblock with the `cards-ablum` syntax.
+- Insert a codeblock with the `cards-ablum` syntax.
+- Support waterfall layout mode. Add ` [waterfall-x]` after `@card`, x is a number between 1-9, representing the number of columns in the waterfall layout.
 
 **Web Image**
 
@@ -338,7 +337,19 @@ images:
 ![[files/image-2.png]]
 ```
 ````
-
+**Waterfall Layout**
+````
+```cards-album
+@card [color-blue,waterfall-3]
+title: 画册名称
+images:
+https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg
+https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg
+https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg
+https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg
+https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg
+```
+````
 ### Parameters
 
 | Option | Type   | Required | Description                                                                                                                               |
@@ -524,7 +535,8 @@ Known issues:
 | `1.0.11` | 2024-03-15 | Photoes Ablum Support Local Images.                |
 | `1.1.0`  | 2024-03-19 | Supports custom codeblock language.                |
 | `1.1.4`  | 2024-04-02 | Bookcard Musiccard Moviecard Support Local Images. |
-| `1.2.0`  | 2024-04-11 | Add SWOT Analysis and BCG Analysis.      |
+| `1.2.0`  | 2024-04-11 | Add SWOT Analysis and BCG Analysis.                |
+| `1.2.2`  | 2024-10-11 | Album Support waterfall layout mode.               |
 
 # Pricing
 

@@ -14,8 +14,6 @@
 -   支持本地图片
 -   支持自定义代码块语法
 -   增加内容卡片：SWOT 分析和四象限分析
--   增加内容卡片：思维导图（计划）
--   从元数据中获取值（计划）
 
 # I 安装
 
@@ -305,7 +303,8 @@ introduction:
 
 ### Markdown 语法
 
-使用 `cards-ablum` 语法插入一个代码块。
+- 使用 `cards-ablum` 语法插入一个代码块。
+- 支持瀑布流布局模式。在`@card` 后面添加` [waterfall-x]` 即可，x 为 1-9 之间的整数，代表瀑布流的列数。images 为图片链接，每行 1 个链接，不能有空行。
 
 **网络图片**
 
@@ -338,13 +337,26 @@ images:
 ![[files/image-2.png]]
 ```
 ````
-
+**瀑布流**
+````
+```cards-album
+@card [color-blue,waterfall-3]
+title: 画册名称
+images:
+https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg
+https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg
+https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg
+https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg
+https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg
+```
+````
 ### 参数
 
 | Option | Type   | Required | Description                                                            |
 | ------ | ------ | -------- | ---------------------------------------------------------------------- |
 | title  | string | Yes      | title ， 专辑名称                                                      |
 | images | string | Yes      | Image links, 图片链接,每行 1 个链接，空行分组专辑的图片，每组最多 9 张 |
+
 
 ## 名片
 
@@ -525,7 +537,9 @@ a4-content:
 | `1.1.0`  | 2024-03-19 | Supports custom codeblock language.                |
 | `1.1.4`  | 2024-04-02 | Bookcard Musiccard Moviecard Support Local Images. |
 | `1.2.0`  | 2024-04-11 | Add SWOT and BCG.                                  |
+| `1.2.2`  | 2024-10-11 | Album Support waterfall layout mode.               |
 
+支持瀑布流布局模式
 # 付费
 
 这个插件是免费的，如果您觉得插件对您有用的话, 可以给作者买杯咖啡支持一下:

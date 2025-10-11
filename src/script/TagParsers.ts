@@ -9,14 +9,18 @@ const trim = (s: string): string => {
 	return trimmed.length === 0 ? "\u200B" : trimmed;
 };
 // 定义参数解析
-const toClassArray = (input: string): string[] => {
+const toClassArray = (input: string, paramType: string): string => {
 	input = input.trim();
-	if (input[0] != "[" || input[input.length - 1] != "]") return [];
+	if (input[0] != "[" || input[input.length - 1] != "]") return '';		
 
-	return input
+	const classes = input
 		.substring(1, input.length - 1)
 		.trim()
-		.split(/\s*,\s*/);
+		.split(/\s*\,\s*/);
+
+	const prefix = `${paramType}-`;
+	const matched = classes.find(cls => cls.startsWith(prefix));
+	return matched || '';
 };
 // timeline
 const timelineRegex =
@@ -28,9 +32,9 @@ const TimeLineParser = (source: string): TimelineItemInfo[] => {
 	const parsed = [];
 
 	while ((sourceMatch = timelineRegex.exec(source)) !== null) {
-		const cardColor = toClassArray(sourceMatch[1]);
+		const cardColor = toClassArray(sourceMatch[1], "color");
 		parsed.push({
-			color: cardColor[0],
+			color: cardColor,
 			time: sourceMatch[2],
 			title: sourceMatch[3],
 			content: sourceMatch[4],
@@ -48,9 +52,9 @@ const HighlightblockParser = (source: string): HighlightBlockItemInfo[] => {
 	let sourceMatch;
 	const parsed = [];
 	while ((sourceMatch = highlightblockRegex.exec(source)) !== null) {
-		const cardColor = toClassArray(sourceMatch[1]);
+		const cardColor = toClassArray(sourceMatch[1], "color");
 		parsed.push({
-			color: cardColor[0],
+			color: cardColor,
 			content: sourceMatch[2],
 		});
 	}
@@ -66,9 +70,9 @@ const TargetCardParser = (source: string): TargetCardItemInfo[] => {
 	let sourceMatch;
 	const parsed = [];
 	while ((sourceMatch = targetcardRegex.exec(source)) !== null) {
-		const cardColor = toClassArray(sourceMatch[1]);
+		const cardColor = toClassArray(sourceMatch[1], "color");
 		parsed.push({
-			color: cardColor[0],
+			color: cardColor,
 			title: sourceMatch[2],
 			value: sourceMatch[3],
 			unit: sourceMatch[4],
@@ -142,9 +146,14 @@ const AlbumCardParser = (source: string): AlbumCardItemInfo[] => {
 	let sourceMatch;
 	const parsed = [];
 	while ((sourceMatch = albumcardRegex.exec(source)) !== null) {
-		const cardColor = toClassArray(sourceMatch[1]);
+		const cardColor = toClassArray(sourceMatch[1], "color");
+		let cardType = toClassArray(sourceMatch[1], "waterfall");	
+		if (cardType === ''){
+			cardType = 'album';
+		}
 		parsed.push({
-			color: cardColor[0],
+			color: cardColor,
+			type: cardType,
 			title: sourceMatch[2],
 			images: sourceMatch[3],
 		});
@@ -186,10 +195,10 @@ const NameCardParser = (source: string): NameCardItemInfo[] => {
 	let sourceMatch;
 	const parsed = [];
 	while ((sourceMatch = namecardRegex.exec(source)) !== null) {
-		const cardColor = toClassArray(sourceMatch[1]);
+		const cardColor = toClassArray(sourceMatch[1], "color");
 		const iconX = toNameStr(sourceMatch[2]);
 		parsed.push({
-			color: cardColor[0],
+			color: cardColor,
 			name: sourceMatch[2],
 			icon: iconX[0],
 			tags: sourceMatch[3],
@@ -208,9 +217,9 @@ const CountdownCardParser = (source: string): CountdownItemInfo[] => {
 	let sourceMatch;
 	const parsed = [];
 	while ((sourceMatch = countdownRegex.exec(source)) !== null) {
-		const cardColor = toClassArray(sourceMatch[1]);
+		const cardColor = toClassArray(sourceMatch[1], "color");
 		parsed.push({
-			color: cardColor[0],
+			color: cardColor,
 			title: sourceMatch[2],
 			type: trim(sourceMatch[3]),
 			time: trim(sourceMatch[4]),

@@ -43,7 +43,7 @@ export class TargetCardElement {
 				cls: "target-card-item-content-unit",
 				text: item.unit,
 			});
-			if (item.color !== null && item.color !== undefined) {
+			if (item.color !== null && item.color !== undefined && item.color !== '') {
 				cardEl.classList.add("body-" + item.color);
 			} else {
 				cardEl.classList.add("body-color-active");

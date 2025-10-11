@@ -33,7 +33,7 @@ export class HighlightBlockElement {
 				this.app
 			);
 			cardEl.itemEl.classList.add("highlightblock-item");
-			if (item.color !== null && item.color !== undefined) {
+			if (item.color !== null && item.color !== undefined && item.color !== '') {
 				cardEl.itemEl.classList.add("body-" + item.color);
 			} else {
 				cardEl.itemEl.classList.add("body-color-active");

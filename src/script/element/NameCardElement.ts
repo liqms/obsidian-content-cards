@@ -57,7 +57,7 @@ export class NameCardElement {
 			});
 			remarkEl.classList.add("description");
 			tagsEl.classList.add("description");
-			if (item.color !== null && item.color !== undefined) {
+			if (item.color !== null && item.color !== undefined && item.color !== '') {
 				cardEl.classList.add("body-" + item.color);
 				iconEl.classList.add("accent-" + item.color);
 			} else {
