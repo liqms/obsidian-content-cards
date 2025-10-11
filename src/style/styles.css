@@ -876,7 +876,6 @@
 .subfield .subfield-item {
   font-size: 0.8rem;
   padding: 0.5rem;
-  background-color: var(--background-primary-alt);
 }
 .subfield .subfield-item:hover {
   background-color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.2);
@@ -1225,4 +1224,261 @@
   border-radius: 0 0 5px 0;
   padding-left: 2.5rem;
   padding-right: 1rem;
+}
+
+/* mindmap */
+.mindmap {
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  min-width: 60rem;
+  position: relative;
+}
+.mindmap div {
+  display: block;
+  border-style: solid;
+  border-radius: 5px;
+  height: auto;
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: 5rem;
+  max-width: 15rem;
+  padding: 0.5rem 0.5rem 0 0.5rem;
+}
+.mindmap .map-title, .mindmap .map-remark {
+  border-width: 0px;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: auto;
+  text-align: left;
+  padding: 0;
+}
+.mindmap .map-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.mindmap .map-remark {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  height: auto;
+}
+.mindmap li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 1rem;
+  line-height: 1;
+  position: relative;
+  min-width: 6rem;
+}
+.mindmap li ul {
+  padding: 0 0 0 1rem;
+  position: relative;
+}
+.mindmap li:before {
+  content: "";
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--text-muted);
+  border-top: none;
+  border-left: none;
+  width: 1rem;
+  height: 0px;
+  position: absolute;
+  left: calc(-1rem - 1px);
+}
+.mindmap li:after {
+  content: "";
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--text-muted);
+  border-top: none;
+  border-left: none;
+  width: 0px;
+  height: calc(50% + 1rem);
+  position: absolute;
+  left: calc(-1rem - 2px);
+}
+.mindmap li > ul:before {
+  content: "";
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--text-muted);
+  border-top: none;
+  border-left: none;
+  width: calc(1rem - 2px);
+  height: 0;
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+.mindmap li:first-of-type:after {
+  top: 50%;
+}
+.mindmap li:last-of-type::after {
+  bottom: 50%;
+}
+.mindmap .map-root > li:after, .mindmap .map-root > li:before {
+  display: none;
+}
+.mindmap .map-list-1 > li:after {
+  display: none;
+}
+.mindmap .map-type-1 {
+  border-width: 0px;
+  font-size: 1rem;
+}
+.mindmap .map-type-1 .map-title, .mindmap .map-type-1 .map-remark {
+  color: #ffffff;
+  border-width: 0px;
+}
+.mindmap .map-type-2 {
+  border-width: 0px;
+  font-size: 0.9rem;
+}
+.mindmap .map-type-3, .mindmap .map-type-n {
+  border-width: 0px;
+  border-color: var(--text-muted);
+  background-color: var(--background-secondary);
+  font-size: 0.8rem;
+}
+
+.level-1-color-active {
+  background-color: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+}
+
+.level-1-color-red {
+  background-color: var(--color-red);
+}
+
+.level-1-color-orange {
+  background-color: var(--color-orange);
+}
+
+.level-1-color-yellow {
+  background-color: var(--color-yellow);
+}
+
+.level-1-color-green {
+  background-color: var(--color-green);
+}
+
+.level-1-color-cyan {
+  background-color: var(--color-cyan);
+}
+
+.level-1-color-blue {
+  background-color: var(--color-blue);
+}
+
+.level-1-color-purple {
+  background-color: var(--color-purple);
+}
+
+.level-1-color-pink {
+  background-color: var(--color-pink);
+}
+
+.level-2-color-active {
+  border-color: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+  background-color: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.2);
+}
+
+.level-2-color-red {
+  border-color: var(--color-red);
+  background-color: rgba(var(--color-red-rgb), 0.1);
+}
+
+.level-2-color-orange {
+  border-color: var(--color-orange);
+  background-color: rgba(var(--color-orange-rgb), 0.1);
+}
+
+.level-2-color-yellow {
+  border-color: var(--color-yellow);
+  background-color: rgba(var(--color-yellow-rgb), 0.1);
+}
+
+.level-2-color-green {
+  border-color: var(--color-green);
+  background-color: rgba(var(--color-green-rgb), 0.1);
+}
+
+.level-2-color-cyan {
+  border-color: var(--color-cyan);
+  background-color: rgba(var(--color-cyan-rgb), 0.1);
+}
+
+.level-2-color-blue {
+  border-color: var(--color-blue);
+  background-color: rgba(var(--color-blue-rgb), 0.1);
+}
+
+.level-2-color-purple {
+  border-color: var(--color-purple);
+  background-color: rgba(var(--color-purple-rgb), 0.1);
+}
+
+.level-2-color-pink {
+  border-color: var(--color-pink);
+  background-color: rgba(var(--color-pink-rgb), 0.1);
+}
+
+/* SVG 相关样式 */
+svg.mindmap-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+svg.mindmap-svg .mindmap-node-rect {
+  rx: 5px;
+}
+svg.mindmap-svg .mindmap-path {
+  stroke: var(--color-base-50);
+  stroke-width: 2;
+}
+
+.rect-1-color-active {
+  fill: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+  stroke: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+  stroke-width: 1;
+}
+
+.rect-2-color-active {
+  fill: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.2);
+  stroke: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+  stroke-width: 1;
+}
+
+.rect-3-color-active, .rect-n-color-active {
+  fill: var(--background-secondary);
+  stroke: var(--background-secondary);
+  stroke-width: 1;
+}
+
+.mindmap-node-title-1-color-active {
+  fill: #ffffff;
+  font-size: 1rem;
+  text-anchor: left;
+}
+
+.mindmap-node-title-2-color-active, .mindmap-node-title-3-color-active, .mindmap-node-title-n-color-active {
+  fill: var(--text-normal);
+  font-size: 0.9rem;
+  text-anchor: left;
+}
+
+.mindmap-node-remark-1-color-active {
+  fill: #ffffff;
+  font-size: 0.8rem;
+  text-anchor: left;
+}
+
+.mindmap-node-remark-2-color-active, .mindmap-node-remark-3-color-active, .mindmap-node-remark-n-color-active {
+  fill: var(--text-muted);
+  font-size: 0.8rem;
+  text-anchor: left;
 }/*# sourceMappingURL=styles.css.map */

@@ -26,6 +26,7 @@ export default {
 	countdownLanguage_name: "Countdown Card block name",
 	bcgLanguage_name: "BCG Card block name",
 	swotLanguage_name: "SWOT Card block name",
+	mindmapLanguage_name: "Mindmap Card block name",
 	timelineVLanguage_desc:
 		"The name of code block variable to render TimelineV Card",
 	timelineHLanguage_desc:
@@ -45,9 +46,13 @@ export default {
 		"The name of code block variable to render Countdown Card",
 	bcgLanguage_desc: "The name of code block variable to render BCG Card",
 	swotLanguage_desc: "The name of code block variable to render SWOT Card",
+	mindmapLanguage_desc: "The name of code block variable to render Mindmap Card",
 	language_placeholder: "Enter your variable",
 	reset_tooltip: "Reset to default",
 	// BCGCardElement
 	high: "HIGH",
 	low: "LOW",
+	//mindmap
+	node_1: "Each card must have and only have 1 '#'",
+	node_not_exist: "Node does not exist, please use '#'",
 };

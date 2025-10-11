@@ -263,6 +263,26 @@ const SWOTCardParser = (source: string): SWOTCardItemInfo[] => {
 	return parsed;
 };
 
+// mindmap 插件的 Tag 解析器
+const mindmapRegex =
+	/^[ \t]*@card(.+?)(?:^(.+?))?(?=^[ \t]*@card)/gimsu;
+
+const MindmapCardParser = (source: string): MindmapCardItemInfo[] => {
+	source += "\n@card";
+	let sourceMatch;
+	const parsed = [];
+	while ((sourceMatch = mindmapRegex.exec(source))!== null) {
+		const cardColor = toClassArray(sourceMatch[1]);
+		parsed.push({
+			color: cardColor[0],
+			map: sourceMatch[2],
+		});
+	}
+	return parsed;	
+};
+
+
+
 export {
 	TimeLineParser,
 	HighlightblockParser,
@@ -276,4 +296,5 @@ export {
 	CountdownCardParser,
 	BCGCardParser,
 	SWOTCardParser,
+	MindmapCardParser,
 };

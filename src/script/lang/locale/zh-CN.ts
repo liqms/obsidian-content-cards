@@ -26,6 +26,7 @@ export default {
 	countdownLanguage_name: "倒计时",
 	bcgLanguage_name: "四象限分析",
 	swotLanguage_name: "SWOT分析",
+	mindmapLanguage_name: "思维导图",
 	timelineVLanguage_desc: "渲染为时间轴-竖版的代码块语言",
 	timelineHLanguage_desc: "渲染为时间轴-横版的代码块语言",
 	highlightblockLanguage_desc: "渲染为高亮块的代码块语言",
@@ -39,10 +40,13 @@ export default {
 	countdownLanguage_desc: "渲染为倒计时的代码块语言",
 	bcgLanguage_desc: "渲染为四象限分析的代码块语言",
 	swotLanguage_desc: "渲染为SWOT分析的代码块语言",
+	mindmapLanguage_desc: "渲染为思维导图的代码块语言",
 	language_placeholder: "请输入代码块语言",
 	reset_tooltip: "重置为默认值",
 	// BCGCardElement
-	high:"高",
-	low:"低",
-	
+	high: "高",
+	low: "低",
+	//mindmap
+	node_1: "每个 card 必须有且只允许有 1 个 '#' 开头",
+	node_not_exist: "节点不存在, 请使用'#'开头",
 };

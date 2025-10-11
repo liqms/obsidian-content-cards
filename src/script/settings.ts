@@ -17,6 +17,7 @@ export interface ContentCardsPluginSettings {
 	countdownLanguage: string;
 	bcgLanguage: string;
 	swotLanguage: string;
+	mindmapLanguage: string;
 }
 // 定义默认的 settings
 export const DEFAULT_SETTINGS: ContentCardsPluginSettings = {
@@ -33,6 +34,7 @@ export const DEFAULT_SETTINGS: ContentCardsPluginSettings = {
 	countdownLanguage: "cards-countdown",
 	bcgLanguage: "cards-bcg",
 	swotLanguage: "cards-swot",
+	mindmapLanguage: "cards-mindmap",
 };
 // 定义 settings 的界面
 export class ContentCardsPluginSettingTab extends PluginSettingTab {
@@ -361,6 +363,30 @@ export class ContentCardsPluginSettingTab extends PluginSettingTab {
 					this.display();
 				});	
 		});
+		const mindmapLanguageVariable = new Setting(containerEl)
+
+			.setName(getTextInLanguage("mindmapLanguage_name"))
+			.setDesc(getTextInLanguage("mindmapLanguage_desc"))
+			.addText((text) =>
+				text
+					.setPlaceholder(getTextInLanguage("language_placeholder"))
+					.setValue(this.plugin.settings.mindmapLanguage)
+					.onChange(async (value) => {
+						this.plugin.settings.mindmapLanguage = value;
+						await this.plugin.saveSettings();
+					})
+			);
+		mindmapLanguageVariable.addExtraButton((button) => {
+			button
+				.setIcon("reset")
+				.setTooltip(getTextInLanguage("reset_tooltip"))
+				.onClick(async () => {
+					this.plugin.settings.mindmapLanguage =
+						DEFAULT_SETTINGS.mindmapLanguage;
+					await this.plugin.saveSettings();
+					this.display();
+				});
+		})
 	}
 	refresh(): void {
 		this.containerEl.empty();

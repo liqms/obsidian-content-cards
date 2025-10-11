@@ -10,10 +10,10 @@ interface TimelineItemInfo {
 
 type TimelineParser = (source: string) => TimelineItemInfo[];
 
-interface TimelineTagParser {
-    tag: string,
-    parser: TimelineParser
-}
+// interface TimelineTagParser {
+//     tag: string,
+//     parser: TimelineParser
+// }
 
 // HighlightBlock
 interface HighlightBlockItemInfo {
@@ -24,10 +24,10 @@ interface HighlightBlockItemInfo {
 
 type HighlightBlockParser = (source: string) => HighlightBlockItemInfo[];
 
-interface HighlightBlockTagParser {
-    tag: string,
-    parser: HighlightBlockParser
-}
+// interface HighlightBlockTagParser {
+//     tag: string,
+//     parser: HighlightBlockParser
+// }
 
 // TargetCard
 interface TargetCardItemInfo {
@@ -40,10 +40,10 @@ interface TargetCardItemInfo {
 
 type TargetCardParser = (source: string) => TargetCardItemInfo[];
 
-interface TargetCardTagParser {
-    tag: string,
-    parser: TargetCardParser
-}
+// interface TargetCardTagParser {
+//     tag: string,
+//     parser: TargetCardParser
+// }
 
 // BookCard
 interface BookCardItemInfo {
@@ -56,10 +56,10 @@ interface BookCardItemInfo {
 
 type BookCardParser = (source: string) => BookCardItemInfo[];
 
-interface BookCardTagParser {
-    tag: string,
-    parser: BookCardParser
-}
+// interface BookCardTagParser {
+//     tag: string,
+//     parser: BookCardParser
+// }
 
 // MusicCard
 interface MusicCardItemInfo {
@@ -71,10 +71,10 @@ interface MusicCardItemInfo {
 
 type MusicCardParser = (source: string) => MusicCardItemInfo[];
 
-interface MusicCardTagParser {
-    tag: string,
-    parser: MusicCardParser
-}
+// interface MusicCardTagParser {
+//     tag: string,
+//     parser: MusicCardParser
+// }
 
 // MovieCard
 interface MovieCardItemInfo {
@@ -85,6 +85,7 @@ interface MovieCardItemInfo {
     introduction: string
 }
 
+type MovieCardParser = (source: string) => MovieCardItemInfo[];
 // Album
 interface AlbumCardItemInfo {
     [key: string]: string,
@@ -95,10 +96,10 @@ interface AlbumCardItemInfo {
 
 type AlbumCardParser = (source: string) => AlbumCardItemInfo[];
 
-interface AlbumCardTagParser {
-    tag: string,
-    parser: AlbumCardParser
-}
+// interface AlbumCardTagParser {
+//     tag: string,
+//     parser: AlbumCardParser
+// }
 
 // Subfield
 interface SubfieldItemInfo {
@@ -108,10 +109,10 @@ interface SubfieldItemInfo {
 
 type SubfieldParser = (source: string) => SubfieldItemInfo[];
 
-interface SubfieldTagParser {
-    tag: string,
-    parser: SubfieldParser
-}
+// interface SubfieldTagParser {
+//     tag: string,
+//     parser: SubfieldParser
+// }
 
 // NameCard
 interface NameCardItemInfo {
@@ -125,10 +126,10 @@ interface NameCardItemInfo {
 
 type NameCardParser = (source: string) => NameCardItemInfo[];
 
-interface NameCardTagParser {
-    tag: string,
-    parser: NameCardParser
-}
+// interface NameCardTagParser {
+//     tag: string,
+//     parser: NameCardParser
+// }
 
 // CountDown
 interface CountdownItemInfo {
@@ -141,10 +142,10 @@ interface CountdownItemInfo {
 
 type CountdownParser = (source: string) => CountdownItemInfo[];
 
-interface CountdownTagParser {
-    tag: string,
-    parser: CountdownParser
-}
+// interface CountdownTagParser {
+//     tag: string,
+//     parser: CountdownParser
+// }
 
 // BCG Card
 interface BCGCardItemInfo {
@@ -162,10 +163,10 @@ interface BCGCardItemInfo {
 }
 type BCGCardParser = (source: string) => BCGCardItemInfo[];
 
-interface BCGCardTagParser {
-    tag: string,
-    parser: BCGCardParser
-}
+// interface BCGCardTagParser {
+//     tag: string,
+//     parser: BCGCardParser
+// }
 
 // SWOT Card
 interface SWOTCardItemInfo {
@@ -177,7 +178,24 @@ interface SWOTCardItemInfo {
 }
 type SWOTCardParser = (source: string) => SWOTCardItemInfo[];
 
-interface SWOTCardTagParser {
-    tag: string,
-    parser: SWOTCardParser
+// interface SWOTCardTagParser {
+//     tag: string,
+//     parser: SWOTCardParser
+// }
+
+// Mindmap Card
+
+interface TreeNode {
+    title: string;
+    remark: string,  
+    level: number, 
+    childrenCount: number,    
+    children: TreeNode[];
 }
+
+interface MindmapCardItemInfo {
+    [key: string]: string,
+    color: string,
+    map:string,
+}
+type MindmapCardParser = (source: string) => MindmapCardItemInfo[];

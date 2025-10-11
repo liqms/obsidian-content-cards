@@ -128,7 +128,8 @@ dist
 
 # release
 main.js
-
+data.json
+main.css
 # other
 .DS_Store
 *.map

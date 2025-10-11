@@ -485,7 +485,6 @@ $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "
     .subfield-item
         font-size: 0.8rem
         padding: 0.5rem
-        background-color: var(--background-primary-alt)
     .subfield-item:hover
         background-color: $active-color-a
 
@@ -767,3 +766,164 @@ $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "
     border-radius: 0 0 5px 0
     padding-left: 2.5rem
     padding-right: 1rem
+
+/* mindmap */
+.mindmap
+    padding: 0.5rem
+    display: flex
+    flex-wrap: nowrap
+    overflow-x: auto
+    min-width: 60rem
+    position: relative
+    div 
+        display: block
+        border-style: solid
+        border-radius: 5px
+        height: auto
+        width: fit-content
+        min-width: 5rem
+        max-width: 15rem
+        padding: 0.5rem 0.5rem 0 0.5rem
+    .map-title,.map-remark
+        border-width: 0px
+        width: fit-content
+        height: auto
+        text-align: left
+        padding: 0
+    .map-title
+        font-weight: bold
+        margin-bottom: 0.5rem
+    .map-remark
+        font-size: 0.7rem
+        color: var(--text-muted)
+        margin-bottom: 0.5rem
+        height: auto
+    li
+        list-style: none
+        display: flex
+        align-items: center
+        box-sizing: border-box
+        margin: 1rem
+        line-height: 1
+        position: relative
+        min-width: 6rem
+        ul
+            padding: 0 0 0 1rem
+            position: relative
+        &:before
+            content: ""
+            border-width: 1px
+            border-style: solid
+            border-color: var(--text-muted)
+            border-top: none
+            border-left: none
+            width: 1rem
+            height: 0px
+            position: absolute
+            left: calc(-1rem - 1px)
+        &:after
+            content: ""
+            border-width: 1px
+            border-style: solid
+            border-color: var(--text-muted)
+            border-top: none
+            border-left: none
+            width: 0px
+            height: calc(100% / 2 + 1rem)
+            position: absolute
+            left: calc(-1rem - 2px)
+        &>ul:before
+            content: ""
+            border-width: 1px
+            border-style: solid
+            border-color: var(--text-muted)
+            border-top: none
+            border-left: none
+            width: calc(1rem - 2px)
+            height: 0
+            position: absolute
+            left: 0
+            top: 50%
+        &:first-of-type:after
+            top: 50%
+        &:last-of-type::after
+            bottom: 50%
+    .map-root>li 
+        &:after, &:before 
+            display: none
+    .map-list-1>li        
+        &:after
+            display: none
+    .map-type-1
+        border-width: 0px
+        font-size: 1rem
+        .map-title,.map-remark
+            color: #ffffff
+            border-width: 0px
+    .map-type-2
+        border-width: 0px
+        font-size: 0.9rem
+    .map-type-3,.map-type-n
+        border-width: 0px
+        border-color: var(--text-muted)  
+        background-color: $background-secondary
+        font-size: 0.8rem
+
+.level-1-color-active
+    background-color: $active-color    
+@each $color in $active-colors
+    .level-1-color-#{$color}
+        background-color: #{"var(--color-" + $color + ")"}
+        
+.level-2-color-active
+    border-color: $active-color
+    background-color: $active-color-a
+@each $color in $active-colors
+   .level-2-color-#{$color}
+        border-color: #{"var(--color-" + $color + ")"}
+        background-color: #{"rgba(var(--color-" + $color + "-rgb), 0.1)"}
+
+/* SVG 相关样式 */
+svg.mindmap-svg
+    width: 100%
+    height: auto
+    overflow: visible
+    .mindmap-node-rect
+        rx: 5px
+    .mindmap-path
+        stroke: var(--color-base-50)
+        stroke-width: 2
+
+.rect-1-color-active
+    fill: $active-color 
+    stroke: $active-color 
+    stroke-width: 1
+.rect-2-color-active
+    fill: $active-color-a
+    stroke: $active-color
+    stroke-width: 1
+.rect-3-color-active,.rect-n-color-active
+    fill: $background-secondary
+    stroke: $background-secondary
+    stroke-width: 1
+.mindmap-node-title-1-color-active
+    fill: #ffffff
+    font-size: 1rem
+    text-anchor: left
+.mindmap-node-title-2-color-active,.mindmap-node-title-3-color-active,.mindmap-node-title-n-color-active
+    fill: var(--text-normal)
+    font-size: 0.9rem
+    text-anchor: left
+.mindmap-node-remark-1-color-active
+    fill: #ffffff
+    font-size: 0.8rem
+    text-anchor: left
+.mindmap-node-remark-2-color-active,.mindmap-node-remark-3-color-active,.mindmap-node-remark-n-color-active
+    fill: var(--text-muted)
+    font-size: 0.8rem
+    text-anchor: left
+
+
+            
+            
+    

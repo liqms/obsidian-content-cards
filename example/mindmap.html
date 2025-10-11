@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="ob-pre.css" />
+	<link rel="stylesheet" href="../styles.css" />
+</head>
+
+<body>
+	<div class="cards-container">
+		<div class="mindmap">
+			<ul class="map-root">
+				<li>
+					<div class="map-type-1 level-1-color-active">
+						<div class="map-title">一级标题</div>
+						<div class="map-remark">备注在这里</div>
+					</div>
+					<ul>
+						<li>
+							<div class="map-type-2 level-2-color-active">
+								<div class="map-title">2级标题</div>
+								<div class="map-remark">备注在这里</div>
+							</div>
+							<ul>
+								<li>
+									<div class="map-type-3">
+										<div class="map-title">
+											3 级标题
+										</div>
+										<div class="map-remark">
+											备注在这里
+										</div>
+									</div>
+									<ul>
+										<li>
+											<div class="map-type-n">
+												<div class="map-title">
+													4 级标题
+												</div>
+												<div class="map-remark">
+													备注在这里
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="map-type-n">
+												<div class="map-title">
+													4 级标题
+												</div>
+												<div class="map-remark">
+													备注在这里
+												</div>
+											</div>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<div class="map-type-3">
+										<div class="map-title">
+											3 级标题
+										</div>
+										<div class="map-remark">
+											备注在这里
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<div class="map-type-2 level-2-color-red">
+								<div class="map-title">2 级标题</div>
+								<div class="map-remark">备注在这里</div>
+							</div>
+							<ul class="map-list-1">
+								<li>
+									<div class="map-type-3">
+										<div class="map-title">
+											级标题级标题级标题级标题级标题
+										</div>
+										<div class="map-remark">
+											备注在这里备注在这里备注在这里备注在这里备注在这里备注在这里备注在这里备注在这里
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="cards-container">
+		<div class="mindmap">
+			<ul class="map-root">
+				<li>
+					<div data-level="1" data-children="3" class="map-type-1 level-1-color-red">
+						<div class="map-title">标题0</div>
+						<div class="map-remark">这里是备注</div>
+					</div>
+					<ul>
+						<li>
+							<div data-level="2" data-children="2" class="map-type-2 level-2-color-red">
+								<div class="map-title">标题1</div>
+								<div class="map-remark">这里是备注</div>
+							</div>
+							<ul>
+								<li>
+									<div data-level="3" data-children="0" class="map-type-3 level-3-color-red">
+										<div class="map-title">标题2</div>
+										<div class="map-remark">这里是备注</div>
+									</div>
+								</li>
+								<li>
+									<div data-level="3" data-children="1" class="map-type-3 level-3-color-red">
+										<div class="map-title">标题2</div>
+										<div class="map-remark">这里是备注</div>
+									</div>
+									<ul class="map-list-1">
+										<li>
+											<div data-level="4" data-children="0" class="map-type-n level-n-color-red">
+												<div class="map-title">标题2</div>
+												<div class="map-remark">这里是备注</div>
+											</div>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<div data-level="2" data-children="0" class="map-type-2 level-2-color-red">
+								<div class="map-title">标题1</div>
+								<div class="map-remark"></div>
+							</div>
+						</li>
+						<li>
+							<div data-level="2" data-children="3" class="map-type-2 level-2-color-red">
+								<div class="map-title">标题1</div>
+								<div class="map-remark"></div>
+							</div>
+							<ul>
+								<li>
+									<div data-level="3" data-children="0" class="map-type-3 level-3-color-red">
+										<div class="map-title">标题2</div>
+										<div class="map-remark"></div>
+									</div>
+								</li>
+								<li>
+									<div data-level="3" data-children="0" class="map-type-3 level-3-color-red">
+										<div class="map-title">标题2</div>
+										<div class="map-remark"></div>
+									</div>
+								</li>
+								<li>
+									<div data-level="3" data-children="0" class="map-type-3 level-3-color-red">
+										<div class="map-title">标题2</div>
+										<div class="map-remark"></div>
+									</div>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="cards-container">
+		<div class="mindmap">
+			<svg class="mindmap-svg" width="100%" height="100%">
+				<rect class="mindmap-node-rect rect-1-color-active" x="0" y=" 27" width="154" height="46"></rect>
+				<text x="5" y="47">
+					<tspan class="mindmap-node-title-1-color-active" x="5" dy="0">标题标题标标题题标</tspan>
+					<tspan class="mindmap-node-remark-1-color-active" x="5" dy="20">这里是备注</tspan>
+				</text>
+				<path class="mindmap-path" d="M 154,50 H 194,50 V 405.6,27 H 445.6,27" fill=" none"></path>
+				<rect class="mindmap-node-rect rect-2-color-active" x="234" y="27" width=" 211.6" height="46"></rect>
+				<text x="239" y="47 ">
+					<tspan class="mindmap-node-title-2-color-active" x="239" dy="0">标题标题标标题标标标题标题标 </tspan>
+					<tspan class="mindmap-node-remark-2-color-active" x="239" dy="20">这里是备注</tspan>
+				</text>
+			</svg>
+		</div>
+		</diy>
+
+</body>
+
+</html>

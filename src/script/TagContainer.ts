@@ -12,6 +12,7 @@ import { NameCardElement } from "./element/NameCardElement";
 import { CountdownCardElement } from "./element/CountdownCardElement";
 import { BCGCardElement } from "./element/BcgCardElement";
 import { SWOTCardElement } from "./element/SwotCardElement";
+import { MindMapCardElement } from "./element/MindmapCardElement";
 import { language } from "./main";
 
 // 处理空字符串的情况
@@ -77,6 +78,9 @@ export class TagContainer {
 				break;
 			case language[12]:
 				new SWOTCardElement(source, element, context, this.app);
+				break;
+			case language[13]:
+				new MindMapCardElement(source, element, context, this.app);
 				break;
 			default:
 				break;

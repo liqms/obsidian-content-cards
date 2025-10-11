@@ -90,6 +90,7 @@ export default class ContentCardsPlugin extends Plugin {
 			this.settings.countdownLanguage,
 			this.settings.bcgLanguage,
 			this.settings.swotLanguage,
+			this.settings.mindmapLanguage,
 		];
 	}
 

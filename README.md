@@ -13,7 +13,7 @@ Insert content cards in Markdown, such as timeline, highlightblock, target card,
 -   Support English and Chinese.
 -   Support Local Images.
 -   Supports custom codeblock language.
--   Add new card: SWOT and BCG.
+-   Support 12 types of content cards.
 -   Add new card: Mindmap. (plan)
 -   Gets values from metadata. (plan)
 
