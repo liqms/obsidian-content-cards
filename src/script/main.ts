@@ -1,40 +1,70 @@
-import { App, MarkdownPostProcessorContext, Plugin } from "obsidian";
+import { MarkdownPostProcessorContext, Plugin } from "obsidian";
 import { TagContainer } from "./TagContainer";
 import {
-	ContentCardsPluginSettings,
-	DEFAULT_SETTINGS,
 	ContentCardsPluginSettingTab,
 } from "./settings";
-import "../style/styles.css";
+import { SettingsManager } from "./services/SettingsManager";
+import { LanguageManager } from "./services/LanguageManager";
+import "../style/styles.sass";
 
-// 处理空字符串的情况
-const trim = (s: string): string => {
-	const trimmed = s.trim();
-	return trimmed.length === 0 ? "\u200B" : trimmed;
-};
-// 定义 language 数组
-export let language: string[];
 /**
+ * 内容卡片插件
  * 在代码块中分别注册不同的 language , 来渲染不同的 Card
  * 根据不同的 language 调用不同的 Container ，Container 封装 element 和 content
- *
- *
- * @param source - 代码块中的内容
- * @param el - 代码块的 root 父元素
- * @param ctx - 由 Obsidian 的 registerMarkdownCodeBlockProcessor() 方法提供的上下文，包含了正在处理的笔记的源路径信息。
- * @param ctx.sourcePath - 一个字符串，表示正在处理的笔记的文件系统路径。
  */
-
 export default class ContentCardsPlugin extends Plugin {
-	settings!: ContentCardsPluginSettings;
-	reloadingPlugins = false;
+	private settingsManager!: SettingsManager;
+	private languageManager!: LanguageManager;
+	private reloadingPlugins = false;
+	private tagContainers: TagContainer[] = []; // 存储所有创建的 TagContainer 实例
+
+	/**
+	 * 插件加载时调用
+	 */
 	async onload() {
-		// 加载 settings
+		// 初始化管理器
+		this.settingsManager = new SettingsManager(this);
+		this.languageManager = new LanguageManager();
+
+		// 加载设置
 		await this.loadSettings();
-		// 注册 settings 的界面
+		// 注册设置界面
 		this.addSettingTab(new ContentCardsPluginSettingTab(this.app, this));
 
-		language.forEach((tag) => {
+		// 注册代码块处理器
+		this.registerCodeBlockProcessors();
+
+		console.log("插件加载成功");
+	}
+
+	/**
+	 * 插件卸载时调用
+	 */
+	async onunload() {
+		// 清理所有 TagContainer 实例
+		this.cleanupTagContainers();
+		// 清空容器数组
+		this.tagContainers = [];
+		
+		console.log("插件卸载成功");
+	}
+
+	/**
+	 * 清理所有 TagContainer 实例
+	 */
+	private cleanupTagContainers(): void {
+		this.tagContainers.forEach(container => {
+			container.cleanup();
+		});
+		console.log(`已清理 ${this.tagContainers.length} 个 TagContainer 实例`);
+	}
+
+	/**
+	 * 注册代码块处理器
+	 */
+	private registerCodeBlockProcessors(): void {
+		const languages = this.languageManager.getLanguageArray();
+		languages.forEach((tag) => {
 			this.registerMarkdownCodeBlockProcessor(
 				tag,
 				(
@@ -42,58 +72,88 @@ export default class ContentCardsPlugin extends Plugin {
 					root: HTMLElement,
 					ctx: MarkdownPostProcessorContext
 				) => {
-					new TagContainer(tag, source, root, ctx, this.app);
+					const container = new TagContainer(tag, source, root, ctx, this.app);
+					this.tagContainers.push(container);
 				}
 			);
 		});
+		console.log(`已注册 ${languages.length} 个代码块处理器`);
+	}
 
-		console.log("loading content cards plugin");
-	}
-	async onunload() {
-		console.log("unloading content cards plugin");
-	}
-// 通过开启和关闭插件来重新加载插件
+	/**
+	 * 重新加载插件
+	 */
 	async reloadPlugin() {
-        if (this.reloadingPlugins) return;
-        this.reloadingPlugins = true;
+		if (this.reloadingPlugins) return;
+		this.reloadingPlugins = true;
 
-        const plugins = (<any>this.app).plugins;
-        if (!plugins?.enabledPlugins?.has(this.manifest.id)) return;
-        await plugins.disablePlugin(this.manifest.id);
-        try {
-            await plugins.enablePlugin(this.manifest.id);
-        } catch (error) {
-            /* empty */
-        }
+		try {
+			const plugins = (<any>this.app).plugins;
+			if (!plugins?.enabledPlugins?.has(this.manifest.id)) {
+				console.warn('插件未启用，无法重新加载');
+				return;
+			}
 
-        this.reloadingPlugins = false;
-    }
-	async loadSettings() {
-		this.settings = Object.assign(
-			{},
-			DEFAULT_SETTINGS,
-			await this.loadData()
-		);
+			// 清理现有实例
+			this.cleanupTagContainers();
+			this.tagContainers = [];
 
-		// 构建 language 数组
-		language = [
-			this.settings.timelineVLanguage,
-			this.settings.timelineHLanguage,
-			this.settings.highlightblockLanguage,
-			this.settings.targetLanguage,
-			this.settings.bookLanguage,
-			this.settings.musicLanguage,
-			this.settings.movieLanguage,
-			this.settings.albumLanguage,
-			this.settings.subfieldLanguage,
-			this.settings.nameLanguage,
-			this.settings.countdownLanguage,
-			this.settings.bcgLanguage,
-			this.settings.swotLanguage,
-		];
+			await plugins.disablePlugin(this.manifest.id);
+			await plugins.enablePlugin(this.manifest.id);
+			console.log('插件重新加载成功');
+		} catch (error) {
+			console.error('插件重新加载失败:', error);
+		} finally {
+			this.reloadingPlugins = false;
+		}
 	}
 
+	/**
+	 * 加载设置
+	 */
+	async loadSettings() {
+		try {
+			const settings = await this.settingsManager.load();
+			this.languageManager.updateFromSettings(settings);
+			console.log('设置加载成功');
+		} catch (error) {
+			console.error('设置加载失败:', error);
+		}
+	}
+
+	/**
+	 * 保存设置
+	 */
 	async saveSettings() {
-		await this.saveData(this.settings);
+		try {
+			const success = await this.settingsManager.save();
+			if (success) {
+				const settings = this.settingsManager.getSettings();
+				this.languageManager.updateFromSettings(settings);
+				// 清理现有实例
+				this.cleanupTagContainers();
+				this.tagContainers = [];
+				// 重新注册代码块处理器
+				this.registerCodeBlockProcessors();
+			}
+		} catch (error) {
+			console.error('设置保存失败:', error);
+		}
+	}
+
+	/**
+	 * 获取设置管理器
+	 * @returns 设置管理器
+	 */
+	getSettingsManager(): SettingsManager {
+		return this.settingsManager;
+	}
+
+	/**
+	 * 获取语言管理器
+	 * @returns 语言管理器
+	 */
+	getLanguageManager(): LanguageManager {
+		return this.languageManager;
 	}
 }

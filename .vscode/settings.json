@@ -1,18 +1,14 @@
 {
 	"liveSassCompile.settings.excludeList": [
 		"/**/node_modules/**",
-		"/.vscode/**"
+		"/.vscode/**",
+		"/.trae/**"
 	],
 	"liveSassCompile.settings.formats": [
 		{
 			"format": "expanded",
 			"extensionName": ".css",
 			"savePath": "/"
-		},
-		{
-			"format": "expanded",
-			"extensionName": ".css",
-			"savePath": null
 		}
 	],
 	"markdown-preview-enhanced.codeBlockTheme": "auto.css",
@@ -26,5 +22,8 @@
 	"scm.diffDecorationsGutterPattern": {
 		"added": true
 	},
-	"scss.format.spaceAroundSelectorSeparator": true
+	"scss.format.spaceAroundSelectorSeparator": true,
+	"liveSassCompile.settings.autoprefix": [
+
+	]
 }

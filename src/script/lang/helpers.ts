@@ -1,56 +1,83 @@
-// based on https://github.com/mgmeyers/obsidian-kanban/blob/main/src/lang/helpers.ts
 import { getString, NestedKeyOf } from "../utils/nested-keyof";
-import en from "./locale/en-US";
+import enUS from "./locale/en-US";
 import zhCN from "./locale/zh-CN";
 
+/**
+ * 语言管理器类
+ * 负责语言的管理和文本获取
+ */
+export class LanguageManager {
+	private static instance: LanguageManager;
+	private localeMap: { [k: string]: LanguageLocale };
+	private defaultLang: string;
+	private currentLang: string;
+	private currentLocale: LanguageLocale;
 
-type LanguageStrings = typeof en;
+	/**
+	 * 私有构造函数，防止外部实例化
+	 */
+	private constructor() {
+		this.localeMap = {
+			en: enUS,
+			zh: zhCN,
+		};
+		this.defaultLang = 'en';
+		this.currentLang = require('obsidian').getLanguage();
+		this.currentLocale = this.localeMap[this.currentLang] || this.localeMap[this.defaultLang];
+	}
 
+	/**
+	 * 获取单例实例
+	 * @returns LanguageManager 实例
+	 */
+	public static getInstance(): LanguageManager {
+		if (!LanguageManager.instance) {
+			LanguageManager.instance = new LanguageManager();
+		}
+		return LanguageManager.instance;
+	}
+
+	/**
+	 * 设置语言
+	 * @param newLang 语言代码
+	 */
+	public setLanguage(newLang: string): void {
+		this.currentLang = newLang;
+		this.currentLocale = this.localeMap[newLang];
+		if (!this.currentLocale) {
+			this.currentLocale = this.localeMap[this.defaultLang];
+		}
+	}
+
+	/**
+	 * 获取指定键的文本
+	 * @param key 文本键
+	 * @returns 文本内容
+	 */
+	public getTextInLanguage(key: LanguageStringKey): string {
+		const text: unknown =
+			(this.currentLocale && getString<LanguageStrings>(this.currentLocale, key)) ||
+			getString<LanguageStrings>(this.localeMap[this.defaultLang], key);
+
+		return text as string;
+	}
+
+	/**
+	 * 获取当前语言
+	 * @returns 当前语言代码
+	 */
+	public getCurrentLanguage(): string {
+		return this.currentLang;
+	}
+
+}
+
+// 类型定义
+type LanguageStrings = typeof enUS;
 export type LanguageLocale = Partial<LanguageStrings>;
-
-export const localeMap: { [k: string]: LanguageLocale } = {
-	en,
-	zh: zhCN,
-};
-
-export const localeToFileName: { [k: string]: string } = {
-	en: "en",
-	zh: "zh-CN",
-};
-
 export type LanguageStringKey = NestedKeyOf<LanguageStrings>;
 
-// 获取系统语言，自动切换语言
-const defaultLang = require('obsidian').getLanguage();
-
-// const defaultLang = "en";
-let lang = defaultLang;
-let locale = localeMap[lang];
+// 导出默认实例
+export const languageManager = LanguageManager.getInstance();
 
 
-export function setLanguage(newLang: string) {
-	lang = newLang;
-	locale = localeMap[lang];
-	if (!locale) {
-		locale = localeMap[defaultLang];
-	}
-}
-
-export function getTextInLanguage(str: LanguageStringKey): string {
-	const text: unknown =
-		(locale && getString<LanguageStrings>(locale, str)) ||
-		getString<LanguageStrings>(en, str);
-
-	return text as string;
-}
-
-export function localeHasKey(
-	locale: LanguageLocale,
-	key: LanguageStringKey
-): boolean {
-	return !!getString<LanguageStrings>(locale, key);
-}
-
-export function getLanguageSourceFile(language: string) {
-	return `./src/lang/locale/${localeToFileName[language]}.ts`;
-}

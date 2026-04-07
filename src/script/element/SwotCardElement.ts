@@ -1,7 +1,6 @@
 import { App, MarkdownPostProcessorContext } from "obsidian";
 import { SWOTCardParser } from "../TagParsers";
 import { ItemContent } from "../ItemContent";
-import { getTextInLanguage } from "../lang/helpers";
 
 export class SWOTCardElement {
 	app: App;

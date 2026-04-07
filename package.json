@@ -1,8 +1,8 @@
 {
 	"name": "content-cards-plugin",
-	"version": "1.0.0",
+	"version": "1.2.3",
 	"description": "This is a plugin that extends Obsidian content rendering types, such as: timeline, highlightblock, target card, book info card, music info card, movie info card, photoes ablum, business card, content subfield, countdown, etc.",
-	"keywords": [],
+	"keywords": ["obsidian", "plugin", "content cards"],
 	"homepage": "https://github.com/liqms/obsidian-content-cards#readme",
 	"bugs": {
 		"url": "https://github.com/liqms/obsidian-content-cards/issues"
@@ -12,27 +12,28 @@
 		"url": "git+https://github.com/liqms/obsidian-content-cards.git"
 	},
 	"license": "MIT",
-	"author": "",
+	"author": "leo",
 	"type": "commonjs",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
-		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
-		"version": "node version-bump.mjs && git add manifest.json versions.json"
+		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production && node version-bump.mjs && git add manifest.json versions.json",
+		"clean": "node -e \"const fs = require('fs'); const files = ['main.js', 'styles.css', 'data.json']; files.forEach(file => { if (fs.existsSync(file)) { fs.unlinkSync(file); console.log('Deleted:', file); } });\"",
+		"typecheck": "tsc --noEmit -skipLibCheck"
 	},
 	"devDependencies": {
-		"@types/node": "^16.11.6",
-		"@typescript-eslint/eslint-plugin": "5.29.0",
-		"@typescript-eslint/parser": "5.29.0",
-		"builtin-modules": "3.3.0",
-		"esbuild": "0.17.3",
+		"@types/node": "^20.19.39",
+		"@typescript-eslint/eslint-plugin": "^8.58.0",
+		"@typescript-eslint/parser": "^8.58.0",
+		"builtin-modules": "^5.0.0",
+		"esbuild": "^0.28.0",
+		"esbuild-plugin-sass": "^1.0.1",
 		"obsidian": "latest",
-		"sass": "^1.83.4",
-		"tslib": "2.4.0",
-		"typescript": "^4.9.5"
+		"sass": "^1.99.0",
+		"tslib": "^2.8.1",
+		"typescript": "^5.9.3"
 	},
 	"dependencies": {
-		"esbuild-plugin-sass": "^1.0.1",
-		"i18n": "^0.15.1"
+		"i18n": "^0.15.3"
 	}
 }

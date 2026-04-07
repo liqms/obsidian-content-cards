@@ -525,7 +525,6 @@ a4-content:
 
 当前存在的已知问题：
 
--   倒计时不能实时更新
 
 # 版本历史
 
@@ -538,8 +537,8 @@ a4-content:
 | `1.1.4`  | 2024-04-02 | Bookcard Musiccard Moviecard Support Local Images. |
 | `1.2.0`  | 2024-04-11 | Add SWOT and BCG.                                  |
 | `1.2.2`  | 2024-10-11 | Album Support waterfall layout mode.               |
+| `1.2.3`  | 2026-04-07 | Updated Countdown Card.                                |
 
-支持瀑布流布局模式
 # 付费
 
 这个插件是免费的，如果您觉得插件对您有用的话, 可以给作者买杯咖啡支持一下:

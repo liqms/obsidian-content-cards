@@ -15,7 +15,7 @@ $background-primary-alt: var(--background-primary-alt)
 /*主题颜色*/
 $active-color: hsl(var(--accent-h),var(--accent-s),var(--accent-l))
 $active-color-a: hsla(var(--accent-h),var(--accent-s),var(--accent-l),0.2)
-
+$active-color-b: hsla(var(--accent-h),var(--accent-s),var(--accent-l),0.5)
 /*自定义颜色*/
 $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "pink"]
 
@@ -57,7 +57,24 @@ $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "
     border-radius: 5px
 @each $color in $active-colors
     .accent-color-#{$color}
-        background-color: #{"var(--color-" + $color + ")"}
+        background-color: #{"var(--color-" + $color + ")"}       
+        border-color: #{"var(--color-" + $color + ")"}
+        border-style: solid
+        border-width: 0px
+        padding: $box-spacing
+        color: var(--text-on-accent)
+        border-radius: 5px
+.accent-color-active-b
+    background-color: $active-color-b
+    border-color: $active-color-b
+    border-style: solid
+    border-width: 0px
+    padding: $box-spacing
+    color: var(--text-on-accent)
+    border-radius: 5px
+@each $color in $active-colors
+    .accent-color-#{$color}-b
+        background-color: #{"rgba(var(--color-" + $color + "-rgb), 0.2)"}
         border-color: #{"var(--color-" + $color + ")"}
         border-style: solid
         border-width: 0px
@@ -453,8 +470,8 @@ $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "
     padding: 0
 /*images grid*/
 @for $i from 1 through 9
-.grid-#{$i}
-    grid-template-columns: repeat(#{$i}, 1fr)
+    .grid-#{$i}
+        grid-template-columns: repeat(#{$i}, 1fr)
 
 /* Subfield 分栏 */
 .subfield

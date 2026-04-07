@@ -2,12 +2,8 @@
  * 根据不同的 Tag ，调用不同的 Parser ，解析成不同的 Content
  *
  */
+import { trim } from "./utils/string.utils";
 
-// 处理空字符串的情况
-const trim = (s: string): string => {
-	const trimmed = s.trim();
-	return trimmed.length === 0 ? "\u200B" : trimmed;
-};
 // 定义参数解析
 const toClassArray = (input: string, paramType: string): string => {
 	input = input.trim();
@@ -22,6 +18,7 @@ const toClassArray = (input: string, paramType: string): string => {
 	const matched = classes.find(cls => cls.startsWith(prefix));
 	return matched || '';
 };
+
 // timeline
 const timelineRegex =
 	/^[ \t]*@card(.+?)(?:^[ \t]*time:(.+?))?(?:^[ \t]*title:(.+?))?(?:^[ \t]*content:(.+?))?(?=^[ \t]*@card)/gimsu;

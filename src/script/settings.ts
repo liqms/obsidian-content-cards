@@ -1,39 +1,8 @@
 import { App, PluginSettingTab, setIcon, Setting } from "obsidian";
 import ContentCardsPlugin from "./main";
-import { getTextInLanguage } from "./lang/helpers";
+import { languageManager } from "./lang/helpers";
+import { ContentCardsPluginSettings, DEFAULT_SETTINGS } from "./types/settings";
 
-// 定义 settings 的类型
-export interface ContentCardsPluginSettings {
-	timelineVLanguage: string;
-	timelineHLanguage: string;
-	highlightblockLanguage: string;
-	targetLanguage: string;
-	bookLanguage: string;
-	musicLanguage: string;
-	movieLanguage: string;
-	albumLanguage: string;
-	subfieldLanguage: string;
-	nameLanguage: string;
-	countdownLanguage: string;
-	bcgLanguage: string;
-	swotLanguage: string;
-}
-// 定义默认的 settings
-export const DEFAULT_SETTINGS: ContentCardsPluginSettings = {
-	timelineVLanguage: "cards-timeline-v",
-	timelineHLanguage: "cards-timeline-h",
-	highlightblockLanguage: "cards-highlightblock",
-	targetLanguage: "cards-target",
-	bookLanguage: "cards-book",
-	musicLanguage: "cards-music",
-	movieLanguage: "cards-movie",
-	albumLanguage: "cards-album",
-	subfieldLanguage: "cards-subfield",
-	nameLanguage: "cards-name",
-	countdownLanguage: "cards-countdown",
-	bcgLanguage: "cards-bcg",
-	swotLanguage: "cards-swot",
-};
 // 定义 settings 的界面
 export class ContentCardsPluginSettingTab extends PluginSettingTab {
 	plugin: ContentCardsPlugin;
@@ -49,317 +18,296 @@ export class ContentCardsPluginSettingTab extends PluginSettingTab {
 		let { containerEl } = this;
 		containerEl.empty();
 		containerEl.createEl("h2", {
-			text: getTextInLanguage("code_block_variable"),
+			text: languageManager.getTextInLanguage("code_block_variable"),
 		});
+		
+		const settings = this.plugin.getSettingsManager().getSettings();
+		
 		const timelineVLanguageVariable = new Setting(containerEl)
-			.setName(getTextInLanguage("timelineVLanguage_name"))
-			.setDesc(getTextInLanguage("timelineVLanguage_desc"))
+			.setName(languageManager.getTextInLanguage("timelineVLanguage_name"))
+			.setDesc(languageManager.getTextInLanguage("timelineVLanguage_desc"))
 			.addText((text) =>
 				text
-					.setPlaceholder(getTextInLanguage("language_placeholder"))
-					.setValue(this.plugin.settings.timelineVLanguage)
+					.setPlaceholder(languageManager.getTextInLanguage("language_placeholder"))
+					.setValue(settings.timelineVLanguage)
 					.onChange(async (value) => {
-						this.plugin.settings.timelineVLanguage = value;
+						settings.timelineVLanguage = value;
 						await this.plugin.saveSettings();
 					})
 			);
 		timelineVLanguageVariable.addExtraButton((button) => {
 			button
 				.setIcon("reset")
-				.setTooltip(getTextInLanguage("reset_tooltip"))
+				.setTooltip(languageManager.getTextInLanguage("reset_tooltip"))
 				.onClick(async () => {
-					this.plugin.settings.timelineVLanguage =
-						DEFAULT_SETTINGS.timelineVLanguage;
+					settings.timelineVLanguage = DEFAULT_SETTINGS.timelineVLanguage;
 					await this.plugin.saveSettings();
 					this.display();
 				});
 		});
 		const timelineHLanguageVariable = new Setting(containerEl)
-			.setName(getTextInLanguage("timelineHLanguage_name"))
-			.setDesc(getTextInLanguage("timelineHLanguage_desc"))
+			.setName(languageManager.getTextInLanguage("timelineHLanguage_name"))
+			.setDesc(languageManager.getTextInLanguage("timelineHLanguage_desc"))
 			.addText((text) =>
 				text
-					.setPlaceholder(getTextInLanguage("language_placeholder"))
-					.setValue(this.plugin.settings.timelineHLanguage)
+					.setPlaceholder(languageManager.getTextInLanguage("language_placeholder"))
+					.setValue(settings.timelineHLanguage)
 					.onChange(async (value) => {
-						this.plugin.settings.timelineHLanguage = value;
+						settings.timelineHLanguage = value;
 						await this.plugin.saveSettings();
 					})
 			);
 		timelineHLanguageVariable.addExtraButton((button) => {
 			button
 				.setIcon("reset")
-				.setTooltip(getTextInLanguage("reset_tooltip"))
+				.setTooltip(languageManager.getTextInLanguage("reset_tooltip"))
 				.onClick(async () => {
-					this.plugin.settings.timelineHLanguage =
-						DEFAULT_SETTINGS.timelineHLanguage;
+					settings.timelineHLanguage = DEFAULT_SETTINGS.timelineHLanguage;
 					await this.plugin.saveSettings();
 					this.display();
 				});
 		});
 		const highlightblockLanguageVariable = new Setting(containerEl)
-
-			.setName(getTextInLanguage("highlightblockLanguage_name"))
-			.setDesc(getTextInLanguage("highlightblockLanguage_desc"))
+			.setName(languageManager.getTextInLanguage("highlightblockLanguage_name"))
+			.setDesc(languageManager.getTextInLanguage("highlightblockLanguage_desc"))
 			.addText((text) =>
 				text
-					.setPlaceholder(getTextInLanguage("language_placeholder"))
-					.setValue(this.plugin.settings.highlightblockLanguage)
+					.setPlaceholder(languageManager.getTextInLanguage("language_placeholder"))
+					.setValue(settings.highlightblockLanguage)
 					.onChange(async (value) => {
-						this.plugin.settings.highlightblockLanguage = value;
+						settings.highlightblockLanguage = value;
 						await this.plugin.saveSettings();
 					})
 			);
 		highlightblockLanguageVariable.addExtraButton((button) => {
 			button
 				.setIcon("reset")
-				.setTooltip(getTextInLanguage("reset_tooltip"))
+				.setTooltip(languageManager.getTextInLanguage("reset_tooltip"))
 				.onClick(async () => {
-					this.plugin.settings.highlightblockLanguage =
-						DEFAULT_SETTINGS.highlightblockLanguage;
+					settings.highlightblockLanguage = DEFAULT_SETTINGS.highlightblockLanguage;
 					await this.plugin.saveSettings();
 					this.display();
 				});
 		});
 		const targetLanguageVariable = new Setting(containerEl)
-
-			.setName(getTextInLanguage("targetLanguage_name"))
-			.setDesc(getTextInLanguage("targetLanguage_desc"))
+			.setName(languageManager.getTextInLanguage("targetLanguage_name"))
+			.setDesc(languageManager.getTextInLanguage("targetLanguage_desc"))
 			.addText((text) =>
 				text
-					.setPlaceholder(getTextInLanguage("language_placeholder"))
-					.setValue(this.plugin.settings.targetLanguage)
+					.setPlaceholder(languageManager.getTextInLanguage("language_placeholder"))
+					.setValue(settings.targetLanguage)
 					.onChange(async (value) => {
-						this.plugin.settings.targetLanguage = value;
+						settings.targetLanguage = value;
 						await this.plugin.saveSettings();
 					})
 			);
 		targetLanguageVariable.addExtraButton((button) => {
 			button
 				.setIcon("reset")
-				.setTooltip(getTextInLanguage("reset_tooltip"))
+				.setTooltip(languageManager.getTextInLanguage("reset_tooltip"))
 				.onClick(async () => {
-					this.plugin.settings.targetLanguage =
-						DEFAULT_SETTINGS.targetLanguage;
+					settings.targetLanguage = DEFAULT_SETTINGS.targetLanguage;
 					await this.plugin.saveSettings();
 					this.display();
 				});
 		});
 		const bookLanguageVariable = new Setting(containerEl)
-
-			.setName(getTextInLanguage("bookLanguage_name"))
-			.setDesc(getTextInLanguage("bookLanguage_desc"))
+			.setName(languageManager.getTextInLanguage("bookLanguage_name"))
+			.setDesc(languageManager.getTextInLanguage("bookLanguage_desc"))
 			.addText((text) =>
 				text
-					.setPlaceholder(getTextInLanguage("language_placeholder"))
-					.setValue(this.plugin.settings.bookLanguage)
+					.setPlaceholder(languageManager.getTextInLanguage("language_placeholder"))
+					.setValue(settings.bookLanguage)
 					.onChange(async (value) => {
-						this.plugin.settings.bookLanguage = value;
+						settings.bookLanguage = value;
 						await this.plugin.saveSettings();
 					})
 			);
 		bookLanguageVariable.addExtraButton((button) => {
 			button
 				.setIcon("reset")
-				.setTooltip(getTextInLanguage("reset_tooltip"))
+				.setTooltip(languageManager.getTextInLanguage("reset_tooltip"))
 				.onClick(async () => {
-					this.plugin.settings.bookLanguage =
-						DEFAULT_SETTINGS.bookLanguage;
+					settings.bookLanguage = DEFAULT_SETTINGS.bookLanguage;
 					await this.plugin.saveSettings();
 					this.display();
 				});
 		});
 		const musicLanguageVariable = new Setting(containerEl)
-
-			.setName(getTextInLanguage("musicLanguage_name"))
-			.setDesc(getTextInLanguage("musicLanguage_desc"))
+			.setName(languageManager.getTextInLanguage("musicLanguage_name"))
+			.setDesc(languageManager.getTextInLanguage("musicLanguage_desc"))
 			.addText((text) =>
 				text
-					.setPlaceholder(getTextInLanguage("language_placeholder"))
-					.setValue(this.plugin.settings.musicLanguage)
+					.setPlaceholder(languageManager.getTextInLanguage("language_placeholder"))
+					.setValue(settings.musicLanguage)
 					.onChange(async (value) => {
-						this.plugin.settings.musicLanguage = value;
+						settings.musicLanguage = value;
 						await this.plugin.saveSettings();
 					})
 			);
 		musicLanguageVariable.addExtraButton((button) => {
 			button
 				.setIcon("reset")
-				.setTooltip(getTextInLanguage("reset_tooltip"))
+				.setTooltip(languageManager.getTextInLanguage("reset_tooltip"))
 				.onClick(async () => {
-					this.plugin.settings.musicLanguage =
-						DEFAULT_SETTINGS.musicLanguage;
+					settings.musicLanguage = DEFAULT_SETTINGS.musicLanguage;
 					await this.plugin.saveSettings();
 					this.display();
 				});
 		});
 		const movieLanguageVariable = new Setting(containerEl)
-
-			.setName(getTextInLanguage("movieLanguage_name"))
-			.setDesc(getTextInLanguage("movieLanguage_desc"))
+			.setName(languageManager.getTextInLanguage("movieLanguage_name"))
+			.setDesc(languageManager.getTextInLanguage("movieLanguage_desc"))
 			.addText((text) =>
 				text
-					.setPlaceholder(getTextInLanguage("language_placeholder"))
-					.setValue(this.plugin.settings.movieLanguage)
+					.setPlaceholder(languageManager.getTextInLanguage("language_placeholder"))
+					.setValue(settings.movieLanguage)
 					.onChange(async (value) => {
-						this.plugin.settings.movieLanguage = value;
+						settings.movieLanguage = value;
 						await this.plugin.saveSettings();
 					})
 			);
 		movieLanguageVariable.addExtraButton((button) => {
 			button
 				.setIcon("reset")
-				.setTooltip(getTextInLanguage("reset_tooltip"))
+				.setTooltip(languageManager.getTextInLanguage("reset_tooltip"))
 				.onClick(async () => {
-					this.plugin.settings.movieLanguage =
-						DEFAULT_SETTINGS.movieLanguage;
+					settings.movieLanguage = DEFAULT_SETTINGS.movieLanguage;
 					await this.plugin.saveSettings();
 					this.display();
 				});
 		});
 		const albumLanguageVariable = new Setting(containerEl)
-
-			.setName(getTextInLanguage("albumLanguage_name"))
-			.setDesc(getTextInLanguage("albumLanguage_desc"))
+			.setName(languageManager.getTextInLanguage("albumLanguage_name"))
+			.setDesc(languageManager.getTextInLanguage("albumLanguage_desc"))
 			.addText((text) =>
 				text
-					.setPlaceholder(getTextInLanguage("language_placeholder"))
-					.setValue(this.plugin.settings.albumLanguage)
+					.setPlaceholder(languageManager.getTextInLanguage("language_placeholder"))
+					.setValue(settings.albumLanguage)
 					.onChange(async (value) => {
-						this.plugin.settings.albumLanguage = value;
+						settings.albumLanguage = value;
 						await this.plugin.saveSettings();
 					})
 			);
 		albumLanguageVariable.addExtraButton((button) => {
 			button
 				.setIcon("reset")
-				.setTooltip(getTextInLanguage("reset_tooltip"))
+				.setTooltip(languageManager.getTextInLanguage("reset_tooltip"))
 				.onClick(async () => {
-					this.plugin.settings.albumLanguage =
-						DEFAULT_SETTINGS.albumLanguage;
+					settings.albumLanguage = DEFAULT_SETTINGS.albumLanguage;
 					await this.plugin.saveSettings();
 					this.display();
 				});
 		});
 		const subfieldLanguageVariable = new Setting(containerEl)
-
-			.setName(getTextInLanguage("subfieldLanguage_name"))
-			.setDesc(getTextInLanguage("subfieldLanguage_desc"))
+			.setName(languageManager.getTextInLanguage("subfieldLanguage_name"))
+			.setDesc(languageManager.getTextInLanguage("subfieldLanguage_desc"))
 			.addText((text) =>
 				text
-					.setPlaceholder(getTextInLanguage("language_placeholder"))
-					.setValue(this.plugin.settings.subfieldLanguage)
+					.setPlaceholder(languageManager.getTextInLanguage("language_placeholder"))
+					.setValue(settings.subfieldLanguage)
 					.onChange(async (value) => {
-						this.plugin.settings.subfieldLanguage = value;
+						settings.subfieldLanguage = value;
 						await this.plugin.saveSettings();
 					})
 			);
 		subfieldLanguageVariable.addExtraButton((button) => {
 			button
 				.setIcon("reset")
-				.setTooltip(getTextInLanguage("reset_tooltip"))
+				.setTooltip(languageManager.getTextInLanguage("reset_tooltip"))
 				.onClick(async () => {
-					this.plugin.settings.subfieldLanguage =
-						DEFAULT_SETTINGS.subfieldLanguage;
+					settings.subfieldLanguage = DEFAULT_SETTINGS.subfieldLanguage;
 					await this.plugin.saveSettings();
 					this.display();
 				});
 		});
 		const nameLanguageVariable = new Setting(containerEl)
-
-			.setName(getTextInLanguage("nameLanguage_name"))
-			.setDesc(getTextInLanguage("nameLanguage_desc"))
+			.setName(languageManager.getTextInLanguage("nameLanguage_name"))
+			.setDesc(languageManager.getTextInLanguage("nameLanguage_desc"))
 			.addText((text) =>
 				text
-					.setPlaceholder(getTextInLanguage("language_placeholder"))
-					.setValue(this.plugin.settings.nameLanguage)
+					.setPlaceholder(languageManager.getTextInLanguage("language_placeholder"))
+					.setValue(settings.nameLanguage)
 					.onChange(async (value) => {
-						this.plugin.settings.nameLanguage = value;
+						settings.nameLanguage = value;
 						await this.plugin.saveSettings();
 					})
 			);
 		nameLanguageVariable.addExtraButton((button) => {
 			button
 				.setIcon("reset")
-				.setTooltip(getTextInLanguage("reset_tooltip"))
+				.setTooltip(languageManager.getTextInLanguage("reset_tooltip"))
 				.onClick(async () => {
-					this.plugin.settings.nameLanguage =
-						DEFAULT_SETTINGS.nameLanguage;
+					settings.nameLanguage = DEFAULT_SETTINGS.nameLanguage;
 					await this.plugin.saveSettings();
 					this.display();
 				});
 		});
 		const countdownLanguageVariable = new Setting(containerEl)
-
-			.setName(getTextInLanguage("countdownLanguage_name"))
-			.setDesc(getTextInLanguage("countdownLanguage_desc"))
+			.setName(languageManager.getTextInLanguage("countdownLanguage_name"))
+			.setDesc(languageManager.getTextInLanguage("countdownLanguage_desc"))
 			.addText((text) =>
 				text
-					.setPlaceholder(getTextInLanguage("language_placeholder"))
-					.setValue(this.plugin.settings.countdownLanguage)
+					.setPlaceholder(languageManager.getTextInLanguage("language_placeholder"))
+					.setValue(settings.countdownLanguage)
 					.onChange(async (value) => {
-						this.plugin.settings.countdownLanguage = value;
+						settings.countdownLanguage = value;
 						await this.plugin.saveSettings();
 					})
 			);
 		countdownLanguageVariable.addExtraButton((button) => {
 			button
 				.setIcon("reset")
-				.setTooltip(getTextInLanguage("reset_tooltip"))
+				.setTooltip(languageManager.getTextInLanguage("reset_tooltip"))
 				.onClick(async () => {
-					this.plugin.settings.countdownLanguage =
-						DEFAULT_SETTINGS.countdownLanguage;
+					settings.countdownLanguage = DEFAULT_SETTINGS.countdownLanguage;
 					await this.plugin.saveSettings();
 					this.display();
 				});
 		});
 		const bcgLanguageVariable = new Setting(containerEl)
-
-			.setName(getTextInLanguage("bcgLanguage_name"))
-			.setDesc(getTextInLanguage("bcgLanguage_desc"))
+			.setName(languageManager.getTextInLanguage("bcgLanguage_name"))
+			.setDesc(languageManager.getTextInLanguage("bcgLanguage_desc"))
 			.addText((text) =>
 				text
-					.setPlaceholder(getTextInLanguage("language_placeholder"))
-					.setValue(this.plugin.settings.bcgLanguage)
+					.setPlaceholder(languageManager.getTextInLanguage("language_placeholder"))
+					.setValue(settings.bcgLanguage)
 					.onChange(async (value) => {
-						this.plugin.settings.bcgLanguage = value;
+						settings.bcgLanguage = value;
 						await this.plugin.saveSettings();
 					})
 			);
 		bcgLanguageVariable.addExtraButton((button) => {
 			button
 				.setIcon("reset")
-				.setTooltip(getTextInLanguage("reset_tooltip"))
+				.setTooltip(languageManager.getTextInLanguage("reset_tooltip"))
 				.onClick(async () => {
-					this.plugin.settings.bcgLanguage =
-						DEFAULT_SETTINGS.bcgLanguage;
+					settings.bcgLanguage = DEFAULT_SETTINGS.bcgLanguage;
 					await this.plugin.saveSettings();
 					this.display();
-				});	
+				});
 		});
 		const swotLanguageVariable = new Setting(containerEl)
-
-			.setName(getTextInLanguage("swotLanguage_name"))
-			.setDesc(getTextInLanguage("swotLanguage_desc"))
+			.setName(languageManager.getTextInLanguage("swotLanguage_name"))
+			.setDesc(languageManager.getTextInLanguage("swotLanguage_desc"))
 			.addText((text) =>
 				text
-					.setPlaceholder(getTextInLanguage("language_placeholder"))
-					.setValue(this.plugin.settings.swotLanguage)
+					.setPlaceholder(languageManager.getTextInLanguage("language_placeholder"))
+					.setValue(settings.swotLanguage)
 					.onChange(async (value) => {
-						this.plugin.settings.swotLanguage = value;
+						settings.swotLanguage = value;
 						await this.plugin.saveSettings();
 					})
 			);
 		swotLanguageVariable.addExtraButton((button) => {
 			button
 				.setIcon("reset")
-				.setTooltip(getTextInLanguage("reset_tooltip"))
+				.setTooltip(languageManager.getTextInLanguage("reset_tooltip"))
 				.onClick(async () => {
-					this.plugin.settings.swotLanguage =
-						DEFAULT_SETTINGS.swotLanguage;
+					settings.swotLanguage = DEFAULT_SETTINGS.swotLanguage;
 					await this.plugin.saveSettings();
 					this.display();
-				});	
+				});
 		});
 	}
 	refresh(): void {
@@ -371,11 +319,3 @@ export class ContentCardsPluginSettingTab extends PluginSettingTab {
 	}
 }
 
-function createLink(
-	el: HTMLElement | DocumentFragment,
-	text: string,
-	href: string
-) {
-	const link = el.createEl("a", { text, href });
-	return link;
-}

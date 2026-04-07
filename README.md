@@ -9,11 +9,11 @@ Insert content cards in Markdown, such as timeline, highlightblock, target card,
 
 # Features
 
--   Obsidian Mobile supported.
--   Support English and Chinese.
--   Support Local Images.
--   Supports custom codeblock language.
--   Add new card: SWOT and BCG.
+- Obsidian Mobile supported.
+- Support English and Chinese.
+- Support Local Images.
+- Supports custom codeblock language.
+- Add new card: SWOT and BCG.
 
 # Installation
 
@@ -27,14 +27,14 @@ Some cards can be colored by adding '[color-red]' after '@card'.
 
 Supported custom colors:
 
--   color-red
--   color-orange
--   color-yellow
--   color-green
--   color-cyan
--   color-blue
--   color-purple
--   color-pink
+- color-red
+- color-orange
+- color-yellow
+- color-green
+- color-cyan
+- color-blue
+- color-purple
+- color-pink
 
 ## Timeline
 
@@ -337,7 +337,9 @@ images:
 ![[files/image-2.png]]
 ```
 ````
+
 **Waterfall Layout**
+
 ````
 ```cards-album
 @card [color-blue,waterfall-3]
@@ -350,6 +352,7 @@ https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg
 https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg
 ```
 ````
+
 ### Parameters
 
 | Option | Type   | Required | Description                                                                                                                               |
@@ -524,7 +527,6 @@ You are greatly welcome to ask questions, post any suggestions, or report any bu
 
 Known issues:
 
--   The countdown cannot be updated in real time
 
 # Changelog
 
@@ -537,6 +539,7 @@ Known issues:
 | `1.1.4`  | 2024-04-02 | Bookcard Musiccard Moviecard Support Local Images. |
 | `1.2.0`  | 2024-04-11 | Add SWOT Analysis and BCG Analysis.                |
 | `1.2.2`  | 2024-10-11 | Album Support waterfall layout mode.               |
+| `1.2.3`  | 2026-04-07 | Updated Countdown Card.                            |
 
 # Pricing
 
