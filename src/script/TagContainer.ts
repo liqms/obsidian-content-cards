@@ -1,6 +1,6 @@
 import { App, MarkdownPostProcessorContext } from "obsidian";
 import * as Elements from "./element";
-import { CardElementConstructor } from "./types/card-element";
+import { CardElementConstructor, CardElementInstance } from "./types/card-element";
 
 /**
  * 标签容器类
@@ -8,10 +8,9 @@ import { CardElementConstructor } from "./types/card-element";
  */
 export class TagContainer {
 	app: App;
-	context: MarkdownPostProcessorContext;
 	source: string;
 	element: HTMLElement;
-	elementInstance: any; // 存储创建的元素实例
+	elementInstance: CardElementInstance | undefined;
 
 	constructor(
 		tag: string,
@@ -22,7 +21,6 @@ export class TagContainer {
 	) {
 		this.source = source;
 		this.app = app;
-		this.context = context;
 		this.element = element;
 
 		// 创建元素映射表
@@ -47,8 +45,6 @@ export class TagContainer {
 		const ElementClass = elementMap[tag];
 		if (ElementClass) {
 			this.elementInstance = new ElementClass(source, element, context, this.app);
-		} else {
-			console.warn(`未定义的标签类型: ${tag}`);
 		}
 	}
 

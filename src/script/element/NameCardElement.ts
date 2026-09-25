@@ -52,7 +52,7 @@ export class NameCardElement {
       text: item.icon 
     });
     const contentEl = infoEl.createDiv({ cls: this.NAMECARD_ITEM_CONTENT_CLASS });
-    const nameEl = contentEl.createDiv({ 
+    contentEl.createDiv({ 
       cls: this.NAMECARD_ITEM_CONTENT_NAME_CLASS, 
       text: item.name 
     });

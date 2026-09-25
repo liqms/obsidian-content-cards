@@ -26,7 +26,6 @@ export class SettingsManager {
 		try {
 			const savedData = await this.plugin.loadData();
 			this.settings = Object.assign({}, DEFAULT_SETTINGS, savedData);
-			console.log('设置加载成功');
 			return this.settings;
 		} catch (error) {
 			console.error('设置加载失败:', error);
@@ -42,7 +41,6 @@ export class SettingsManager {
 	async save(): Promise<boolean> {
 		try {
 			await this.plugin.saveData(this.settings);
-			console.log('设置保存成功');
 			return true;
 		} catch (error) {
 			console.error('设置保存失败:', error);

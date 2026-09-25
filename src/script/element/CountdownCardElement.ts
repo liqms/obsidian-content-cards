@@ -25,8 +25,6 @@ export class CountdownCardElement {
   private readonly TYPE_SEC = 'sec';
   private readonly UPDATE_INTERVAL = 1000; // 1秒更新一次
 
-  app: App;
-  context: MarkdownPostProcessorContext;
   source: string;
   element: HTMLElement;
   cardsEl: HTMLElement;
@@ -34,17 +32,15 @@ export class CountdownCardElement {
   targetTime: number[];
   currentTime: number[];
   timeCountStr: string[];
-  private countdownIntervals: NodeJS.Timeout[] = [];
+  private countdownIntervals: number[] = [];
 
   constructor(
     source: string,
     element: HTMLElement,
-    context: MarkdownPostProcessorContext,
-    app: App
+    _context: MarkdownPostProcessorContext,
+    _app: App
   ) {
     element.className = 'cards-container';
-    this.app = app;
-    this.context = context;
     this.source = source;
     this.element = element;
     this.timeCount = [0, 0, 0];
@@ -149,7 +145,7 @@ export class CountdownCardElement {
   }
 
   private startSecondCountdownUpdate(numElements: HTMLElement[], type: string, time: string, color: string | null | undefined): void {
-    const interval = setInterval(() => {
+    const interval = activeWindow.setInterval(() => {
       const newTimeCountStr = this.getTimeCountStr(type, time);
       
       // 更新数字和样式
@@ -183,7 +179,7 @@ export class CountdownCardElement {
       
       // 检查是否倒计时结束
       if (newTimeCountStr.every(str => str === '0' || str === '00')) {
-        clearInterval(interval);
+        activeWindow.clearInterval(interval);
       }
     }, this.UPDATE_INTERVAL);
     
@@ -300,7 +296,7 @@ export class CountdownCardElement {
    */
   cleanup(): void {
     // 清除所有倒计时定时器
-    this.countdownIntervals.forEach(interval => clearInterval(interval));
+    this.countdownIntervals.forEach(interval => activeWindow.clearInterval(interval));
     this.countdownIntervals = [];
   }
 }

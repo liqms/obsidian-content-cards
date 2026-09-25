@@ -540,6 +540,7 @@ Known issues:
 | `1.2.0`  | 2024-04-11 | Add SWOT Analysis and BCG Analysis.                |
 | `1.2.2`  | 2024-10-11 | Album Support waterfall layout mode.               |
 | `1.2.3`  | 2026-04-07 | Updated Countdown Card.                            |
+| `1.3.0`  | 2026-09-24 | Code quality & lint improvements, min app version 1.1.0. |
 
 # Pricing
 

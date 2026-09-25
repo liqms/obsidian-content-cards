@@ -1,4 +1,4 @@
-import { MarkdownPostProcessorContext, Plugin } from "obsidian";
+import { App, MarkdownPostProcessorContext, Plugin } from "obsidian";
 import { TagContainer } from "./TagContainer";
 import {
 	ContentCardsPluginSettingTab,
@@ -6,6 +6,12 @@ import {
 import { SettingsManager } from "./services/SettingsManager";
 import { LanguageManager } from "./services/LanguageManager";
 import "../style/styles.sass";
+
+interface Plugins {
+	enabledPlugins: Record<string, Plugin>;
+	disablePlugin(pluginId: string): Promise<void>;
+	enablePlugin(pluginId: string): Promise<void>;
+}
 
 /**
  * 内容卡片插件
@@ -33,20 +39,16 @@ export default class ContentCardsPlugin extends Plugin {
 
 		// 注册代码块处理器
 		this.registerCodeBlockProcessors();
-
-		console.log("插件加载成功");
 	}
 
 	/**
 	 * 插件卸载时调用
 	 */
-	async onunload() {
+	onunload(): void {
 		// 清理所有 TagContainer 实例
 		this.cleanupTagContainers();
 		// 清空容器数组
 		this.tagContainers = [];
-		
-		console.log("插件卸载成功");
 	}
 
 	/**
@@ -56,7 +58,6 @@ export default class ContentCardsPlugin extends Plugin {
 		this.tagContainers.forEach(container => {
 			container.cleanup();
 		});
-		console.log(`已清理 ${this.tagContainers.length} 个 TagContainer 实例`);
 	}
 
 	/**
@@ -77,7 +78,6 @@ export default class ContentCardsPlugin extends Plugin {
 				}
 			);
 		});
-		console.log(`已注册 ${languages.length} 个代码块处理器`);
 	}
 
 	/**
@@ -88,9 +88,8 @@ export default class ContentCardsPlugin extends Plugin {
 		this.reloadingPlugins = true;
 
 		try {
-			const plugins = (<any>this.app).plugins;
-			if (!plugins?.enabledPlugins?.has(this.manifest.id)) {
-				console.warn('插件未启用，无法重新加载');
+			const plugins = (this.app as App & { plugins: Plugins }).plugins;
+			if (!plugins.enabledPlugins[this.manifest.id]) {
 				return;
 			}
 
@@ -100,7 +99,6 @@ export default class ContentCardsPlugin extends Plugin {
 
 			await plugins.disablePlugin(this.manifest.id);
 			await plugins.enablePlugin(this.manifest.id);
-			console.log('插件重新加载成功');
 		} catch (error) {
 			console.error('插件重新加载失败:', error);
 		} finally {
@@ -115,7 +113,6 @@ export default class ContentCardsPlugin extends Plugin {
 		try {
 			const settings = await this.settingsManager.load();
 			this.languageManager.updateFromSettings(settings);
-			console.log('设置加载成功');
 		} catch (error) {
 			console.error('设置加载失败:', error);
 		}

@@ -12,7 +12,7 @@ const toClassArray = (input: string, paramType: string): string => {
 	const classes = input
 		.substring(1, input.length - 1)
 		.trim()
-		.split(/\s*\,\s*/);
+		.split(/\s*,\s*/);
 
 	const prefix = `${paramType}-`;
 	const matched = classes.find(cls => cls.startsWith(prefix));

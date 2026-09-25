@@ -39,17 +39,17 @@ export class TargetCardElement {
 
   private createTargetCard(cardsEl: HTMLElement, item: TargetCardItem): void {
     const cardEl = cardsEl.createDiv({ cls: this.TARGET_CARD_ITEM_CLASS });
-    const titleEl = cardEl.createDiv({ 
+    cardEl.createDiv({ 
       cls: this.TARGET_CARD_ITEM_TITLE_CLASS, 
       text: item.title 
     });
     const contentEl = cardEl.createDiv({ cls: this.TARGET_CARD_ITEM_CONTENT_CLASS });
     
-    const numEl = contentEl.createSpan({ 
+    contentEl.createSpan({ 
       cls: this.TARGET_CARD_ITEM_CONTENT_NUM_CLASS, 
       text: item.value 
     });
-    const unitEl = contentEl.createSpan({ 
+    contentEl.createSpan({ 
       cls: this.TARGET_CARD_ITEM_CONTENT_UNIT_CLASS, 
       text: item.unit 
     });

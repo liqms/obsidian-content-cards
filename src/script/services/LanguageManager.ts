@@ -24,7 +24,6 @@ export class LanguageManager {
 	updateFromSettings(settings: ContentCardsPluginSettings): void {
 		this.config = createLanguageConfig(settings);
 		this.languageArray = languageConfigToArray(this.config);
-		console.log('插件语言配置更新');
 	}
 
 	/**

@@ -53,7 +53,7 @@ export class TimelineHElement {
 
   private createTimelineItem(cardsEl: HTMLElement, item: TimelineItem): void {
     const cardEl = cardsEl.createDiv({ cls: this.TIMELINE_H_ITEM_CLASS });
-    const timeEl = cardEl.createDiv({ 
+    cardEl.createDiv({ 
       cls: this.TIMELINE_H_TIME_CLASS, 
       text: item.time 
     });

@@ -1,7 +1,7 @@
-import { App, PluginSettingTab, setIcon, Setting } from "obsidian";
+import { App, PluginSettingTab, Setting } from "obsidian";
 import ContentCardsPlugin from "./main";
 import { languageManager } from "./lang/helpers";
-import { ContentCardsPluginSettings, DEFAULT_SETTINGS } from "./types/settings";
+import { DEFAULT_SETTINGS } from "./types/settings";
 
 // 定义 settings 的界面
 export class ContentCardsPluginSettingTab extends PluginSettingTab {
@@ -12,14 +12,14 @@ export class ContentCardsPluginSettingTab extends PluginSettingTab {
 		this.plugin = plugin;
 	}
 	hide(): void {
-		this.plugin.reloadPlugin();
+		void this.plugin.reloadPlugin();
 	}
 	display(): void {
 		let { containerEl } = this;
 		containerEl.empty();
-		containerEl.createEl("h2", {
-			text: languageManager.getTextInLanguage("code_block_variable"),
-		});
+		new Setting(containerEl)
+			.setName(languageManager.getTextInLanguage("code_block_variable"))
+			.setHeading();
 		
 		const settings = this.plugin.getSettingsManager().getSettings();
 		

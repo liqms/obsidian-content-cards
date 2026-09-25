@@ -12,7 +12,6 @@ export class MusicCardElement {
   private readonly IMAGE_TYPE_LOCAL = '!';
   private readonly IMAGE_TYPE_HTTP = 'http';
   private readonly DESCRIPTION_CLASS = 'description';
-  private styleElements: HTMLStyleElement[] = [];
 
   app: App;
   context: MarkdownPostProcessorContext;
@@ -46,24 +45,15 @@ export class MusicCardElement {
     }
   }
 
-  private addBackgroundImageStyle(cardEl: HTMLElement, cover: string, timestamp: number): void {
-    const className = `musiccard-item-pg-${timestamp}`;
-    cardEl.addClass(className);
-    
-    const style = document.createElement('style');
-    const bgImgAttr = document.createTextNode(
-      `.${className}::before { background-image: url(${cover});}`
-    );
-    style.appendChild(bgImgAttr);
-    document.body.appendChild(style);
-    this.styleElements.push(style);
+  private addBackgroundImageStyle(cardEl: HTMLElement, cover: string): void {
+    cardEl.style.setProperty('--musiccard-cover-image', `url(${cover})`);
   }
 
-  private createMusicCard(cardsEl: HTMLElement, item: MusicCardItem, timestamp: number): void {
+  private createMusicCard(cardsEl: HTMLElement, item: MusicCardItem): void {
     const cardEl = cardsEl.createDiv({ cls: 'musiccard-item' });
     
     if (item.cover.startsWith(this.IMAGE_TYPE_HTTP)) {
-      this.addBackgroundImageStyle(cardEl, item.cover, timestamp);
+      this.addBackgroundImageStyle(cardEl, item.cover);
     } else if (item.cover.startsWith(this.IMAGE_TYPE_LOCAL)) {
       const musiccardBgEl = new ItemContent(item.cover, cardEl, this.context, this.app);
       musiccardBgEl.itemEl.classList.add('musiccard-item-bg');
@@ -86,25 +76,15 @@ export class MusicCardElement {
   createCardsEl(): HTMLElement {
     const musicCardItemInfo: MusicCardItem[] = MusicCardParser(this.source);
     const cardsEl = this.element;
-    const timestamp: number = new Date().getTime();
     
     if (!musicCardItemInfo || musicCardItemInfo.length === 0) {
       return cardsEl;
     }
 
     musicCardItemInfo.forEach((item) => {
-      this.createMusicCard(cardsEl, item, timestamp);
+      this.createMusicCard(cardsEl, item);
     });
 
     return cardsEl;
-  }
-
-  cleanup(): void {
-    this.styleElements.forEach(style => {
-      if (style.parentNode) {
-        style.parentNode.removeChild(style);
-      }
-    });
-    this.styleElements = [];
   }
 }

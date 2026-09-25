@@ -341,6 +341,7 @@ $active-colors: ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "
         filter: blur(1rem) brightness(0.4)
         background-position: center
         background-size: cover
+        background-image: var(--bookcard-cover-image, var(--musiccard-cover-image, var(--moviecard-cover-image, none)))
 .bookcard-item-bg,.musiccard-item-bg,.moviecard-item-bg
     position: absolute
     width: 110%

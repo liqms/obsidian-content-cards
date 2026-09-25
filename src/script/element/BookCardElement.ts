@@ -13,7 +13,6 @@ export class BookCardElement {
   private readonly IMAGE_TYPE_LOCAL = '!';
   private readonly IMAGE_TYPE_HTTP = 'http';
   private readonly DESCRIPTION_CLASS = 'description';
-  private styleElements: HTMLStyleElement[] = [];
 
   app: App;
   context: MarkdownPostProcessorContext;
@@ -47,24 +46,15 @@ export class BookCardElement {
     }
   }
 
-  private addBackgroundImageStyle(cardEl: HTMLElement, cover: string, timestamp: number): void {
-    const className = `bookcard-item-pg-${timestamp}`;
-    cardEl.addClass(className);
-    
-    const style = document.createElement('style');
-    const bgImgAttr = document.createTextNode(
-      `.${className}::before { background-image: url(${cover});}`
-    );
-    style.appendChild(bgImgAttr);
-    document.body.appendChild(style);
-    this.styleElements.push(style);
+  private addBackgroundImageStyle(cardEl: HTMLElement, cover: string): void {
+    cardEl.style.setProperty('--bookcard-cover-image', `url(${cover})`);
   }
 
-  private createBookCard(cardsEl: HTMLElement, item: BookCardItem, timestamp: number): void {
+  private createBookCard(cardsEl: HTMLElement, item: BookCardItem): void {
     const cardEl = cardsEl.createDiv({ cls: 'bookcard-item' });
     
     if (item.cover.startsWith(this.IMAGE_TYPE_HTTP)) {
-      this.addBackgroundImageStyle(cardEl, item.cover, timestamp);
+      this.addBackgroundImageStyle(cardEl, item.cover);
     } else if (item.cover.startsWith(this.IMAGE_TYPE_LOCAL)) {
       const bookcardBgEl = new ItemContent(item.cover, cardEl, this.context, this.app);
       bookcardBgEl.itemEl.classList.add('bookcard-item-bg');
@@ -90,26 +80,15 @@ export class BookCardElement {
   createCardsEl(): HTMLElement {
     const bookCardItemInfo: BookCardItem[] = BookCardParser(this.source);
     const cardsEl = this.element;
-    const timestamp: number = new Date().getTime();
     
     if (!bookCardItemInfo || bookCardItemInfo.length === 0) {
       return cardsEl;
     }
 
     bookCardItemInfo.forEach((item) => {
-      this.createBookCard(cardsEl, item, timestamp);
+      this.createBookCard(cardsEl, item);
     });
 
     return cardsEl;
-  }
-
-  // 清理方法，用于移除添加的 style 元素
-  cleanup(): void {
-    this.styleElements.forEach(style => {
-      if (style.parentNode) {
-        style.parentNode.removeChild(style);
-      }
-    });
-    this.styleElements = [];
   }
 }
