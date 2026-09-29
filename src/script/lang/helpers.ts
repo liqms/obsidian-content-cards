@@ -1,6 +1,11 @@
+import { getLanguage } from "obsidian";
 import { getString, NestedKeyOf } from "../utils/nested-keyof";
 import enUS from "./locale/en-US";
 import zhCN from "./locale/zh-CN";
+
+declare module "obsidian" {
+	export function getLanguage(): string;
+}
 
 /**
  * 语言管理器类
@@ -22,7 +27,7 @@ export class LanguageManager {
 			zh: zhCN,
 		};
 		this.defaultLang = 'en';
-		this.currentLang = require('obsidian').getLanguage();
+		this.currentLang = getLanguage();
 		this.currentLocale = this.localeMap[this.currentLang] || this.localeMap[this.defaultLang];
 	}
 

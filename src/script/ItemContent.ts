@@ -54,6 +54,8 @@ export class ItemContent {
 			this.itemEl,
 			this.context?.sourcePath,
 			cardComponent
-		);
+		).catch((error) => {
+			console.error('Markdown 渲染失败:', error);
+		});
 	}
 }

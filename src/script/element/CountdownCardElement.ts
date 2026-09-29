@@ -29,8 +29,6 @@ export class CountdownCardElement {
   element: HTMLElement;
   cardsEl: HTMLElement;
   timeCount: number[];
-  targetTime: number[];
-  currentTime: number[];
   timeCountStr: string[];
   private countdownIntervals: number[] = [];
 
@@ -44,8 +42,6 @@ export class CountdownCardElement {
     this.source = source;
     this.element = element;
     this.timeCount = [0, 0, 0];
-    this.currentTime = [0, 0, 0];
-    this.targetTime = [0, 0, 0];
     this.timeCountStr = ['0', '0', '0'];
     this.cardsEl = this.createCardsEl();
   }
@@ -212,19 +208,17 @@ export class CountdownCardElement {
     if (type === this.TYPE_DAY) {
       const match = time.match(/(\d{4})-(\d{2})-(\d{2})/);
       if (match) {
-        this.targetTime = [parseInt(match[1]), parseInt(match[2]), parseInt(match[3])];
-        const currentTime = [
-          new Date().getFullYear(),
-          new Date().getMonth() + 1,
-          new Date().getDate()
-        ];
+        const targetYear = parseInt(match[1]);
+        const targetMonth = parseInt(match[2]);
+        const targetDay = parseInt(match[3]);
+        const now = new Date();
         const timeDiff = 
-          this.targetTime[0] * 365 + 
-          this.targetTime[1] * 30 + 
-          this.targetTime[2] - 
-          currentTime[0] * 365 - 
-          currentTime[1] * 30 - 
-          currentTime[2];
+          targetYear * 365 + 
+          targetMonth * 30 + 
+          targetDay - 
+          now.getFullYear() * 365 - 
+          (now.getMonth() + 1) * 30 - 
+          now.getDate();
         
         if (timeDiff > 0) {
           this.timeCount[0] = Math.floor(timeDiff / 365);
@@ -237,29 +231,26 @@ export class CountdownCardElement {
         this.timeCount = [0, 0, 0];
       }
     } else if (type === this.TYPE_SEC) {
-      const match = time.match(/(\d{2}):(\d{2}):(\d{2})/);
+      const match = time.match(/(\d{1,2}):(\d{2}):(\d{2})/);
       if (match) {
-        this.targetTime = [parseInt(match[1]), parseInt(match[2]), parseInt(match[3])];
-        const currentTime = [
-          new Date().getHours(),
-          new Date().getMinutes(),
-          new Date().getSeconds()
-        ];
-        const timeDiff = 
-          this.targetTime[0] * 3600 + 
-          this.targetTime[1] * 60 + 
-          this.targetTime[2] - 
-          currentTime[0] * 3600 - 
-          currentTime[1] * 60 - 
-          currentTime[2];
-        
-        if (timeDiff > 0) {
-          this.timeCount[0] = Math.floor(timeDiff / 3600);
-          this.timeCount[1] = Math.floor((timeDiff % 3600) / 60);
-          this.timeCount[2] = Math.floor(timeDiff % 60);
-        } else {
-          this.timeCount = [0, 0, 0];
+        const now = new Date();
+        const target = new Date(
+          now.getFullYear(),
+          now.getMonth(),
+          now.getDate(),
+          parseInt(match[1]),
+          parseInt(match[2]),
+          parseInt(match[3])
+        );
+        // 目标时刻今天已过，视为明天的同一时刻，继续倒计时
+        if (target.getTime() <= now.getTime()) {
+          target.setDate(target.getDate() + 1);
         }
+        const timeDiff = Math.floor((target.getTime() - now.getTime()) / 1000);
+        
+        this.timeCount[0] = Math.floor(timeDiff / 3600);
+        this.timeCount[1] = Math.floor((timeDiff % 3600) / 60);
+        this.timeCount[2] = timeDiff % 60;
       } else {
         this.timeCount = [0, 0, 0];
       }

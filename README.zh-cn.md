@@ -9,11 +9,11 @@
 
 # 特性
 
--   支持 Obsidian 移动版
--   支持英文和中文
--   支持本地图片
--   支持自定义代码块语法
--   增加内容卡片：SWOT 分析和四象限分析
+- 支持 Obsidian 移动版
+- 支持英文和中文
+- 支持本地图片
+- 支持自定义代码块语法
+- 增加内容卡片：SWOT 分析和四象限分析
 
 # I 安装
 
@@ -27,14 +27,14 @@
 
 支持的自定义颜色：
 
--   color-red
--   color-orange
--   color-yellow
--   color-green
--   color-cyan
--   color-blue
--   color-purple
--   color-pink
+- color-red
+- color-orange
+- color-yellow
+- color-green
+- color-cyan
+- color-blue
+- color-purple
+- color-pink
 
 ## 时间轴
 
@@ -337,7 +337,9 @@ images:
 ![[files/image-2.png]]
 ```
 ````
+
 **瀑布流**
+
 ````
 ```cards-album
 @card [color-blue,waterfall-3]
@@ -350,13 +352,13 @@ https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg
 https://img9.doubanio.com/view/photo/s/public/p2885842436.jpg
 ```
 ````
+
 ### 参数
 
 | Option | Type   | Required | Description                                                            |
 | ------ | ------ | -------- | ---------------------------------------------------------------------- |
 | title  | string | Yes      | title ， 专辑名称                                                      |
 | images | string | Yes      | Image links, 图片链接,每行 1 个链接，空行分组专辑的图片，每组最多 9 张 |
-
 
 ## 名片
 
@@ -525,20 +527,20 @@ a4-content:
 
 当前存在的已知问题：
 
-
 # 版本历史
 
-| Version  | Date       | Notes                                              |
-| -------- | ---------- | -------------------------------------------------- |
-| `1.0.0`  | 2024-12-24 | Initial release                                    |
-| `1.0.10` | 2025-03-12 | Support English and Chinese                        |
-| `1.0.11` | 2024-03-15 | Photoes Ablum Support Local Images.                |
-| `1.1.0`  | 2024-03-19 | Supports custom codeblock language.                |
-| `1.1.4`  | 2024-04-02 | Bookcard Musiccard Moviecard Support Local Images. |
-| `1.2.0`  | 2024-04-11 | Add SWOT and BCG.                                  |
-| `1.2.2`  | 2024-10-11 | Album Support waterfall layout mode.               |
-| `1.2.3`  | 2026-04-07 | Updated Countdown Card.                                |
+| Version  | Date       | Notes                                                    |
+| -------- | ---------- | -------------------------------------------------------- |
+| `1.0.0`  | 2024-12-24 | Initial release                                          |
+| `1.0.10` | 2025-03-12 | Support English and Chinese                              |
+| `1.0.11` | 2024-03-15 | Photoes Ablum Support Local Images.                      |
+| `1.1.0`  | 2024-03-19 | Supports custom codeblock language.                      |
+| `1.1.4`  | 2024-04-02 | Bookcard Musiccard Moviecard Support Local Images.       |
+| `1.2.0`  | 2024-04-11 | Add SWOT and BCG.                                        |
+| `1.2.2`  | 2024-10-11 | Album Support waterfall layout mode.                     |
+| `1.2.3`  | 2026-04-07 | Updated Countdown Card.                                  |
 | `1.3.0`  | 2026-09-24 | Code quality & lint improvements, min app version 1.1.0. |
+| `1.3.1`  | 2026-09-29 | 修复 sec 倒计时目标时刻已过时不更新的问题。 |
 
 # 付费
 
